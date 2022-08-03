@@ -13,14 +13,29 @@
   padding: 0;
   align-items: center;
   height: 10vh;
-  border-bottom: 1px solid var(--black);
   background-color: yellowgreen;
   margin: 0 1.5rem;
 }
 
+.header--container h1 {
+  display: flex;
+  align-items: center;
+  background-color: wheat;
+  height: 100%;
+  flex-basis: 85%;
+}
+
+.header--btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: yellow;
+  height: 100%;
+  flex-basis: 20%;
+}
+
 .footer--container {
   height: 10vh;
-  border-top: 1px solid var(--black);
   background-color: yellow;
   margin: 0 1.5rem;
 }
