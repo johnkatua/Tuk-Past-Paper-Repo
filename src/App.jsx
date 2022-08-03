@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './App.css';
 import Pages from './pages/index';
 
 const App = () => {
