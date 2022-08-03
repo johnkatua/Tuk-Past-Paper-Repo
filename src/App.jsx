@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import Pages from './pages/index';
+import "./App.css";
+import Pages from "./pages/index";
 
 const App = () => {
-  return (
-    <Pages />
-  )
-}
+  return <Pages />;
+};
 
 export default App;
