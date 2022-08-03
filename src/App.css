@@ -18,7 +18,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: Epilogue;
-  background-color: var(--gray);
   height: 100vh;
 }
 

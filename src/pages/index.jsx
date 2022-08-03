@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "../components/Layout";
 import Welcome from "./Welcome";
+import './index.css';
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;

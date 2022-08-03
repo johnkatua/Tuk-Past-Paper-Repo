@@ -1,19 +1,23 @@
 .layout--container {
-  background-color: violet;
   height: 100vh;
 }
 
 .layout--container main {
-  background-color: yellowgreen;
   height: 80%;
+  background-color: violet;
+  width: 100%;
 }
 
 .header--container {
   height: 10%;
-  background-color: yellow;
+  border-bottom: 1px solid var(--black);
+  background-color: yellowgreen;
+  width: 100%;
 }
 
 .footer--container {
-  background-color: aquamarine;
   height: 10%;
+  border-top: 1px solid var(--black);
+  background-color: yellow;
+  width: 100%;
 }
