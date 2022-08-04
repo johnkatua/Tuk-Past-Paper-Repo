@@ -7,11 +7,36 @@
 
 .welcome--container__details {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   flex-basis: 60%;
   background-color: bisque;
   margin: 2rem 0;
+}
+
+.welcome--title {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 5rem;
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.welcome--description {
+  font-size: 18px;
+}
+
+.welcome--button {
+  font-size: 18px;
+  padding: 8px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .welcome--container__image {
