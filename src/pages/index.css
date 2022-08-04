@@ -47,3 +47,10 @@
   height: 100%;
   background-color: wheat;
 }
+
+.details--search__bar {
+  display: flex;
+  align-items: center;
+  background-color: violet;
+  margin: 1.5rem 0;
+}
