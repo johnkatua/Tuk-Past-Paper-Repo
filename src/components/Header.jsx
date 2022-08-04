@@ -5,8 +5,8 @@ const Header = () => {
     <div className="header--container">
       <h1>Tuk Past Past Repo</h1>
       <div className="header--btns">
-        <button>Login</button>
-        <button>Register</button>
+        <button className="header--btns__login">Login</button>
+        <button className="header--btns__register">Register</button>
       </div>
     </div>
   );
