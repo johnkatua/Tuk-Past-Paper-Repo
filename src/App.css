@@ -26,3 +26,10 @@ body {
   --gray: hsl(0, 0%, 41%);
   --black: hsl(0, 0%, 8%);
 }
+
+img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
