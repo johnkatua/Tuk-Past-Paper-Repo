@@ -1,6 +1,23 @@
 .welcome--container {
+  display: flex;
   background-color: blue;
   height: 80vh;
+  gap: 5rem;
+}
+
+.welcome--container__details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 60%;
+  background-color: bisque;
+  margin: 2rem 0;
+}
+
+.welcome--container__image {
+  background-color: brown;
+  flex: 1;
+  margin: 2rem 0;
 }
 
 .details--container {
