@@ -24,6 +24,7 @@
 
 .welcome--description {
   font-size: 18px;
+  color: var(--gray);
 }
 
 .welcome--button {
@@ -44,4 +45,5 @@
 
 .details--container {
   height: 100%;
+  background-color: wheat;
 }

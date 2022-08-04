@@ -5,8 +5,8 @@ const Details = () => {
   const navigate = useNavigate();
   return (
     <div className="details--container">
-      Details
-      <button onClick={() => navigate("/")}>Welcome</button>
+      <div>A</div>
+      <div>B</div>
     </div>
   );
 };
