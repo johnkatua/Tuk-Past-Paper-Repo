@@ -49,27 +49,7 @@ const Details = () => {
             <td>Name</td>
             <td>Course</td>
           </tr>
-           <tr>
-            <td>Name</td>
-            <td>Course</td>
-            <td>View</td>
-            <td>Name</td>
-            <td>Course</td>
-            <td>View</td>
-            <td>Name</td>
-            <td>Course</td>
-          </tr>
           <tr>
-            <td>Name</td>
-            <td>Course</td>
-            <td>View</td>
-            <td>Name</td>
-            <td>Course</td>
-            <td>View</td>
-            <td>Name</td>
-            <td>Course</td>
-          </tr>
-           <tr>
             <td>Name</td>
             <td>Course</td>
             <td>View</td>
@@ -109,7 +89,7 @@ const Details = () => {
             <td>Name</td>
             <td>Course</td>
           </tr>
-           <tr>
+          <tr>
             <td>Name</td>
             <td>Course</td>
             <td>View</td>
@@ -129,7 +109,117 @@ const Details = () => {
             <td>Name</td>
             <td>Course</td>
           </tr>
-           <tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+            <td>View</td>
+            <td>Name</td>
+            <td>Course</td>
+          </tr>
+          <tr>
             <td>Name</td>
             <td>Course</td>
             <td>View</td>
