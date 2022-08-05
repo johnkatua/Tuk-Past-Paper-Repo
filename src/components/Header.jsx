@@ -10,7 +10,12 @@ const Header = () => {
         <button className="header--btns__login" onClick={() => navigate("/")}>
           Login
         </button>
-        <button className="header--btns__register">Register</button>
+        <button
+          className="header--btns__register"
+          onClick={() => navigate("/paper")}
+        >
+          Register
+        </button>
       </div>
     </div>
   );
