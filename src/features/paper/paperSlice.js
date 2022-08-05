@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const paperSlice = createSlice({
-  name: 'paper',
+  name: "paper",
   initialState: {
-    value: 0
+    value: 0,
   },
   reducers: {
-    increment: state => {
+    increment: (state) => {
       state.value += 1;
     },
-    decrement: state => {
+    decrement: (state) => {
       state.value -= 1;
     },
-  }
+  },
 });
 
 export const { increment, decrement } = paperSlice.actions;
