@@ -45,12 +45,49 @@
 
 .details--container {
   height: 100%;
-  background-color: wheat;
+  /* background-color: wheat; */
 }
 
 .details--search__bar {
   display: flex;
   align-items: center;
-  background-color: violet;
   margin: 1.5rem 0;
+}
+
+.details--search__bar input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-basis: 50%;
+  padding: .5rem;
+  outline: none;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.details--select__items {
+  display: flex;
+  justify-content: flex-end;
+  flex-basis: 50%;
+  gap: 1.5rem;
+  height: 100%;
+}
+
+.details--select__items select {
+  padding: .5rem 1rem;
+  outline: none;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.details--table table {
+  width: 100%;
+}
+
+th, td {
+  padding: .5rem;
 }

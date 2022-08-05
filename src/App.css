@@ -33,3 +33,8 @@ img {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+table, th, td {
+  border: 1px solid var(--gray);
+  border-collapse: collapse;
+}
