@@ -1,6 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const paperSlice = createSlice({});
+const initialState = {
+  papers: [],
+  status: 'idle',
+  error: null
+}
+
+export const paperSlice = createSlice({
+  name: 'papers',
+  initialState,
+  reducers: {
+    paperAdded: {
+      reducer(state, action) {
+        state.papers.push(action.payload);
+      },
+    },
+    paperUpdated(state, action) {
+      const { id, name } = action.payload;
+      const existingPaper = state.papers.find(paper => paper.id === id);
+      if (existingPaper) {
+        existingPaper.name = name;
+      }
+    }
+  }
+});
 
 export const { paperAdded, paperUpdated } = paperSlice.actions;
 
