@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { client } from "../../api/client";
 
 const initialState = {
   papers: [],
@@ -34,3 +35,8 @@ export const selectAllPapers = state => state.papers;
 export const selectPaperById = (state, paperId) => {
   return state.papers.find(paper => paper.id === paperId)
 };
+
+export const fetchPapers = createAsyncThunk('papers/fetchPapers', async () => {
+  const response = await client.get('http://localhost:4001/paper/getAllPapers');
+  return response.data
+})
