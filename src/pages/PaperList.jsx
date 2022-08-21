@@ -5,6 +5,7 @@ import { selectAllPapers, fetchPapers } from '../features/paper/paperSlice';
 const PaperList = () => {
   const dispatch = useDispatch();
   const papers = useSelector(selectAllPapers);
+  console.log(papers);
   const paperStatus = useSelector(state => state.papers.status);
 
   useEffect(() => {
