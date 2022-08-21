@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Welcome from "./Welcome";
 import "./index.css";
 import Details from "./Details";
-import Paper from "./Paper";
+import PaperList from "./PaperList";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -36,7 +36,7 @@ const Pages = () => {
             path="/paper"
             element={
               <LayoutRoute>
-                <Paper />
+                <PaperList />
               </LayoutRoute>
             }
           />

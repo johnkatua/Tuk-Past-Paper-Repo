@@ -5,7 +5,12 @@ const initialState = {
   papers: [],
   status: 'idle',
   error: null
-}
+};
+
+export const fetchPapers = createAsyncThunk('papers/fetchPapers', async () => {
+  const response = await client.get('http://localhost:4001/paper/getAllPapers');
+  return response.data
+});
 
 export const paperSlice = createSlice({
   name: 'papers',
@@ -23,6 +28,13 @@ export const paperSlice = createSlice({
         existingPaper.name = name;
       }
     }
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchPapers.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.papers = state.papers.concat(action.payload);
+      })
   }
 });
 
@@ -35,8 +47,3 @@ export const selectAllPapers = state => state.papers;
 export const selectPaperById = (state, paperId) => {
   return state.papers.find(paper => paper.id === paperId)
 };
-
-export const fetchPapers = createAsyncThunk('papers/fetchPapers', async () => {
-  const response = await client.get('http://localhost:4001/paper/getAllPapers');
-  return response.data
-})
