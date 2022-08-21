@@ -40,7 +40,23 @@ const PaperList = () => {
           </select>
         </div>
       </div>
-      {content}
+      <div className="details--table">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>AcademicYear</th>
+            <th>Status</th>
+            <th>CourseCode</th>
+            <th>Level</th>
+            <th>Faculty</th>
+            <th>View</th>
+          </tr>
+          <tr>
+            {content}
+          </tr>
+        </table>
+      </div>
     </div>
   )
 }
