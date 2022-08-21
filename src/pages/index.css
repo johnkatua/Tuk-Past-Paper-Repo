@@ -45,6 +45,8 @@
 
 .details--container {
   height: 100%;
+  width: 100%;
+  background-color: blue;
   /* background-color: wheat; */
 }
 
@@ -85,6 +87,8 @@
 }
 
 .details--table table {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 

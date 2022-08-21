@@ -25,7 +25,7 @@ const PaperList = () => {
   }
   
   return (
-    <div>
+    <div className='details--container'>
       <div className="details--search__bar">
         <input type="search" placeholder="Find a paper" />
         <div className="details--select__items">
@@ -54,7 +54,16 @@ const PaperList = () => {
           </tr>
           <tr>
             {content}
+            {/* <td>
+              name
+            </td> */}
           </tr>
+          {/* {content} */}
+          {/* <tr>
+            <div>
+              {content}
+            </div>
+          </tr> */}
         </table>
       </div>
     </div>
