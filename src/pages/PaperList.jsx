@@ -26,6 +26,20 @@ const PaperList = () => {
   
   return (
     <div>
+      <div className="details--search__bar">
+        <input type="search" placeholder="Find a paper" />
+        <div className="details--select__items">
+          <select name="courses" id="courses">
+            <option value="ABMI">ABMI</option>
+            <option value="ABME">ABME</option>
+          </select>
+          <select name="courses" id="courses">
+            <option value="ABMI">FSST</option>
+            <option value="ABME">FAST</option>
+            <option value="ABME">FEBE</option>
+          </select>
+        </div>
+      </div>
       {content}
     </div>
   )

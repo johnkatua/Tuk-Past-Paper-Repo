@@ -3,7 +3,7 @@ import React from "react";
 const Details = ({ paper }) => {
   return (
     <div className="details--container">
-      <div className="details--search__bar">
+      {/* <div className="details--search__bar">
         <input type="search" placeholder="Find a paper" />
         <div className="details--select__items">
           <select name="courses" id="courses">
@@ -16,7 +16,7 @@ const Details = ({ paper }) => {
             <option value="ABME">FEBE</option>
           </select>
         </div>
-      </div>
+      </div> */}
       <div className="details--table">
         <table>
           <tr>
