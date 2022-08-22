@@ -19,7 +19,7 @@
   font-size: 5rem;
   padding: 0;
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .welcome--description {
@@ -47,7 +47,6 @@
   height: 100%;
   width: 100%;
   background-color: blue;
-  /* background-color: wheat; */
 }
 
 .details--search__bar {

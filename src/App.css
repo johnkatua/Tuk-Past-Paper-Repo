@@ -19,6 +19,7 @@ body {
   margin: 0;
   font-family: Epilogue;
   height: 100vh;
+  font-weight: normal;
 }
 
 :root {
