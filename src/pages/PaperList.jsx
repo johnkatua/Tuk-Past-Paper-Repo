@@ -26,8 +26,6 @@ const PaperList = () => {
     );
   }
 
-  console.log(content);
-
   return (
     <div className="details--container">
       <div className="details--search__bar">
