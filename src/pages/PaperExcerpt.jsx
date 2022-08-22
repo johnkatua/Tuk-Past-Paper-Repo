@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const PaperExcerpt = ({ paper }) => {
   return (
@@ -11,7 +11,7 @@ const PaperExcerpt = ({ paper }) => {
       <p>{paper.courseCode}</p>
       <p>{paper.courseLevel}</p>
     </article>
-  )
-}
+  );
+};
 
 export default PaperExcerpt;

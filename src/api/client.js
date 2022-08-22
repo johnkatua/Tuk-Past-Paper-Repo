@@ -1,10 +1,10 @@
 export async function client(endpoint, { body, ...customConfig } = {}) {
   const headers = {
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
   };
 
   const config = {
-    method: body ? 'POST' : 'GET',
+    method: body ? "POST" : "GET",
     ...customConfig,
     headers: {
       ...headers,
@@ -14,7 +14,7 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
 
   if (body) {
     config.body = JSON.stringify(body);
-  };
+  }
 
   let data;
   try {
@@ -25,19 +25,19 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
         status: response.status,
         data,
         headers: response.headers,
-        url: response.url
-      }
+        url: response.url,
+      };
     }
     throw new Error(response.statusText);
   } catch (error) {
     return Promise.reject(error.message ? error.message : data);
   }
-};
+}
 
 client.get = function (endpoint, body, customConfig = {}) {
-  return client(endpoint, { ...customConfig, method: 'GET' });
+  return client(endpoint, { ...customConfig, method: "GET" });
 };
 
 client.post = function (endpoint, body, customConfig = {}) {
   return client(endpoint, { ...customConfig, body });
-}
+};

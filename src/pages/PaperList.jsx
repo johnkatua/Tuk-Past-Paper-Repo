@@ -1,31 +1,32 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectAllPapers, fetchPapers } from '../features/paper/paperSlice';
-import Details from './Details';
-import PaperExcerpt from './PaperExcerpt';
+import React, { useEffect } from "react";
+import { Table } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
+import Details from "./Details";
+import PaperExcerpt from "./PaperExcerpt";
 
 const PaperList = () => {
   const dispatch = useDispatch();
   const papers = useSelector(selectAllPapers);
-  const paperStatus = useSelector(state => state.papers.status);
+  const paperStatus = useSelector((state) => state.papers.status);
 
   useEffect(() => {
-    if (paperStatus === 'idle') {
+    if (paperStatus === "idle") {
       dispatch(fetchPapers());
     }
   }, [paperStatus, dispatch]);
 
   let content;
 
-  if (paperStatus === 'succeeded') {
+  if (paperStatus === "succeeded") {
     const fetchedPapers = papers.papers[0].data;
-    content = fetchedPapers.map(paper => (
+    content = fetchedPapers.map((paper) => (
       <Details key={paper.name} paper={paper} />
-    ))
+    ));
   }
-  
+
   return (
-    <div className='details--container'>
+    <div className="details--container">
       <div className="details--search__bar">
         <input type="search" placeholder="Find a paper" />
         <div className="details--select__items">
@@ -41,7 +42,21 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <table>
+        <Table responsive>
+          <thead>
+            <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>AcademicYear</th>
+            <th>Status</th>
+            <th>CourseCode</th>
+            <th>Level</th>
+            <th>Faculty</th>
+            <th>View</th>
+          </tr>
+          </thead>
+        </Table>
+        {/* <table>
           <tr>
             <th>Name</th>
             <th>Year</th>
@@ -54,20 +69,11 @@ const PaperList = () => {
           </tr>
           <tr>
             {content}
-            {/* <td>
-              name
-            </td> */}
           </tr>
-          {/* {content} */}
-          {/* <tr>
-            <div>
-              {content}
-            </div>
-          </tr> */}
-        </table>
+        </table> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default PaperList;
