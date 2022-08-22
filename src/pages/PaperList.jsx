@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import Details from "./Details";
@@ -20,10 +20,13 @@ const PaperList = () => {
 
   if (paperStatus === "succeeded") {
     const fetchedPapers = papers.papers[0].data;
-    content = fetchedPapers.map((paper) => (
-      <Details key={paper.name} paper={paper} />
-    ));
+    content = fetchedPapers.map((paper) => {
+      return paper
+    }
+    );
   }
+
+  console.log(content);
 
   return (
     <div className="details--container">
@@ -55,6 +58,22 @@ const PaperList = () => {
             <th>View</th>
           </tr>
           </thead>
+          <tbody>
+            {content?.map(paper => (
+              <tr key={paper.name}>
+                <td>{paper.name}</td>
+                <td>{paper.year}</td>
+                <td>{paper.academicYear}</td>
+                <td>{paper.status}</td>
+                <td>{paper.courseCode}</td>
+                <td>{paper.courseLevel}</td>
+                <td>{paper.faculty}</td>
+                <td>
+                  <Button variant="link">View</Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </Table>
         {/* <table>
           <tr>
