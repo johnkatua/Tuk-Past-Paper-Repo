@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
-const Modal = ({ show, close }) => {
+const DisplayPaperModal = ({ show, close }) => {
   return (
     <Modal show={show} onHide={close}>
       <Modal.Header closeButton></Modal.Header>
@@ -12,4 +12,4 @@ const Modal = ({ show, close }) => {
   )
 }
 
-export default Modal
+export default DisplayPaperModal;
