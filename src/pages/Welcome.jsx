@@ -18,7 +18,7 @@ const Welcome = () => {
         </p>
         <button
           className="welcome--button"
-          onClick={() => navigate("/details")}
+          onClick={() => navigate("/paper")}
         >
           Get started
         </button>
