@@ -42,7 +42,7 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <Table responsive>
+        <Table striped bordered hover responsive>
           <thead>
             <tr>
             <th>Name</th>
