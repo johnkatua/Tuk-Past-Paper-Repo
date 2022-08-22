@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import DisplayPaperModal from "../components/Modal";
-import Modal from "../components/Modal";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
-import Details from "./Details";
-import PaperExcerpt from "./PaperExcerpt";
 
 const PaperList = () => {
   const dispatch = useDispatch();
