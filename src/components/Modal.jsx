@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
-const Modal = () => {
+const Modal = ({ show, close }) => {
   return (
-    <Modal>
+    <Modal show={show} onHide={close}>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         Hello
