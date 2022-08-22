@@ -3,11 +3,15 @@ import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import DisplayPaperModal from "../components/Modal";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
+import { openModal, closeModal } from "../features/modal/modalSlice";
 
 const PaperList = () => {
   const dispatch = useDispatch();
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
+  const modalStatus = useSelector(state => state.modal.show);
+  
+  console.log(modalStatus);
 
   useEffect(() => {
     if (paperStatus === "idle") {
@@ -66,8 +70,8 @@ const PaperList = () => {
                 <td>{paper.courseLevel}</td>
                 <td>{paper.faculty}</td>
                 <td>
-                  <Button variant="link">View</Button>
-                  <DisplayPaperModal />
+                  <Button variant="link" onClick={() => dispatch(openModal())}>View</Button>
+                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} />
                 </td>
               </tr>
             ))}
