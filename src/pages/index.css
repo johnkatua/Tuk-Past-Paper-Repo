@@ -46,7 +46,6 @@
 .details--container {
   height: 100%;
   width: 100%;
-  background-color: blue;
 }
 
 .details--search__bar {
@@ -85,11 +84,6 @@
   cursor: pointer;
 }
 
-/* .details--table table {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-} */
 
 th,
 td {
