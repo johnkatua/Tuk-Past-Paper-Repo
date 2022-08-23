@@ -31,6 +31,11 @@ const PaperList = () => {
     );
   }
 
+  const handleClick = item => {
+    dispatch(openModal());
+    setData()
+  }
+
   return (
     <div className="details--container">
       <div className="details--search__bar">
