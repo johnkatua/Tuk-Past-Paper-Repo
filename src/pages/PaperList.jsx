@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { Viewer } from "@react-pdf-viewer/core";
 import DisplayPaperModal from "../components/Modal";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import { openModal, closeModal } from "../features/modal/modalSlice";
@@ -28,6 +29,8 @@ const PaperList = () => {
     }
     );
   }
+
+  console.log(content)
 
   return (
     <div className="details--container">
@@ -71,7 +74,7 @@ const PaperList = () => {
                 <td>{paper.faculty}</td>
                 <td>
                   <Button variant="link" onClick={() => dispatch(openModal())}>View</Button>
-                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={paper.name} />
+                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={<Viewer fileUrl={paper.file} />} />
                 </td>
               </tr>
             ))}
