@@ -71,7 +71,7 @@ const PaperList = () => {
                 <td>{paper.faculty}</td>
                 <td>
                   <Button variant="link" onClick={() => dispatch(openModal())}>View</Button>
-                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} />
+                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={paper.name} />
                 </td>
               </tr>
             ))}

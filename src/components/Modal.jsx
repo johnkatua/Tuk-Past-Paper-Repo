@@ -1,12 +1,12 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
 
-const DisplayPaperModal = ({ show, close }) => {
+const DisplayPaperModal = ({ show, close, content }) => {
   return (
     <Modal show={show} onHide={close}>
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
-        Hello
+        {content}
       </Modal.Body>
     </Modal>
   )
