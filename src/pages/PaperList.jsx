@@ -33,8 +33,10 @@ const PaperList = () => {
 
   const handleClick = item => {
     dispatch(openModal());
-    setData()
-  }
+    setData(item)
+  };
+
+  console.log(data);
 
   return (
     <div className="details--container">
@@ -77,8 +79,8 @@ const PaperList = () => {
                 <td>{paper.courseLevel}</td>
                 <td>{paper.faculty}</td>
                 <td>
-                  <Button variant="link" onClick={() => dispatch(openModal())}>View</Button>
-                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={<Viewer fileUrl={paper.file} />} />
+                  <Button variant="link" onClick={() => handleClick(paper)}>View</Button>
+                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={<Viewer fileUrl={data.file} />} />
                 </td>
               </tr>
             ))}
