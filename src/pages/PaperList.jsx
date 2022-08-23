@@ -30,7 +30,6 @@ const PaperList = () => {
     );
   }
 
-  console.log(content)
 
   return (
     <div className="details--container">
