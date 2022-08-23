@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { Viewer } from "@react-pdf-viewer/core";
@@ -7,6 +7,7 @@ import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import { openModal, closeModal } from "../features/modal/modalSlice";
 
 const PaperList = () => {
+  const [data, setData] = useState({});
   const dispatch = useDispatch();
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
@@ -29,7 +30,6 @@ const PaperList = () => {
     }
     );
   }
-
 
   return (
     <div className="details--container">
