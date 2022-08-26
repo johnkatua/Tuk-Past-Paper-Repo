@@ -153,3 +153,8 @@ td {
   outline: none;
   cursor: pointer;
 }
+
+.auth--nav__link {
+  cursor: pointer;
+  color: var(--blue);
+}

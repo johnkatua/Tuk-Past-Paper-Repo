@@ -19,7 +19,7 @@ const Login = () => {
         <div>
           <span>Already have an account.</span>
           {" "}
-          <span>Login Here</span>
+          <span className="auth--nav__link">Login Here</span>
         </div>
       </div>
     </div>
