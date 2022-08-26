@@ -15,7 +15,7 @@ const Register = () => {
         <div className="auth--card__thirdrow">
           <input type='password' />
         </div>
-        <div>
+        <div className="auth--btn__container">
           <button>
             Create an account
           </button>
