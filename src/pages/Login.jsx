@@ -5,19 +5,15 @@ const Login = () => {
     <div className="auth--container">
       <div className="auth--container__card">
         <h3>Login</h3>
-        <div>
-          <input type='text' />
-          <input type='text' />
-        </div>
-        <div>
+        <div className="auth--card__secondrow">
           <input type='email' />
         </div>
-        <div>
+        <div className="auth--card__thirdrow">
           <input type='password' />
         </div>
-        <div>
+        <div className="auth--btn__container">
           <button>
-            Create an account
+            Login
           </button>
         </div>
         <div>
