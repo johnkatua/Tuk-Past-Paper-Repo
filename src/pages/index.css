@@ -111,19 +111,19 @@ td {
   background-color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 2%;
-  padding: 5rem;
+  padding: 3rem 6rem;
 }
 
 .auth--card__firstrow {
   display: flex;
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
 .auth--card__secondrow {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .auth--card__thirdrow {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
