@@ -113,3 +113,17 @@ td {
   border-radius: 2%;
   padding: 5rem;
 }
+
+.auth--card__firstrow {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.auth--card__secondrow {
+  margin-bottom: 1rem;
+}
+
+.auth--card__thirdrow {
+  margin-bottom: 1rem;
+}
