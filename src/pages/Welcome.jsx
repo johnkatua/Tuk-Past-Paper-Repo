@@ -16,10 +16,7 @@ const Welcome = () => {
           rather than surfing the internet to find the right past paper to go
           through.
         </p>
-        <button
-          className="welcome--button"
-          onClick={() => navigate("/paper")}
-        >
+        <button className="welcome--button" onClick={() => navigate("/paper")}>
           Get started
         </button>
       </div>

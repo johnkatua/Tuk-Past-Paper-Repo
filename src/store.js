@@ -5,6 +5,6 @@ import paperSlice from "./features/paper/paperSlice";
 export default configureStore({
   reducer: {
     papers: paperSlice,
-    modal: modalSlice
+    modal: modalSlice,
   },
 });

@@ -11,8 +11,8 @@ const PaperList = () => {
   const dispatch = useDispatch();
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
-  const modalStatus = useSelector(state => state.modal.show);
-  
+  const modalStatus = useSelector((state) => state.modal.show);
+
   console.log(modalStatus);
 
   useEffect(() => {
@@ -26,16 +26,14 @@ const PaperList = () => {
   if (paperStatus === "succeeded") {
     const fetchedPapers = papers.papers[0].data;
     content = fetchedPapers.map((paper) => {
-      return paper
-    }
-    );
+      return paper;
+    });
   }
 
-  const handleClick = item => {
+  const handleClick = (item) => {
     dispatch(openModal());
-    setData(item)
+    setData(item);
   };
-
 
   return (
     <div className="details--container">
@@ -57,18 +55,18 @@ const PaperList = () => {
         <Table striped bordered hover responsive>
           <thead>
             <tr>
-            <th>Name</th>
-            <th>Year</th>
-            <th>AcademicYear</th>
-            <th>Status</th>
-            <th>CourseCode</th>
-            <th>Level</th>
-            <th>Faculty</th>
-            <th>View</th>
-          </tr>
+              <th>Name</th>
+              <th>Year</th>
+              <th>AcademicYear</th>
+              <th>Status</th>
+              <th>CourseCode</th>
+              <th>Level</th>
+              <th>Faculty</th>
+              <th>View</th>
+            </tr>
           </thead>
           <tbody>
-            {content?.map(paper => (
+            {content?.map((paper) => (
               <tr key={paper.name}>
                 <td>{paper.name}</td>
                 <td>{paper.year}</td>
@@ -78,8 +76,14 @@ const PaperList = () => {
                 <td>{paper.courseLevel}</td>
                 <td>{paper.faculty}</td>
                 <td>
-                  <Button variant="link" onClick={() => handleClick(paper)}>View</Button>
-                  <DisplayPaperModal show={modalStatus} close={() => dispatch(closeModal())} content={<Viewer fileUrl={data.file} />} />
+                  <Button variant="link" onClick={() => handleClick(paper)}>
+                    View
+                  </Button>
+                  <DisplayPaperModal
+                    show={modalStatus}
+                    close={() => dispatch(closeModal())}
+                    content={<Viewer fileUrl={data.file} />}
+                  />
                 </td>
               </tr>
             ))}

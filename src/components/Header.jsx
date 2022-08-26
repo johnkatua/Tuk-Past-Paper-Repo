@@ -5,9 +5,9 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="header--container">
-      <h1>Tuk Past Past Repo</h1>
+      <h1 onClick={() => navigate('/')}>Tuk Past Past Repo</h1>
       <div className="header--btns">
-        <button className="header--btns__login" onClick={() => navigate("/")}>
+        <button className="header--btns__login" onClick={() => navigate("/login")}>
           Login
         </button>
         <button

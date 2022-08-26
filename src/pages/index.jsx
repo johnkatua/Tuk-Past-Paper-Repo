@@ -6,6 +6,7 @@ import Welcome from "./Welcome";
 import "./index.css";
 import Details from "./Details";
 import PaperList from "./PaperList";
+import Login from "./Login";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -37,6 +38,14 @@ const Pages = () => {
             element={
               <LayoutRoute>
                 <PaperList />
+              </LayoutRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <LayoutRoute>
+                <Login />
               </LayoutRoute>
             }
           />
