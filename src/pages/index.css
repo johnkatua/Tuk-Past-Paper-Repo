@@ -136,6 +136,16 @@ td {
 }
 
 .auth--btn__container {
-  background-color: blue;
   margin-bottom: 2rem;
+}
+
+.auth--btn__container button {
+  font-size: 18px;
+  padding: 8px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
