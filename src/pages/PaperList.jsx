@@ -36,7 +36,6 @@ const PaperList = () => {
     setData(item)
   };
 
-  console.log(data);
 
   return (
     <div className="details--container">
