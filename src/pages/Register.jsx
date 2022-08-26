@@ -8,14 +8,14 @@ const Register = () => {
       <div className="auth--container__card">
         <h3>Register</h3>
         <div className="auth--card__firstrow">
-          <input type='text' />
-          <input type='text' />
+          <input type='text' placeholder="First Name" />
+          <input type='text' placeholder="Last Name" />
         </div>
         <div className="auth--card__secondrow">
-          <input type='email' />
+          <input type='email' placeholder="Enter your email address" />
         </div>
         <div className="auth--card__thirdrow">
-          <input type='password' />
+          <input type='password' placeholder="Enter password" />
         </div>
         <div className="auth--btn__container">
           <button>
