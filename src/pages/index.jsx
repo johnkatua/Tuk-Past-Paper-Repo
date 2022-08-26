@@ -7,6 +7,7 @@ import "./index.css";
 import Details from "./Details";
 import PaperList from "./PaperList";
 import Login from "./Login";
+import Register from "./Register";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -46,6 +47,14 @@ const Pages = () => {
             element={
               <LayoutRoute>
                 <Login />
+              </LayoutRoute>
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <LayoutRoute>
+                <Register />
               </LayoutRoute>
             }
           />
