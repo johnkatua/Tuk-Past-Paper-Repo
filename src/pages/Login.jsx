@@ -1,24 +1,40 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../features/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     password: ""
   });
+
+  const set = name => {
+    return (e) => {
+      setUser({ ...user, [name]: e.target.value })
+    }
+  };
+
+  const handleSubmit = e => {
+    const { email, password } = user;
+    e.preventDefault();
+    dispatch(userLogin({ email, password }));
+  }
+
   return (
     <div className="auth--container">
       <div className="auth--container__card">
         <h3>Login</h3>
         <div className="auth--card__secondrow">
-          <input type="email" placeholder="Enter your email address" />
+          <input type="email" placeholder="Enter your email address" onChange={set('email')} />
         </div>
         <div className="auth--card__thirdrow">
-          <input type="password" placeholder="Enter password" />
+          <input type="password" placeholder="Enter password" onChange={set('password')} />
         </div>
         <div className="auth--btn__container">
-          <button>Login</button>
+          <button type="submit" onClick={handleSubmit}>Login</button>
         </div>
         <div>
           <span>Do not have an account.</span>{" "}
