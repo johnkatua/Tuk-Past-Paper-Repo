@@ -39,6 +39,7 @@ const Register = () => {
             placeholder="Last Name"
             onChange={set("lastName")}
           />
+          <input type="date" />
         </div>
         <div className="auth--card__secondrow">
           <input
