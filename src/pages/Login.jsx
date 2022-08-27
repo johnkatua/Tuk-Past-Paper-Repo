@@ -8,20 +8,22 @@ const Login = () => {
       <div className="auth--container__card">
         <h3>Login</h3>
         <div className="auth--card__secondrow">
-          <input type='email' placeholder="Enter your email address" />
+          <input type="email" placeholder="Enter your email address" />
         </div>
         <div className="auth--card__thirdrow">
-          <input type='password' placeholder="Enter password" />
+          <input type="password" placeholder="Enter password" />
         </div>
         <div className="auth--btn__container">
-          <button>
-            Login
-          </button>
+          <button>Login</button>
         </div>
         <div>
-          <span>Do not have an account.</span>
-          {" "}
-          <span className="auth--nav__link" onClick={() => navigate('/register')}>Register Here</span>
+          <span>Do not have an account.</span>{" "}
+          <span
+            className="auth--nav__link"
+            onClick={() => navigate("/register")}
+          >
+            Register Here
+          </span>
         </div>
       </div>
     </div>
