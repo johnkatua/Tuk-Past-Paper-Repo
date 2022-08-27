@@ -6,8 +6,9 @@ import { userLogin } from "../features/auth/authSlice";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { auth } = useSelector(state => state.auth);
+  const { auth, data } = useSelector(state => state.auth);
   console.log('auth', auth);
+  console.log(auth.data)
   const [user, setUser] = useState({
     email: "",
     password: ""
