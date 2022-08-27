@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../features/auth/authSlice";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { auth } = useSelector(state => state.auth);
+  console.log('user', auth);
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
@@ -16,7 +21,10 @@ const Register = () => {
     }
   };
 
-  
+  const handleSubmit = () => {
+    const { firstName, lastName, email, password } = user;
+    dispatch(userRegister({ firstName, lastName, email, password }));
+  }
 
   return (
     <div className="auth--container">
