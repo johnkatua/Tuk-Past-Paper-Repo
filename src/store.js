@@ -7,6 +7,6 @@ export default configureStore({
   reducer: {
     papers: paperSlice,
     modal: modalSlice,
-    auth: authSlice
+    auth: authSlice,
   },
 });
