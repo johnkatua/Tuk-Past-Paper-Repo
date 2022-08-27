@@ -10,7 +10,14 @@ const Register = () => {
     password: ''
   });
 
+  const set = name => {
+    return (e) => {
+      setUser({ ...user, [name]: e.target.value })
+    }
+  };
+
   
+
   return (
     <div className="auth--container">
       <div className="auth--container__card">
