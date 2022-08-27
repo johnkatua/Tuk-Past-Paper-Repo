@@ -1,11 +1,11 @@
-import { createSlice, createAsynThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../../api/client';
 
 const initialState = {
   auth: {}
 };
 
-export const userLogin = createAsynThunk('auth/userLogin', async (values) => {
+export const userLogin = createAsyncThunk('auth/userLogin', async (values) => {
   const response = await client.post("http://localhost:4001/login", values);
   return response.data;
 });
