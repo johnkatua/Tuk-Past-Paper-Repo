@@ -31,17 +31,17 @@ const Register = () => {
       <div className="auth--container__card">
         <h3>Register</h3>
         <div className="auth--card__firstrow">
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
+          <input type="text" placeholder="First Name" onChange={set('firstName')} />
+          <input type="text" placeholder="Last Name" onChange={set('lastName')} />
         </div>
         <div className="auth--card__secondrow">
-          <input type="email" placeholder="Enter your email address" />
+          <input type="email" placeholder="Enter your email address" onChange={set('email')} />
         </div>
         <div className="auth--card__thirdrow">
-          <input type="password" placeholder="Enter password" />
+          <input type="password" placeholder="Enter password" onChange={set('password')} />
         </div>
         <div className="auth--btn__container">
-          <button>Create an account</button>
+          <button type="submit" onClick={handleSubmit}>Create an account</button>
         </div>
         <div>
           <span>Already have an account.</span>{" "}
