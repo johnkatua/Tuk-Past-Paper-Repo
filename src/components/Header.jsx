@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Cookies } from 'react-cookie';
 import Tooltip from "./Tooltip";
 import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 
@@ -10,6 +11,8 @@ const Header = () => {
   const { showToolTip } = useSelector((state) => state.toolTip);
   const navigate = useNavigate();
 
+  const cookies = new Cookies();
+
   const handleToolTip = () => {
     if (showToolTip) {
       dispatch(closeToolTip());
@@ -18,10 +21,15 @@ const Header = () => {
     }
   };
 
+  const handleLogout = () => {
+    cookies.remove('token');
+    cookies.remove('user');
+  };
+
   return (
     <div className="header--container">
       <h1 onClick={() => navigate("/")}>Tuk Past Past Repo</h1>
-      {showToolTip && <Tooltip />}
+      {showToolTip && <Tooltip logout={handleClick} />}
       {user ? (
         <div onClick={handleToolTip}>{user}</div>
       ) : (
