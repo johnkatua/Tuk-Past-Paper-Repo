@@ -1,7 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { user } = useSelector(state => state.auth);
+  console.log(user);
   const navigate = useNavigate();
   return (
     <div className="header--container">
