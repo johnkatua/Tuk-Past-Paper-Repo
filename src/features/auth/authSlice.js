@@ -12,6 +12,7 @@ const initialState = {
 export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
   const response = await client.post("http://localhost:4001/login", values);
   cookies.set('token', response.data.accessToken, { path: '/' });
+  store.dispatch(setToken(response.data.accessToken));
   return response.data;
 });
 
