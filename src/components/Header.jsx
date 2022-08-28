@@ -7,7 +7,7 @@ import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { showToolTip } = useSelector(state => state.toolTip);
+  const { showToolTip } = useSelector((state) => state.toolTip);
   const navigate = useNavigate();
 
   const handleToolTip = () => {

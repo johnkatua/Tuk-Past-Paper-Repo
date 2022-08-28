@@ -9,6 +9,6 @@ export default configureStore({
     papers: paperSlice,
     modal: modalSlice,
     auth: authSlice,
-    toolTip: toolTipSlice
+    toolTip: toolTipSlice,
   },
 });
