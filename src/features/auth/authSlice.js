@@ -6,13 +6,12 @@ const cookies = new Cookies();
 
 const initialState = {
   auth: {},
+  token: null
 };
 
 export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
   const response = await client.post("http://localhost:4001/login", values);
-  cookies.set('token', response.data.token, { path: '/' });
-  console.log('res', response.data);
-  console.log('cookies', cookies.get('token'));
+  cookies.set('token', response.data.accessToken, { path: '/' });
   return response.data;
 });
 
@@ -27,6 +26,11 @@ export const userRegister = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
+  reducers: {
+    setToken: (state) => {
+      state.token = action.payload;
+    }
+  },
   extraReducers(builder) {
     builder.addCase(userLogin.fulfilled, (state, action) => {
       state.auth = action.payload;
