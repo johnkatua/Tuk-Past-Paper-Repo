@@ -62,5 +62,9 @@
 }
 
 .tooltip--container {
+  position: fixed;
+  top: 5%;
+  left: 20%;
+  z-index: 1;
   background-color: green;
 }
