@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Cookies } from "react-cookie";
 import { client } from "../../api/client";
+
+const cookies = new Cookies();
 
 const initialState = {
   auth: {},
@@ -7,6 +10,7 @@ const initialState = {
 
 export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
   const response = await client.post("http://localhost:4001/login", values);
+  cookies.set('token', response.data.token, { path: '/' });
   return response.data;
 });
 
