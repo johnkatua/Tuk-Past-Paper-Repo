@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import Pages from "./pages/index";
 import "@react-pdf-viewer/core/lib/styles/index.css";
-import { setToken } from "./features/auth/authSlice";
+import { setToken, setUser } from "./features/auth/authSlice";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(setToken(token));
+    dispatch(setUser(user))
   }, [token]);
 
   return (
