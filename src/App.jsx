@@ -11,12 +11,13 @@ import { setToken } from "./features/auth/authSlice";
 const App = () => {
   const dispatch = useDispatch();
   const cookies = new Cookies();
-  const token = cookies.get('token')
+  const token = cookies.get('token');
+  const user = cookies.get('user');
 
   useEffect(() => {
     dispatch(setToken(token));
   }, [token]);
-  
+
   return (
     <CookiesProvider>
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
