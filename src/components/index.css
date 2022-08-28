@@ -72,11 +72,6 @@
   border-radius: 5px;
 }
 
-.tooltip--container hr {
-  color: var(--black);
-  font-weight: bold;
-}
-
 .tooltip--details {
   margin: .5rem 2rem;
   cursor: pointer;

@@ -1,16 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal, openModal } from "../features/modal/modalSlice";
 import Tooltip from "./Tooltip";
 import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 
 const Header = () => {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { show } = useSelector(state => state.modal);
   const { showToolTip } = useSelector(state => state.toolTip);
-  console.log(show);
   const navigate = useNavigate();
 
   const handleToolTip = () => {
@@ -19,7 +16,7 @@ const Header = () => {
     } else {
       dispatch(openToolTip());
     }
-  }
+  };
 
   return (
     <div className="header--container">

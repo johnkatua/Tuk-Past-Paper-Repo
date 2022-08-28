@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Worker } from "@react-pdf-viewer/core";
 import { CookiesProvider } from "react-cookie";
 import { Cookies } from "react-cookie";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./App.css";
 import Pages from "./pages/index";
 import "@react-pdf-viewer/core/lib/styles/index.css";
