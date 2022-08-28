@@ -14,7 +14,7 @@ const LayoutRoute = ({ children }) => {
 };
 
 const Pages = () => {
-  const { token } = useSelector(state => state.auth);
+  const { token } = useSelector((state) => state.auth);
   console.log(token);
   return (
     <Suspense fallback={<div>Loading...</div>}>

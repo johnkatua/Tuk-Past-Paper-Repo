@@ -7,13 +7,13 @@ const cookies = new Cookies();
 const initialState = {
   auth: {},
   user: null,
-  token: null
+  token: null,
 };
 
 export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
   const response = await client.post("http://localhost:4001/login", values);
-  cookies.set('token', response.data.accessToken, { path: '/' });
-  cookies.set('user', response.data.data.email, { path: '/' });
+  cookies.set("token", response.data.accessToken, { path: "/" });
+  cookies.set("user", response.data.data.email, { path: "/" });
   console.log(response.data);
   return response.data;
 });
@@ -35,7 +35,7 @@ const authSlice = createSlice({
     },
     setUser: (state, action) => {
       state.user = action.payload;
-    }
+    },
   },
   extraReducers(builder) {
     builder.addCase(userLogin.fulfilled, (state, action) => {
