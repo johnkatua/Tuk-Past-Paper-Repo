@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
+  const { show } = useSelector(state => state.modal);
+  console.log(show);
   const navigate = useNavigate();
   return (
     <div className="header--container">
