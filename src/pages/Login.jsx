@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../features/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { token } = useSelector(state => state.auth);
+  console.log(token);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -22,6 +24,12 @@ const Login = () => {
     e.preventDefault();
     dispatch(userLogin({ email, password }));
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate('/');
+    }
+  }, [token]);
 
   return (
     <div className="auth--container">

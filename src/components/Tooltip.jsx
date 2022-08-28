@@ -7,7 +7,9 @@ const Tooltip = ({ logout }) => {
       <hr />
       <div className="tooltip--details">My papers</div>
       <hr />
-      <div className="tooltip--details" onClick={logout}>Logout</div>
+      <div className="tooltip--details" onClick={logout}>
+        Logout
+      </div>
     </div>
   );
 };
