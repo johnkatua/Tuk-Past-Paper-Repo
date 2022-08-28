@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import Welcome from "./Welcome";
 import "./index.css";
@@ -13,6 +14,8 @@ const LayoutRoute = ({ children }) => {
 };
 
 const Pages = () => {
+  const { token } = useSelector(state => state.auth);
+  console.log(token);
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
