@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal, openModal } from "../features/modal/modalSlice";
+import Tooltip from "./Tooltip";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Header = () => {
   return (
     <div className="header--container">
       <h1 onClick={() => navigate("/")}>Tuk Past Past Repo</h1>
+      {show && <Tooltip />}
       {user ? (
         <div onClick={handleToolTip}>{user}</div>
       ) : (
