@@ -8,6 +8,8 @@ const initialState = {
   auth: {},
   user: null,
   token: null,
+  status: 'idle',
+  error: null
 };
 
 export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
@@ -38,6 +40,7 @@ const authSlice = createSlice({
     },
   },
   extraReducers(builder) {
+    
     builder.addCase(userLogin.fulfilled, (state, action) => {
       state.auth = action.payload;
     });
