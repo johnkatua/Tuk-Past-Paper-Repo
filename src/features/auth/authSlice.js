@@ -12,13 +12,22 @@ const initialState = {
   error: null
 };
 
-export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
-  const response = await client.post("http://localhost:4001/login", values);
-  cookies.set("token", response.data.accessToken, { path: "/" });
-  cookies.set("user", response.data.data.email, { path: "/" });
-  console.log(response.data);
-  return response.data;
-});
+// export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
+//   const response = await client.post("http://localhost:4001/login", values);
+//   cookies.set("token", response.data.accessToken, { path: "/" });
+//   cookies.set("user", response.data.data.email, { path: "/" });
+//   console.log(response.data);
+//   return response.data;
+// });
+
+export const userLogin = createAsyncThunk('auth/userLogin', async (values) => {
+  try {
+    const response = await client.post('http://localhost:4001/login', values);
+    console.log(response);
+  } catch (error) {
+    console.log('err', error);
+  }
+})
 
 export const userRegister = createAsyncThunk(
   "auth/userRegister",
@@ -49,7 +58,7 @@ const authSlice = createSlice({
     });
     builder.addCase(userLogin.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.error.message
+      state.error = action.error
     });
     builder.addCase(userRegister.fulfilled, (state, action) => {
       state.auth = action.payload;
