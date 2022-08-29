@@ -6,8 +6,7 @@ import { userLogin } from "../features/auth/authSlice";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { token } = useSelector(state => state.auth);
-  console.log(token);
+  const { token } = useSelector((state) => state.auth);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -27,7 +26,7 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/');
+      navigate("/");
     }
   }, [token]);
 
