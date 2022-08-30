@@ -41,8 +41,7 @@ export const userRegister = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
-      console.log(error.message);
-      toast.error(error.response.data.msg);
+      toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
