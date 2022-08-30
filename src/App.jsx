@@ -15,8 +15,10 @@ const App = () => {
   const user = cookies.get("user");
 
   useEffect(() => {
-    dispatch(setToken(token));
-    dispatch(setUser(user));
+    if (user && token) {
+      dispatch(setToken(token));
+      dispatch(setUser(user));
+    }
   }, [token, user]);
 
   return (

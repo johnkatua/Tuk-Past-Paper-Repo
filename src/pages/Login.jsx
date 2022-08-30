@@ -20,10 +20,10 @@ const Login = () => {
     };
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     const { email, password } = user;
-    e.preventDefault();
     dispatch(userLogin({ email, password }));
+    if (status === 'succeeded') navigate('/');
   };
 
   useEffect(() => {
