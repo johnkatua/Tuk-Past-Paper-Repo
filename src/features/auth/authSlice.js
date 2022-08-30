@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Cookies } from "react-cookie";
+import { toast } from "react-toastify";
 import axios from "axios";
 
 const cookies = new Cookies();
@@ -23,6 +24,7 @@ export const userLogin = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
+      toast.error('error')
       return rejectWithValue(error.response.data.msg);
     }
   }
@@ -37,6 +39,7 @@ export const userRegister = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
+      toast.error(error.response.data.msg);
       return rejectWithValue(error.response.data.msg);
     }
   }
