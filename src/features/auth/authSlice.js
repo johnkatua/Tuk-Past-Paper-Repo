@@ -45,15 +45,7 @@ export const userRegister = createAsyncThunk("auth/userRegister", async (values,
     console.log(error.response);
     return rejectWithValue(error.response.data.msg);
   }
-})
-
-// export const userRegister = createAsyncThunk(
-//   "auth/userRegister",
-//   async (values) => {
-//     const response = await client.post("http://localhost:4001/signup", values);
-//     return response.data;
-//   }
-// );
+});
 
 const authSlice = createSlice({
   name: "auth",
