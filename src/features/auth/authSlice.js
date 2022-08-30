@@ -24,10 +24,10 @@ const initialState = {
 // when getting data you need to spread it [...response.data]
 
 export const userLogin = createAsyncThunk("auth/userLogin", async (values, { rejectWithValue }) => {
-  console.log(values);
   try {
     const response = await axios.post("http://localhost:4001/login",  values);
-    console.log(response);
+    cookies.set("token", response.data.accessToken, { path: "/" });
+    cookies.set("user", response.data.data.email, { path: "/" });
     return response.data;
   } catch (error) {
     console.log(error.response);
@@ -35,13 +35,25 @@ export const userLogin = createAsyncThunk("auth/userLogin", async (values, { rej
   }
 });
 
-export const userRegister = createAsyncThunk(
-  "auth/userRegister",
-  async (values) => {
-    const response = await client.post("http://localhost:4001/signup", values);
+export const userRegister = createAsyncThunk("auth/userRegister", async (values, { rejectWithValue }) => {
+  try {
+    const response = await axios.post("http://localhost:4001/login",  values);
+    cookies.set("token", response.data.accessToken, { path: "/" });
+    cookies.set("user", response.data.data.email, { path: "/" });
     return response.data;
+  } catch (error) {
+    console.log(error.response);
+    return rejectWithValue(error.response.data.msg);
   }
-);
+})
+
+// export const userRegister = createAsyncThunk(
+//   "auth/userRegister",
+//   async (values) => {
+//     const response = await client.post("http://localhost:4001/signup", values);
+//     return response.data;
+//   }
+// );
 
 const authSlice = createSlice({
   name: "auth",
@@ -66,8 +78,15 @@ const authSlice = createSlice({
       state.status = "failed";
       state.error = action.payload;
     });
+    builder.addCase(userRegister.pending, (state) => {
+      state.status = "loading";
+    });
     builder.addCase(userRegister.fulfilled, (state, action) => {
       state.auth = action.payload;
+    });
+    builder.addCase(userRegister.rejected, (state, action) => {
+      state.status = "failed";
+      state.error = action.payload;
     });
   },
 });
