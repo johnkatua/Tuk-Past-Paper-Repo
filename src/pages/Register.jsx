@@ -7,7 +7,7 @@ import ReusableSpinner from "../components/Spinner";
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { status } = useSelector(state => state.auth);
+  const { status } = useSelector((state) => state.auth);
   console.log(status);
   const [user, setUser] = useState({
     firstName: "",
@@ -59,8 +59,7 @@ const Register = () => {
         </div>
         <div className="auth--btn__container">
           <button type="submit" onClick={handleSubmit}>
-            {status === 'loading' ? <ReusableSpinner /> : 'Create an account'}
-            {/* Create an account */}
+            {status === "loading" ? <ReusableSpinner /> : "Create an account"}
           </button>
         </div>
         <div>

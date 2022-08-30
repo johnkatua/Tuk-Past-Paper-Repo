@@ -23,29 +23,35 @@ const initialState = {
 
 // when getting data you need to spread it [...response.data]
 
-export const userLogin = createAsyncThunk("auth/userLogin", async (values, { rejectWithValue }) => {
-  try {
-    const response = await axios.post("http://localhost:4001/login",  values);
-    cookies.set("token", response.data.accessToken, { path: "/" });
-    cookies.set("user", response.data.data.email, { path: "/" });
-    return response.data;
-  } catch (error) {
-    console.log(error.response);
-    return rejectWithValue(error.response.data.msg);
+export const userLogin = createAsyncThunk(
+  "auth/userLogin",
+  async (values, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:4001/login", values);
+      cookies.set("token", response.data.accessToken, { path: "/" });
+      cookies.set("user", response.data.data.email, { path: "/" });
+      return response.data;
+    } catch (error) {
+      console.log(error.response);
+      return rejectWithValue(error.response.data.msg);
+    }
   }
-});
+);
 
-export const userRegister = createAsyncThunk("auth/userRegister", async (values, { rejectWithValue }) => {
-  try {
-    const response = await axios.post("http://localhost:4001/signup",  values);
-    cookies.set("token", response.data.accessToken, { path: "/" });
-    cookies.set("user", response.data.data.email, { path: "/" });
-    return response.data;
-  } catch (error) {
-    console.log(error.response);
-    return rejectWithValue(error.response.data.msg);
+export const userRegister = createAsyncThunk(
+  "auth/userRegister",
+  async (values, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:4001/signup", values);
+      cookies.set("token", response.data.accessToken, { path: "/" });
+      cookies.set("user", response.data.data.email, { path: "/" });
+      return response.data;
+    } catch (error) {
+      console.log(error.response);
+      return rejectWithValue(error.response.data.msg);
+    }
   }
-});
+);
 
 const authSlice = createSlice({
   name: "auth",
