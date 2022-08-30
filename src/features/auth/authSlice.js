@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Cookies } from "react-cookie";
-import { client } from "../../api/client";
 import axios from "axios";
 
 const cookies = new Cookies();
@@ -13,14 +12,6 @@ const initialState = {
   error: null,
 };
 
-// export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
-//   const response = await axios.post("http://localhost:4001/login", values);
-//   cookies.set("token", response.data.accessToken, { path: "/" });
-//   cookies.set("user", response.data.data.email, { path: "/" });
-//   console.log(response.data);
-//   return response.data;
-// });
-
 // when getting data you need to spread it [...response.data]
 
 export const userLogin = createAsyncThunk(
@@ -32,7 +23,6 @@ export const userLogin = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
-      console.log(error.response);
       return rejectWithValue(error.response.data.msg);
     }
   }
@@ -47,7 +37,6 @@ export const userRegister = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
-      console.log(error.response);
       return rejectWithValue(error.response.data.msg);
     }
   }
