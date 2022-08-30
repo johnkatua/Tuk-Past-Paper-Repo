@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Cookies } from "react-cookie";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { validateRegisterUser } from "../../helpers/validation";
 
 const cookies = new Cookies();
 
@@ -34,11 +35,13 @@ export const userRegister = createAsyncThunk(
   "auth/userRegister",
   async (values, { rejectWithValue }) => {
     try {
+      await validateRegisterUser(values);
       const response = await axios.post("http://localhost:4001/signup", values);
       cookies.set("token", response.data.accessToken, { path: "/" });
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
+      console.log(error.message);
       toast.error(error.response.data.msg);
       return rejectWithValue(error.response.data.msg);
     }
