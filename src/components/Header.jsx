@@ -7,28 +7,16 @@ import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 import { setToken, setUser } from "../features/auth/authSlice";
 
 const Header = () => {
+  const cookies = new Cookies();
   const dispatch = useDispatch();
   const location = useLocation();
+   const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const { showToolTip } = useSelector((state) => state.toolTip);
-  const navigate = useNavigate();
-
-  const cookies = new Cookies();
-
   const token = cookies.get("token");
   const userData = cookies.get("user");
-  console.log('user', userData)
-  console.log('user', user);
-
-  // useEffect(() => {
-  //   if (user && token) {
-  //     dispatch(setToken(token));
-  //     dispatch(setUser(user));
-  //   }
-  // }, [token, user]);
   
-
   const handleToolTip = () => {
     if (showToolTip) {
       dispatch(closeToolTip());
