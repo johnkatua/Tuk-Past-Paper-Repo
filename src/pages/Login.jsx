@@ -23,14 +23,16 @@ const Login = () => {
   const handleSubmit = () => {
     const { email, password } = user;
     dispatch(userLogin({ email, password }));
-    if (status === 'succeeded') navigate('/');
   };
 
   useEffect(() => {
     if (token) {
       navigate("/");
     }
-  }, [token]);
+    if (status === 'succeeded') {
+      navigate('/');
+    };
+  }, [token, status]);
 
   return (
     <div className="auth--container">
