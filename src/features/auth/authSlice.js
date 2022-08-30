@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Cookies } from "react-cookie";
 import { client } from "../../api/client";
+import axios from "axios";
 
 const cookies = new Cookies();
 
@@ -8,26 +9,28 @@ const initialState = {
   auth: {},
   user: null,
   token: null,
-  status: 'idle',
-  error: null
+  status: "idle",
+  error: null,
 };
 
 // export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
-//   const response = await client.post("http://localhost:4001/login", values);
+//   const response = await axios.post("http://localhost:4001/login", values);
 //   cookies.set("token", response.data.accessToken, { path: "/" });
 //   cookies.set("user", response.data.data.email, { path: "/" });
 //   console.log(response.data);
 //   return response.data;
 // });
 
-export const userLogin = createAsyncThunk('auth/userLogin', async (values) => {
+// when getting data you need to spread it [...response.data]
+
+export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
   try {
-    const response = await client.post('http://localhost:4001/login', values);
-    console.log(response);
+    const response = await axios.post("http://localhost:4001/login", values);
+    return response.data;
   } catch (error) {
-    console.log('err', error);
+    return error.message;
   }
-})
+});
 
 export const userRegister = createAsyncThunk(
   "auth/userRegister",
@@ -50,21 +53,23 @@ const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(userLogin.pending, (state) => {
-      state.status = 'loading'
+      state.status = "loading";
     });
     builder.addCase(userLogin.fulfilled, (state, action) => {
-      state.status = 'succeeded';
+      state.status = "succeeded";
       state.auth = action.payload;
     });
     builder.addCase(userLogin.rejected, (state, action) => {
-      state.status = 'failed';
-      state.error = action.error
+      state.status = "failed";
+      state.error = action.error.response;
     });
     builder.addCase(userRegister.fulfilled, (state, action) => {
       state.auth = action.payload;
     });
   },
 });
+
+export const getAuthError = (state) => state.error;
 
 export const { setToken, setUser } = authSlice.actions;
 

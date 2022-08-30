@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export async function client(endpoint, { body, ...customConfig } = {}) {
   const headers = {
     "Content-Type": "application/json",
@@ -30,7 +32,7 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
     }
     throw new Error(response.statusText);
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return Promise.reject(error.message ? error.message : data);
   }
 }
