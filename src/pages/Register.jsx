@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../features/auth/authSlice";
+import ReusableSpinner from "../components/Spinner";
 
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { status } = useSelector(state => state.auth);
+  console.log(status);
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -20,7 +23,6 @@ const Register = () => {
   };
 
   const handleSubmit = () => {
-    console.log('clicked');
     const { firstName, lastName, email, password } = user;
     dispatch(userRegister({ firstName, lastName, email, password }));
   };
@@ -57,7 +59,8 @@ const Register = () => {
         </div>
         <div className="auth--btn__container">
           <button type="submit" onClick={handleSubmit}>
-            Create an account
+            {status === 'loading' ? <ReusableSpinner /> : 'Create an account'}
+            {/* Create an account */}
           </button>
         </div>
         <div>
