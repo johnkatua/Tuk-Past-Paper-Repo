@@ -24,7 +24,7 @@ export const userLogin = createAsyncThunk(
       cookies.set("user", response.data.data.email, { path: "/" });
       return response.data;
     } catch (error) {
-      toast.error('error')
+      toast.error(error.response.data.msg);
       return rejectWithValue(error.response.data.msg);
     }
   }
