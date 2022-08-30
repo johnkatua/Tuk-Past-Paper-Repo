@@ -7,6 +7,8 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token, error, status } = useSelector((state) => state.auth);
+  console.log(error);
+  console.log(status);
   const [user, setUser] = useState({
     email: "",
     password: "",

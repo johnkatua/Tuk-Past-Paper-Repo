@@ -23,12 +23,15 @@ const initialState = {
 
 // when getting data you need to spread it [...response.data]
 
-export const userLogin = createAsyncThunk("auth/userLogin", async (values) => {
+export const userLogin = createAsyncThunk("auth/userLogin", async (values, { rejectWithValue }) => {
+  console.log(values);
   try {
-    const response = await axios.post("http://localhost:4001/login", values);
+    const response = await axios.post("http://localhost:4001/login",  values);
+    console.log(response);
     return response.data;
   } catch (error) {
-    return error.message;
+    console.log(error.response);
+    return rejectWithValue(error.response.data.msg);
   }
 });
 
@@ -61,7 +64,7 @@ const authSlice = createSlice({
     });
     builder.addCase(userLogin.rejected, (state, action) => {
       state.status = "failed";
-      state.error = action.error.response;
+      state.error = action.payload;
     });
     builder.addCase(userRegister.fulfilled, (state, action) => {
       state.auth = action.payload;
