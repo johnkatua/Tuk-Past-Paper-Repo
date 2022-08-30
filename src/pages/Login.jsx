@@ -27,9 +27,9 @@ const Login = () => {
     if (token) {
       navigate("/");
     }
-    if (status === 'succeeded') {
-      navigate('/');
-    };
+    if (status === "succeeded") {
+      navigate("/");
+    }
   }, [token, status]);
 
   return (

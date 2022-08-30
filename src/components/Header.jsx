@@ -8,7 +8,7 @@ import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 const Header = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const [currentLocation, setCurrentLocation] = useState(false); 
+  const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const { showToolTip } = useSelector((state) => state.toolTip);
   const navigate = useNavigate();
@@ -31,11 +31,9 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (location.pathname == '/login' || location.pathname == '/register') {
-
+    if (location.pathname == "/login" || location.pathname == "/register") {
       setCurrentLocation(true);
-    }
-      else if (location.pathname == '/') {
+    } else if (location.pathname == "/") {
       setCurrentLocation(false);
     }
   }, [currentLocation, location]);
@@ -50,19 +48,19 @@ const Header = () => {
         <>
           {currentLocation === false ? (
             <div className="header--btns">
-          <button
-            className="header--btns__login"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </button>
-          <button
-            className="header--btns__register"
-            onClick={() => navigate("/register")}
-          >
-            Register
-          </button>
-        </div>
+              <button
+                className="header--btns__login"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+              <button
+                className="header--btns__register"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+            </div>
           ) : null}
         </>
       )}

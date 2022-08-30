@@ -28,10 +28,10 @@ const Register = () => {
 
   useEffect(() => {
     if (token) {
-      navigate('/');
+      navigate("/");
     }
-    if (status === 'succeeded') {
-      navigate('/')
+    if (status === "succeeded") {
+      navigate("/");
     }
   }, [token, status]);
 

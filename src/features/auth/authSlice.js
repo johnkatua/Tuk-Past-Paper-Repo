@@ -2,7 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Cookies } from "react-cookie";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { validateRegisterUser, validateLoginUser } from "../../helpers/validation";
+import {
+  validateRegisterUser,
+  validateLoginUser,
+} from "../../helpers/validation";
 
 const cookies = new Cookies();
 
