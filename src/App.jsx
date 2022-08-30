@@ -13,6 +13,7 @@ const App = () => {
   const cookies = new Cookies();
   const token = cookies.get("token");
   const user = cookies.get("user");
+  console.log('user', user)
 
   useEffect(() => {
     if (user && token) {

@@ -14,7 +14,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const cookies = new Cookies();
-  console.log(currentLocation);
+  
 
   const handleToolTip = () => {
     if (showToolTip) {
@@ -36,7 +36,7 @@ const Header = () => {
     } else if (location.pathname == "/") {
       setCurrentLocation(false);
     }
-  }, [currentLocation, location]);
+  }, [currentLocation, location, user]);
 
   return (
     <div className="header--container">
