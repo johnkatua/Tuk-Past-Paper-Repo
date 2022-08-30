@@ -20,6 +20,7 @@ const Register = () => {
   };
 
   const handleSubmit = () => {
+    console.log('clicked');
     const { firstName, lastName, email, password } = user;
     dispatch(userRegister({ firstName, lastName, email, password }));
   };

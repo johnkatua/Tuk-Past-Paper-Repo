@@ -37,7 +37,7 @@ export const userLogin = createAsyncThunk("auth/userLogin", async (values, { rej
 
 export const userRegister = createAsyncThunk("auth/userRegister", async (values, { rejectWithValue }) => {
   try {
-    const response = await axios.post("http://localhost:4001/login",  values);
+    const response = await axios.post("http://localhost:4001/signup",  values);
     cookies.set("token", response.data.accessToken, { path: "/" });
     cookies.set("user", response.data.data.email, { path: "/" });
     return response.data;
