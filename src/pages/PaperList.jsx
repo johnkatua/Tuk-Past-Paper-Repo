@@ -13,8 +13,6 @@ const PaperList = () => {
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
 
-  console.log(modalStatus);
-
   useEffect(() => {
     if (paperStatus === "idle") {
       dispatch(fetchPapers());
