@@ -24,8 +24,7 @@ const PaperList = () => {
   let content;
 
   if (paperStatus === "succeeded") {
-    const fetchedPapers = papers.papers;
-    console.log(fetchedPapers);
+    const fetchedPapers = papers.papers[0].data;
     content = fetchedPapers.map((paper) => {
       return paper;
     });
@@ -66,7 +65,7 @@ const PaperList = () => {
               <th>View</th>
             </tr>
           </thead>
-          {/* <tbody>
+          <tbody>
             {content?.map((paper) => (
               <tr key={paper.name}>
                 <td>{paper.name}</td>
@@ -88,7 +87,7 @@ const PaperList = () => {
                 </td>
               </tr>
             ))}
-          </tbody> */}
+          </tbody>
         </Table>
       </div>
     </div>
