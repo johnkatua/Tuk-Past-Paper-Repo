@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import { client } from "../../api/client";
 
 const initialState = {
@@ -7,10 +8,19 @@ const initialState = {
   error: null,
 };
 
-export const fetchPapers = createAsyncThunk("papers/fetchPapers", async () => {
-  const response = await client.get("http://localhost:4001/paper/getAllPapers");
-  return response.data;
-});
+// export const fetchPapers = createAsyncThunk("papers/fetchPapers", async () => {
+//   const response = await client.get("http://localhost:4001/paper/getAllPapers");
+//   return response.data;
+// });
+
+export const fetchPapers = createAsyncThunk('papers/fetchPapers', async ({ rejectWithValue }) => {
+  try {
+    const response = axios.get('http://localhost:4001/paper/getAllPapers');
+    return [...response.data]
+  } catch (error) {
+    return rejectWithValue(error.response.data.msg)
+  }
+})
 
 export const paperSlice = createSlice({
   name: "papers",
