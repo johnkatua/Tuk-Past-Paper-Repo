@@ -46,7 +46,7 @@ const PaperList = () => {
   };
 
   const handlePrevPage = () => {
-    if (page >= 1) {
+    if (page > 1) {
       setPage(page - 1);
     }
   };
@@ -107,7 +107,7 @@ const PaperList = () => {
         </Table>
       </div>
       <div>
-        <button>
+        <button onClick={handlePrevPage}>
           Prev
         </button>
         <span>{page}</span>
