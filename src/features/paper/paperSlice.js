@@ -9,9 +9,10 @@ const initialState = {
   error: null,
 };
 
-export const fetchPapers = createAsyncThunk("papers/fetchPapers", async (limit) => {
-  const response = await axios.get("http://localhost:4001/paper/getAllPapers", { params: { limit : limit }});
-  console.log(response.data);
+export const fetchPapers = createAsyncThunk("papers/fetchPapers", async (myParams) => {
+  const { page, limit } = myParams;
+  const response = await axios.get("http://localhost:4001/paper/getAllPapers", { params: { limit: limit, page: page } });
+  console.log(response.data.args);
   return response.data;
 });
 
