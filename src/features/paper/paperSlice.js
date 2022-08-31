@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   papers: [],
   status: "idle",
-  currentPage: 0,
+  currentPage: 1,
   totalPages: 0,
   error: null,
 };

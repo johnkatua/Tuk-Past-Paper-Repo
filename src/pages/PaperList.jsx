@@ -25,6 +25,8 @@ const PaperList = () => {
     }
   }, [paperStatus, dispatch]);
 
+  console.log(page);
+
   let content;
 
   if (paperStatus === "succeeded") {
