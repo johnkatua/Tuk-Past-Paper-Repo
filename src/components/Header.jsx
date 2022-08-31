@@ -10,13 +10,13 @@ const Header = () => {
   const cookies = new Cookies();
   const dispatch = useDispatch();
   const location = useLocation();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const { showToolTip } = useSelector((state) => state.toolTip);
   const token = cookies.get("token");
   const userData = cookies.get("user");
-  
+
   const handleToolTip = () => {
     if (showToolTip) {
       dispatch(closeToolTip());
