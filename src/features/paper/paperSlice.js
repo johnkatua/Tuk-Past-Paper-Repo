@@ -14,14 +14,8 @@ const initialState = {
 // });
 
 export const fetchPapers = createAsyncThunk('papers/fetchPapers', async () => {
-  try {
-    const response = await axios.get('http://localhost:4001/paper/getAllPapers');
-    console.log(response);
+   const response = await axios.get('http://localhost:4001/paper/getAllPapers');
     return response.data
-  } catch (error) {
-    console.log(error);
-    // return rejectWithValue(error.response.data.msg)
-  }
 })
 
 export const paperSlice = createSlice({
