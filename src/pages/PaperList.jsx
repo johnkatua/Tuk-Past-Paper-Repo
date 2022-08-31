@@ -13,6 +13,8 @@ const PaperList = () => {
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
 
+  console.log('papers', papers);
+
   useEffect(() => {
     if (paperStatus === "idle") {
       dispatch(fetchPapers());
@@ -22,7 +24,8 @@ const PaperList = () => {
   let content;
 
   if (paperStatus === "succeeded") {
-    const fetchedPapers = papers.papers[0].data;
+    const fetchedPapers = papers.papers;
+    console.log(fetchedPapers);
     content = fetchedPapers.map((paper) => {
       return paper;
     });
@@ -63,7 +66,7 @@ const PaperList = () => {
               <th>View</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {content?.map((paper) => (
               <tr key={paper.name}>
                 <td>{paper.name}</td>
@@ -85,7 +88,7 @@ const PaperList = () => {
                 </td>
               </tr>
             ))}
-          </tbody>
+          </tbody> */}
         </Table>
       </div>
     </div>

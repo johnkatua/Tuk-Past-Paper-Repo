@@ -13,12 +13,14 @@ const initialState = {
 //   return response.data;
 // });
 
-export const fetchPapers = createAsyncThunk('papers/fetchPapers', async ({ rejectWithValue }) => {
+export const fetchPapers = createAsyncThunk('papers/fetchPapers', async () => {
   try {
-    const response = axios.get('http://localhost:4001/paper/getAllPapers');
-    return [...response.data]
+    const response = await axios.get('http://localhost:4001/paper/getAllPapers');
+    console.log(response);
+    return response.data
   } catch (error) {
-    return rejectWithValue(error.response.data.msg)
+    console.log(error);
+    // return rejectWithValue(error.response.data.msg)
   }
 })
 
