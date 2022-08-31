@@ -43,7 +43,13 @@ const PaperList = () => {
     if (page < totalPages) {
       setPage(page + 1);
     }
-  }
+  };
+
+  const handlePrevPage = () => {
+    if (page >= 1) {
+      setPage(page - 1);
+    }
+  };
 
   return (
     <div className="details--container">
