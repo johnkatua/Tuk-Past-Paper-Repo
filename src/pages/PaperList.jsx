@@ -9,17 +9,19 @@ import { openModal, closeModal } from "../features/modal/modalSlice";
 const PaperList = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
-  const { currentPage } = useSelector(state => state.papers);
+  const { currentPage, totalPages } = useSelector(state => state.papers);
   console.log(currentPage);
+  console.log(totalPages);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
+  const [page, setPage] = useState(currentPage);
 
   console.log("papers", papers);
 
   useEffect(() => {
     if (paperStatus === "idle") {
-      dispatch(fetchPapers());
+      dispatch(fetchPapers(2));
     }
   }, [paperStatus, dispatch]);
 
@@ -36,6 +38,12 @@ const PaperList = () => {
     dispatch(openModal());
     setData(item);
   };
+
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(page + 1);
+    }
+  }
 
   return (
     <div className="details--container">
@@ -91,6 +99,15 @@ const PaperList = () => {
             ))}
           </tbody>
         </Table>
+      </div>
+      <div>
+        <button>
+          Prev
+        </button>
+        <span>{page}</span>
+        <button onClick={handleNextPage}>
+          Next
+        </button>
       </div>
     </div>
   );
