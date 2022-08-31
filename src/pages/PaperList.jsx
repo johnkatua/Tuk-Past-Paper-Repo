@@ -9,6 +9,8 @@ import { openModal, closeModal } from "../features/modal/modalSlice";
 const PaperList = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
+  const { currentPage } = useSelector(state => state.papers);
+  console.log(currentPage);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);

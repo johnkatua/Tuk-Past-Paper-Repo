@@ -4,11 +4,14 @@ import axios from "axios";
 const initialState = {
   papers: [],
   status: "idle",
+  currentPage: 0,
+  totalPages: 0,
   error: null,
 };
 
-export const fetchPapers = createAsyncThunk("papers/fetchPapers", async () => {
-  const response = await axios.get("http://localhost:4001/paper/getAllPapers");
+export const fetchPapers = createAsyncThunk("papers/fetchPapers", async (limit) => {
+  const response = await axios.get("http://localhost:4001/paper/getAllPapers", { params: { limit : limit }});
+  console.log(response.data);
   return response.data;
 });
 
@@ -33,6 +36,8 @@ export const paperSlice = createSlice({
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.papers = state.papers.concat(action.payload);
+      state.currentPage = action.payload.currentPage;
+      state.totalPages = action.payload.totalPages;
     });
   },
 });
