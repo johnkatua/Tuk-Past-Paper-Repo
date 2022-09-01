@@ -17,12 +17,22 @@ const PaperList = () => {
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
 
+  console.log('next', nextClick);
+
   const LIMIT = 2;
 
   const handleNextPage = () => {
     if (page < totalPages) {
       setPage(page + 1);
       setNextClick(true);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage(page - 1);
+      setNextClick(true);
+      // dispatch(fetchPapers({ limit: LIMIT, page: page }));
     }
   };
 
@@ -53,12 +63,12 @@ const PaperList = () => {
     setData(item);
   };
 
-  const handlePrevPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-      dispatch(fetchPapers({ limit: LIMIT, page: page }));
-    }
-  };
+  // const handlePrevPage = () => {
+  //   if (page > 1) {
+  //     setPage(page - 1);
+  //     dispatch(fetchPapers({ limit: LIMIT, page: page }));
+  //   }
+  // };
 
   return (
     <div className="details--container">
