@@ -18,7 +18,7 @@ const PaperList = () => {
 
   const LIMIT = 2;
 
-   const handleNextPage = () => {
+  const handleNextPage = () => {
     if (page < totalPages) {
       setPage(page + 1);
       setNextClick(true);
@@ -35,7 +35,7 @@ const PaperList = () => {
     return setNextClick(false);
   }, [paperStatus, dispatch, page]);
 
-  console.log('page', page);
+  console.log("page", page);
 
   let content;
 
@@ -56,7 +56,6 @@ const PaperList = () => {
   //     setPage(page + 1);
   //   }
   // };
-
 
   const handlePrevPage = () => {
     if (page > 1) {
