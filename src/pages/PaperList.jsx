@@ -53,12 +53,6 @@ const PaperList = () => {
     setData(item);
   };
 
-  // const handleNextPage = () => {
-  //   if (currentPage < totalPages) {
-  //     setPage(page + 1);
-  //   }
-  // };
-
   const handlePrevPage = () => {
     if (page > 1) {
       setPage(page - 1);
