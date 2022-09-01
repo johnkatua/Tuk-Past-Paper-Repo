@@ -11,6 +11,7 @@ const PaperList = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
   const papers = useSelector(selectAllPapers);
+  console.log('paper', papers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
@@ -40,7 +41,8 @@ const PaperList = () => {
   let content;
 
   if (paperStatus === "succeeded") {
-    const fetchedPapers = papers.papers[0].data;
+    const fetchedPapers = papers.papers;
+    console.log(fetchedPapers);
     content = fetchedPapers.map((paper) => {
       return paper;
     });
