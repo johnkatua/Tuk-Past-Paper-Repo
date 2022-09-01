@@ -42,7 +42,7 @@ export const paperSlice = createSlice({
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
       state.status = "succeeded";
       state.papers = action.payload.data;
-      state.currentPage = +(action.payload.currentPage);
+      state.currentPage = +action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
     });
   },

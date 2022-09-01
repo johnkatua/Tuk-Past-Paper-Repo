@@ -15,8 +15,11 @@ const PaperList = () => {
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
+  const [firstPage, setFirstPage] = useState(false);
+  const [lastPage, setLastPage] = useState(false);
 
   const LIMIT = 2;
+
 
   const handleNextPage = () => {
     if (page < totalPages) {
@@ -34,16 +37,15 @@ const PaperList = () => {
 
   useEffect(() => {
     if (paperStatus === "idle") {
-      dispatch(fetchPapers({ limit: LIMIT, page: (page * 1) }));
+      dispatch(fetchPapers({ limit: LIMIT, page: page * 1 }));
     }
     if (nextClick) {
-      dispatch(fetchPapers({ limit: LIMIT, page: (page * 1) }));
+      dispatch(fetchPapers({ limit: LIMIT, page: page * 1 }));
     }
     return setNextClick(false);
   }, [paperStatus, dispatch, page]);
 
   let content;
-
 
   if (paperStatus === "succeeded") {
     const fetchedPapers = papers.papers;
