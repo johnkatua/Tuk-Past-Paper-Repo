@@ -176,9 +176,17 @@ td {
   text-decoration: underline;
 }
 
+.paper--navigation__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .nav--btns {
   font-size: 18px;
-  padding: 8px 15px;
+  padding: 8px 25px;
   background-color: var(--black);
   color: var(--white);
   border-radius: 6px;
@@ -189,16 +197,12 @@ td {
 
 .disabled--btn {
   font-size: 18px;
-  padding: 8px 15px;
-  background-color: var(--black);
+  padding: 8px 25px;
+  background-color: var(--gray);
   color: var(--white);
   border-radius: 6px;
   border: none;
   outline: none;
   cursor: not-allowed !important;
-}
-
-button:disabled {
-  background-color: violet;
 }
 
