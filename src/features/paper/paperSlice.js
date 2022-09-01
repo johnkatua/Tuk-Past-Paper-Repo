@@ -13,12 +13,10 @@ export const fetchPapers = createAsyncThunk(
   "papers/fetchPapers",
   async (myParams) => {
     const { page, limit } = myParams;
-    console.log('****', typeof page);
     const response = await axios.get(
       "http://localhost:4001/paper/getAllPapers",
       { params: { limit: limit, page: page } }
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -42,7 +40,6 @@ export const paperSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
-      console.log(typeof action.payload.currentPage);
       state.status = "succeeded";
       state.papers = action.payload.data;
       state.currentPage = +(action.payload.currentPage);

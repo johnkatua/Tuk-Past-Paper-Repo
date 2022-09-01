@@ -10,12 +10,10 @@ const PaperList = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
-  console.log(typeof currentPage, "cupsjw")
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
-  console.log(typeof page);
   const [nextClick, setNextClick] = useState(false);
 
   const LIMIT = 2;
@@ -35,7 +33,6 @@ const PaperList = () => {
   };
 
   useEffect(() => {
-    console.log('909r9', typeof page);
     if (paperStatus === "idle") {
       dispatch(fetchPapers({ limit: LIMIT, page: (page * 1) }));
     }
@@ -47,11 +44,9 @@ const PaperList = () => {
 
   let content;
 
-  console.log("**", typeof page);
 
   if (paperStatus === "succeeded") {
     const fetchedPapers = papers.papers;
-    console.log(fetchedPapers);
     content = fetchedPapers.map((paper) => {
       return paper;
     });
