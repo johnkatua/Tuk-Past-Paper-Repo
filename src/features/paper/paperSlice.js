@@ -9,12 +9,19 @@ const initialState = {
   error: null,
 };
 
-export const fetchPapers = createAsyncThunk("papers/fetchPapers", async (myParams) => {
-  const { page, limit } = myParams;
-  const response = await axios.get("http://localhost:4001/paper/getAllPapers", { params: { limit: limit, page: page } });
-  console.log(response.data.args);
-  return response.data;
-});
+export const fetchPapers = createAsyncThunk(
+  "papers/fetchPapers",
+  async (myParams) => {
+    const { page, limit } = myParams;
+    console.log(myParams);
+    const response = await axios.get(
+      "http://localhost:4001/paper/getAllPapers",
+      { params: { limit: limit, page: page } }
+    );
+    console.log(response.data);
+    return response.data;
+  }
+);
 
 export const paperSlice = createSlice({
   name: "papers",
@@ -35,6 +42,7 @@ export const paperSlice = createSlice({
   },
   extraReducers(builder) {
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
+      console.log(action.payload.currentPage);
       state.status = "succeeded";
       state.papers = state.papers.concat(action.payload);
       state.currentPage = action.payload.currentPage;

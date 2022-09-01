@@ -9,23 +9,33 @@ import { openModal, closeModal } from "../features/modal/modalSlice";
 const PaperList = () => {
   const [data, setData] = useState({});
   const dispatch = useDispatch();
-  const { currentPage, totalPages } = useSelector(state => state.papers);
-  console.log(currentPage);
-  console.log(totalPages);
+  const { currentPage, totalPages } = useSelector((state) => state.papers);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
+  const [nextClick, setNextClick] = useState(false);
 
   const LIMIT = 2;
 
+   const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage(page + 1);
+      setNextClick(true);
+    }
+  };
+
   useEffect(() => {
     if (paperStatus === "idle") {
+      dispatch(fetchPapers({ limit: LIMIT, page: currentPage }));
+    }
+    if (nextClick) {
       dispatch(fetchPapers({ limit: LIMIT, page: page }));
     }
-  }, [paperStatus, dispatch]);
+    return setNextClick(false);
+  }, [paperStatus, dispatch, page]);
 
-  console.log(page);
+  console.log('page', page);
 
   let content;
 
@@ -41,15 +51,17 @@ const PaperList = () => {
     setData(item);
   };
 
-  const handleNextPage = () => {
-    if (page < totalPages) {
-      setPage(page + 1);
-    }
-  };
+  // const handleNextPage = () => {
+  //   if (currentPage < totalPages) {
+  //     setPage(page + 1);
+  //   }
+  // };
+
 
   const handlePrevPage = () => {
     if (page > 1) {
       setPage(page - 1);
+      dispatch(fetchPapers({ limit: LIMIT, page: page }));
     }
   };
 
@@ -109,13 +121,9 @@ const PaperList = () => {
         </Table>
       </div>
       <div>
-        <button onClick={handlePrevPage}>
-          Prev
-        </button>
+        <button onClick={handlePrevPage}>Prev</button>
         <span>{page}</span>
-        <button onClick={handleNextPage}>
-          Next
-        </button>
+        <button onClick={handleNextPage}>Next</button>
       </div>
     </div>
   );
