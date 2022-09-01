@@ -198,3 +198,7 @@ td {
   cursor: not-allowed !important;
 }
 
+button:disabled {
+  background-color: violet;
+}
+
