@@ -42,3 +42,8 @@ td {
   border: 1px solid var(--gray);
   border-collapse: collapse;
 }
+
+.disabled-btn {
+  cursor: none;
+  background-color: blue;
+}

@@ -175,3 +175,26 @@ td {
 .auth--nav__link:hover {
   text-decoration: underline;
 }
+
+.nav--btns {
+  font-size: 18px;
+  padding: 8px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.disabled--btn {
+  font-size: 18px;
+  padding: 8px 15px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  cursor: not-allowed !important;
+}
+
