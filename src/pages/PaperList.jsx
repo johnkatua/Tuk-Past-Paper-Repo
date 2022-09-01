@@ -11,13 +11,10 @@ const PaperList = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
   const papers = useSelector(selectAllPapers);
-  console.log('paper', papers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
-
-  console.log('next', nextClick);
 
   const LIMIT = 2;
 
@@ -32,7 +29,6 @@ const PaperList = () => {
     if (page > 1) {
       setPage(page - 1);
       setNextClick(true);
-      // dispatch(fetchPapers({ limit: LIMIT, page: page }));
     }
   };
 
@@ -45,8 +41,6 @@ const PaperList = () => {
     }
     return setNextClick(false);
   }, [paperStatus, dispatch, page]);
-
-  console.log("page", page);
 
   let content;
 
@@ -62,13 +56,6 @@ const PaperList = () => {
     dispatch(openModal());
     setData(item);
   };
-
-  // const handlePrevPage = () => {
-  //   if (page > 1) {
-  //     setPage(page - 1);
-  //     dispatch(fetchPapers({ limit: LIMIT, page: page }));
-  //   }
-  // };
 
   return (
     <div className="details--container">
