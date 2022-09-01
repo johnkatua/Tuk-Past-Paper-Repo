@@ -115,9 +115,9 @@ const PaperList = () => {
         </Table>
       </div>
       <div>
-        <button onClick={handlePrevPage}>Prev</button>
+        <button onClick={handlePrevPage} className={`${page === 1 ? 'disabled-btn' : 'prev-btn'}`}>Prev</button>
         <span>{page}</span>
-        <button onClick={handleNextPage}>Next</button>
+        <button onClick={handleNextPage} className={`${page === totalPages ? 'disable-btn': 'next-btn'}`}>Next</button>
       </div>
     </div>
   );
