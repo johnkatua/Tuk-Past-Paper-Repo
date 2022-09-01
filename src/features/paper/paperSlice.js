@@ -43,7 +43,8 @@ export const paperSlice = createSlice({
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
       console.log(action.payload);
       state.status = "succeeded";
-      state.papers = state.papers.concat(action.payload.data);
+      state.papers = action.payload.data;
+      // state.papers = state.papers.concat(action.payload.data);
       state.currentPage = action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
     });
