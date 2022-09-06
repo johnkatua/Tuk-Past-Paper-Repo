@@ -80,43 +80,6 @@ const PaperList = () => {
         <TableComponent 
           data={content}
         />
-        {/* <Table striped bordered hover responsive>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Year</th>
-              <th>AcademicYear</th>
-              <th>Status</th>
-              <th>CourseCode</th>
-              <th>Level</th>
-              <th>Faculty</th>
-              <th>View</th>
-            </tr>
-          </thead>
-          <tbody>
-            {content?.map((paper) => (
-              <tr key={paper.name}>
-                <td>{paper.name}</td>
-                <td>{paper.year}</td>
-                <td>{paper.academicYear}</td>
-                <td>{paper.status}</td>
-                <td>{paper.courseCode}</td>
-                <td>{paper.courseLevel}</td>
-                <td>{paper.faculty}</td>
-                <td>
-                  <Button variant="link" onClick={() => handleClick(paper)}>
-                    View
-                  </Button>
-                  <DisplayPaperModal
-                    show={modalStatus}
-                    close={() => dispatch(closeModal())}
-                    content={<Viewer fileUrl={data.file} />}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </Table> */}
       </div>
       <div className="paper--navigation__container">
         <button
