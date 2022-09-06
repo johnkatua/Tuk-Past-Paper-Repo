@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Button, Table } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Viewer } from "@react-pdf-viewer/core";
-import DisplayPaperModal from "../components/Modal";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
-import { openModal, closeModal } from "../features/modal/modalSlice";
 import TableComponent from "../components/TableComponent";
 
 const PaperList = () => {
-  const [data, setData] = useState({});
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
-  const modalStatus = useSelector((state) => state.modal.show);
-  console.log(modalStatus);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
 
@@ -52,13 +45,6 @@ const PaperList = () => {
       return paper;
     });
   }
-
-  const handleClick = (item) => {
-    dispatch(openModal());
-    setData(item);
-  };
-
-  console.log(data);
 
   return (
     <div className="details--container">
