@@ -23,7 +23,7 @@ const FavoriteList = () => {
   if (status === 'success') {
     content = favPapers.data;
     if (content.length == 0) {
-      content = <div>"No Papers"</div>
+      content = "No Papers";
     }
   };
 
@@ -31,7 +31,13 @@ const FavoriteList = () => {
 
   return (
     <>
-      <TableComponent />
+      {content === "No Papers" ? (
+        <div>
+          No papers
+        </div>
+      ) : (
+        <TableComponent />
+      )}
     </>
   );
 };
