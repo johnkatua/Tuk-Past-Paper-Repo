@@ -15,8 +15,6 @@ const PaperList = () => {
   const modalStatus = useSelector((state) => state.modal.show);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
-  const [firstPage, setFirstPage] = useState(false);
-  const [lastPage, setLastPage] = useState(false);
 
   const LIMIT = 2;
 
