@@ -17,8 +17,6 @@ const initialState = {
   error: null,
 };
 
-// when getting data you need to spread it [...response.data]
-
 export const userLogin = createAsyncThunk(
   "auth/userLogin",
   async (values, { rejectWithValue }) => {

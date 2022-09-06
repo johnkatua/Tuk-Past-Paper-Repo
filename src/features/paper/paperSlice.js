@@ -22,8 +22,8 @@ export const fetchPapers = createAsyncThunk(
   }
 );
 
-export const fetchFavoritePapers = createAsyncThunk('papers/fetchFavoritePapers', async () => {
-  const response = await axios.get("http://localhost:4001/paper/getAllPapers");
+export const fetchFavoritePapers = createAsyncThunk('papers/fetchFavoritePapers', async (userId) => {
+  const response = await axios.get(`http://localhost:4001/fav/getAllFav/${userId}`);
   return response.data;
 })
 
