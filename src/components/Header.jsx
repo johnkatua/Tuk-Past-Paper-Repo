@@ -40,8 +40,9 @@ const Header = () => {
       setCurrentLocation(true);
     } else if (location.pathname == "/") {
       setCurrentLocation(false);
-    }
-  }, [currentLocation, location, user, token]);
+    };
+
+  }, [currentLocation, location, user, token, close]);
 
   return (
     <div className="header--container">
