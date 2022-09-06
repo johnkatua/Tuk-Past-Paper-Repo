@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Viewer } from "@react-pdf-viewer/core";
 import { openModal, closeModal } from "../features/modal/modalSlice";
 import DisplayPaperModal from "./Modal";
+import { addPaperToFav } from "../features/favorite/favoriteSlice";
 
 const TableComponent = ({ data }) => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const TableComponent = ({ data }) => {
     setPaperDetails(item);
   };
 
-  const handleFavoritePapers = () => {
-    console.log('items')
+  const handleFavoritePapers = (item) => {
+    dispatch(addPaperToFav(item));
   }
 
   return (
@@ -55,7 +56,7 @@ const TableComponent = ({ data }) => {
               />
             </td>
             <td>
-              <Button onClick={() => handleFavoritePapers()}>
+              <Button onClick={() => handleFavoritePapers(paper)}>
                 Add to favorite
               </Button>
             </td>

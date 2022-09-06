@@ -36,6 +36,17 @@ export const favSlice = createSlice({
       state.status = 'success',
       state.favPapers = action.payload;
     });
+    builder.addCase(addPaperToFav.pending, (state) => {
+      state.status = 'loading';
+    });
+    builder.addCase(addPaperToFav.fulfilled, (state, action) => {
+      state.status = 'success';
+      state.favPapers = state.favPapers.push(action.payload);
+    });
+    builder.addCase(addPaperToFav.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.payload;
+    })
   }
 });
 
