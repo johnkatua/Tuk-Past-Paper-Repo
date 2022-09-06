@@ -3,7 +3,8 @@ import axios from "axios";
 
 const initialState = {
   favPapers: [],
-  status: 'idle'
+  status: 'idle',
+  error: null
 };
 
 export const fetchFavoritePapers = createAsyncThunk(
@@ -16,6 +17,16 @@ export const fetchFavoritePapers = createAsyncThunk(
   }
 );
 
+export const addPaperToFav = createAsyncThunk("favPapers/addPaperToFav", async (values, { rejectWithValue }) => {
+  try {
+    const response = await axios.post("http://localhost:4001/fav/addFavPaper", values);
+    return response.data;
+  } catch (error) {
+    toast.error(error.response ? error.response.data.msg : error.message);
+    return rejectWithValue(error.response.data.msg);
+  }
+});
+
 export const favSlice = createSlice({
   name: "favPapers",
   initialState,
@@ -24,7 +35,7 @@ export const favSlice = createSlice({
     builder.addCase(fetchFavoritePapers.fulfilled, (state, action) => {
       state.status = 'success',
       state.favPapers = action.payload;
-    })
+    });
   }
 });
 
