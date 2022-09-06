@@ -7,6 +7,7 @@ import Details from "./Details";
 import PaperList from "./PaperList";
 import Login from "./Login";
 import Register from "./Register";
+import FavoriteList from "./FavoriteList";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -54,6 +55,14 @@ const Pages = () => {
             element={
               <LayoutRoute>
                 <Register />
+              </LayoutRoute>
+            }
+          />
+          <Route
+            path="/favorite"
+            element={
+              <LayoutRoute>
+                <FavoriteList />
               </LayoutRoute>
             }
           />
