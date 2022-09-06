@@ -63,9 +63,7 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <TableComponent 
-          data={content}
-        />
+        <TableComponent data={content} />
       </div>
       <div className="paper--navigation__container">
         <button

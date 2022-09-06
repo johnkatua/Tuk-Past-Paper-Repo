@@ -8,11 +8,11 @@ import DisplayPaperModal from "./Modal";
 const TableComponent = ({ data }) => {
   const dispatch = useDispatch();
   const [paperDetails, setPaperDetails] = useState(null);
-  const modalStatus = useSelector(state => state.modal.show);
+  const modalStatus = useSelector((state) => state.modal.show);
 
-  const handleClick = item => {
+  const handleClick = (item) => {
     dispatch(openModal());
-    setPaperDetails(item)
+    setPaperDetails(item);
   };
 
   return (

@@ -25,6 +25,7 @@ export const userLogin = createAsyncThunk(
       const response = await axios.post("http://localhost:4001/login", values);
       cookies.set("token", response.data.accessToken, { path: "/" });
       cookies.set("user", response.data.data.email, { path: "/" });
+      cookies.set("userId", response.data.data.id, { path: "/" });
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
