@@ -1,9 +1,10 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import DisplayPaperModal from "./Modal";
 
-const TableComponent = ({ data }) => {
+const TableComponent = ({ data, show, close, content, handleClick }) => {
   return (
-    <Table>
+    <Table striped bordered responsive>
       <thead>
         <tr>
           <th>Name</th>
@@ -26,6 +27,16 @@ const TableComponent = ({ data }) => {
             <td>{paper.courseCode}</td>
             <td>{paper.courseLevel}</td>
             <td>{paper.faculty}</td>
+            <td>
+              <Button variant="link" onClick={handleClick}>
+                View
+              </Button>
+              <DisplayPaperModal
+                show={show}
+                close={close}
+                content={content}
+              />
+            </td>
           </tr>
         ))}
       </tbody>

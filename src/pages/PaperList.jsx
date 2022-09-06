@@ -5,6 +5,7 @@ import { Viewer } from "@react-pdf-viewer/core";
 import DisplayPaperModal from "../components/Modal";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import { openModal, closeModal } from "../features/modal/modalSlice";
+import TableComponent from "../components/TableComponent";
 
 const PaperList = () => {
   const [data, setData] = useState({});
@@ -73,7 +74,8 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <Table striped bordered hover responsive>
+        <TableComponent data={content} />
+        {/* <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th>Name</th>
@@ -109,7 +111,7 @@ const PaperList = () => {
               </tr>
             ))}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
       <div className="paper--navigation__container">
         <button
