@@ -51,6 +51,9 @@ export const paperSlice = createSlice({
       state.currentPage = +action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
     });
+    builder.addCase(fetchFavoritePapers.fulfilled, (state, action) => {
+      state.favPapers = action.payload;
+    })
   },
 });
 
@@ -59,6 +62,7 @@ export const { paperAdded, paperUpdated } = paperSlice.actions;
 export default paperSlice.reducer;
 
 export const selectAllPapers = (state) => state.papers;
+export const selectFavPapers = state => state.favPapers;
 
 export const selectPaperById = (state, paperId) => {
   return state.papers.find((paper) => paper.id === paperId);
