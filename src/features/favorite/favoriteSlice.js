@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   favPapers: [],
@@ -20,7 +21,7 @@ export const favSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchFavoritePapers.fulfilled, (action, state) => {
+    builder.addCase(fetchFavoritePapers.fulfilled, (state, action) => {
       state.status = 'success',
       state.favPapers = action.payload;
     })
