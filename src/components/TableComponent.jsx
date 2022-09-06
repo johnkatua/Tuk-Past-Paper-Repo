@@ -1,8 +1,20 @@
-import React from "react";
+import { useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Viewer } from "@react-pdf-viewer/core";
+import { openModal, closeModal } from "../features/modal/modalSlice";
 import DisplayPaperModal from "./Modal";
 
-const TableComponent = ({ data, show, close, content, handleClick }) => {
+const TableComponent = ({ data }) => {
+  const dispatch = useDispatch();
+  const [paperDetails, setPaperDetails] = useState(null);
+  const modalStatus = useSelector(state => state.modal.show);
+
+  const handleClick = item => {
+    dispatch(openModal());
+    setPaperDetails(item)
+  };
+
   return (
     <Table striped bordered responsive>
       <thead>
@@ -28,13 +40,13 @@ const TableComponent = ({ data, show, close, content, handleClick }) => {
             <td>{paper.courseLevel}</td>
             <td>{paper.faculty}</td>
             <td>
-              <Button variant="link" onClick={handleClick}>
+              <Button variant="link" onClick={() => handleClick(paper)}>
                 View
               </Button>
               <DisplayPaperModal
-                show={show}
-                close={close}
-                content={content}
+                show={modalStatus}
+                close={() => dispatch(closeModal())}
+                content={<Viewer fileUrl={paperDetails?.file} />}
               />
             </td>
           </tr>

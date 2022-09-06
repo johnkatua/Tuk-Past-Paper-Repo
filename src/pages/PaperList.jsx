@@ -14,6 +14,7 @@ const PaperList = () => {
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const modalStatus = useSelector((state) => state.modal.show);
+  console.log(modalStatus);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
 
@@ -57,6 +58,8 @@ const PaperList = () => {
     setData(item);
   };
 
+  console.log(data);
+
   return (
     <div className="details--container">
       <div className="details--search__bar">
@@ -74,7 +77,9 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <TableComponent data={content} />
+        <TableComponent 
+          data={content}
+        />
         {/* <Table striped bordered hover responsive>
           <thead>
             <tr>
