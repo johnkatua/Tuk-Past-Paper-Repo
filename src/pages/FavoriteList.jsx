@@ -24,10 +24,10 @@ const FavoriteList = () => {
     content = favPapers.data;
     if (content.length == 0) {
       content = "No Papers";
+    } else {
+      content = favPapers?.data[0].papers;
     }
   };
-
-  console.log(content)
 
   return (
     <>
@@ -36,7 +36,7 @@ const FavoriteList = () => {
           No papers
         </div>
       ) : (
-        <TableComponent />
+        <TableComponent data={content} />
       )}
     </>
   );
