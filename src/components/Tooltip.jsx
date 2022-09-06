@@ -7,7 +7,9 @@ const Tooltip = ({ logout }) => {
     <div className="tooltip--container">
       <div className="tooltip--details">Account Settings</div>
       <hr />
-      <div className="tooltip--details" onClick={() => navigate('/favorite')}>My papers</div>
+      <div className="tooltip--details" onClick={() => navigate("/favorite")}>
+        My papers
+      </div>
       <hr />
       <div className="tooltip--details" onClick={logout}>
         Logout

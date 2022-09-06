@@ -1,7 +1,7 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
+import React from "react";
+import { Table } from "react-bootstrap";
 
-const TableComponent = () => {
+const TableComponent = ({ data }) => {
   return (
     <Table>
       <thead>
@@ -17,12 +17,20 @@ const TableComponent = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Github</td>
-        </tr>
+        {data?.map((paper) => (
+          <tr key={paper.id}>
+            <td>{paper.name}</td>
+            <td>{paper.year}</td>
+            <td>{paper.academicYear}</td>
+            <td>{paper.status}</td>
+            <td>{paper.courseCode}</td>
+            <td>{paper.courseLevel}</td>
+            <td>{paper.faculty}</td>
+          </tr>
+        ))}
       </tbody>
     </Table>
-  )
-}
+  );
+};
 
-export default TableComponent
+export default TableComponent;
