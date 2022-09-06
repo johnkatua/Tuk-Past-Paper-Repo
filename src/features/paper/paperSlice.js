@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
   papers: [],
-  favPapers: [],
   status: "idle",
   currentPage: 1,
   totalPages: 0,
@@ -17,16 +16,6 @@ export const fetchPapers = createAsyncThunk(
     const response = await axios.get(
       "http://localhost:4001/paper/getAllPapers",
       { params: { limit: limit, page: page } }
-    );
-    return response.data;
-  }
-);
-
-export const fetchFavoritePapers = createAsyncThunk(
-  "papers/fetchFavoritePapers",
-  async (userId) => {
-    const response = await axios.get(
-      `http://localhost:4001/fav/getAllFav/${userId}`
     );
     return response.data;
   }
@@ -55,10 +44,6 @@ export const paperSlice = createSlice({
       state.papers = action.payload.data;
       state.currentPage = +action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
-    });
-    builder.addCase(fetchFavoritePapers.fulfilled, (state, action) => {
-      state.status = 'success';
-      state.favPapers = action.payload;
     });
   },
 });

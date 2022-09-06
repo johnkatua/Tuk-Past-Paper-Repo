@@ -7,11 +7,9 @@ import { fetchFavoritePapers } from "../features/paper/paperSlice";
 const FavoriteList = () => {
   const cookies = new Cookies();
   const dispatch = useDispatch();
-  const { favPapers } = useSelector((state) => state.papers);
-  const { status } = useSelector((state) => state.papers);
+  const { favPapers } = useSelector((state) => state.favPapers);
+  const { status } = useSelector((state) => state.favPapers);
   const userId = cookies.get('userId');
-  console.log(userId);
-  console.log(favPapers, status);
 
   useEffect(() => {
     if (status == "idle") {
