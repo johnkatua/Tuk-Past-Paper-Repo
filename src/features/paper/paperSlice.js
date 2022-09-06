@@ -3,6 +3,7 @@ import axios from "axios";
 
 const initialState = {
   papers: [],
+  favPapers: [],
   status: "idle",
   currentPage: 1,
   totalPages: 0,
@@ -20,6 +21,11 @@ export const fetchPapers = createAsyncThunk(
     return response.data;
   }
 );
+
+export const fetchFavoritePapers = createAsyncThunk('papers/fetchFavoritePapers', async () => {
+  const response = await axios.get("http://localhost:4001/paper/getAllPapers");
+  return response.data;
+})
 
 export const paperSlice = createSlice({
   name: "papers",
