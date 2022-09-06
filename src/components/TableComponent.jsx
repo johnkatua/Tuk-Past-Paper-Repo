@@ -15,6 +15,10 @@ const TableComponent = ({ data }) => {
     setPaperDetails(item);
   };
 
+  const handleFavoritePapers = () => {
+    console.log('items')
+  }
+
   return (
     <Table striped bordered responsive>
       <thead>
@@ -27,6 +31,7 @@ const TableComponent = ({ data }) => {
           <th>Level</th>
           <th>Faculty</th>
           <th>View</th>
+          <th>Add to favorite</th>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +53,11 @@ const TableComponent = ({ data }) => {
                 close={() => dispatch(closeModal())}
                 content={<Viewer fileUrl={paperDetails?.file} />}
               />
+            </td>
+            <td>
+              <Button onClick={() => handleFavoritePapers()}>
+                Add to favorite
+              </Button>
             </td>
           </tr>
         ))}
