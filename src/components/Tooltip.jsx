@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal, closeModal } from "../features/modal/modalSlice";
+import { openModal, closeModal, openReusableModal, closeReusableModal } from "../features/modal/modalSlice";
 import ModalComponent from "./ModalComponent";
 
 const Tooltip = ({ logout }) => {
@@ -17,14 +17,14 @@ const Tooltip = ({ logout }) => {
         My papers
       </div>
       <hr />
-      <div className="tooltip--details" onClick={() => dispatch(openModal())}>
+      <div className="tooltip--details" onClick={() => dispatch(openReusableModal())}>
         Add Paper
       </div>
       <hr />
       <ModalComponent
         show={showModal}
-        close={() => dispatch(closeModal())}
-        // content={<div>Hello</div>}
+        close={() => dispatch(closeReusableModal())}
+        content={<div>Hello</div>}
       />
       <div className="tooltip--details" onClick={logout}>
         Logout
