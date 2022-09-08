@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { Viewer } from "@react-pdf-viewer/core";
 import { openModal, closeModal } from "../features/modal/modalSlice";
 import DisplayPaperModal from "./Modal";
 import { addPaperToFav } from "../features/favorite/favoriteSlice";
 
 const TableComponent = ({ data }) => {
+  const location = useLocation();
   const dispatch = useDispatch();
   const [paperDetails, setPaperDetails] = useState(null);
   const modalStatus = useSelector((state) => state.modal.show);
@@ -32,7 +34,7 @@ const TableComponent = ({ data }) => {
           <th>Level</th>
           <th>Faculty</th>
           <th>View</th>
-          <th>Add to favorite</th>
+          {location.pathname === '/paper' && <th>Add to favorite</th>}
         </tr>
       </thead>
       <tbody>
