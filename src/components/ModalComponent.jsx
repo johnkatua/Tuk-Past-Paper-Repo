@@ -4,14 +4,14 @@ const ModalComponent = ({ show, close, content }) => {
   return (
     <Modal
       show={show}
-      close={close}
+      onHide={close}
     >
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         {content}
       </Modal.Body>
       <Modal.Footer>
-        <p>Fuck you!!!</p>
+        <button onClick={close}>Close</button>
       </Modal.Footer>
     </Modal>
   )
