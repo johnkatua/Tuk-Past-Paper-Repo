@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal, closeModal, openReusableModal, closeReusableModal } from "../features/modal/modalSlice";
-import ModalComponent from "./ModalComponent";
+import { openReusableModal, closeReusableModal } from "../features/modal/modalSlice";
+import DisplayPaperModal from "./Modal";
 
 const Tooltip = ({ logout }) => {
   const navigate = useNavigate();
@@ -21,10 +21,10 @@ const Tooltip = ({ logout }) => {
         Add Paper
       </div>
       <hr />
-      <ModalComponent
+      <DisplayPaperModal 
         show={showModal}
         close={() => dispatch(closeReusableModal())}
-        content={<div>Hello</div>}
+        content={<div>Hi</div>}
       />
       <div className="tooltip--details" onClick={logout}>
         Logout
