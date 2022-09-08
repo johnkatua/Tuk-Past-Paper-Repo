@@ -10,7 +10,7 @@ const FavoriteList = () => {
   const { favPapers } = useSelector((state) => state.favPapers);
   const { status } = useSelector((state) => state.favPapers);
   console.log(status);
-  const userId = cookies.get('userId');
+  const userId = cookies.get("userId");
 
   useEffect(() => {
     if (status == "idle") {
@@ -19,23 +19,21 @@ const FavoriteList = () => {
   }, [status]);
 
   let content;
-  if (status === 'success') {
+  if (status === "success") {
     content = favPapers.data;
     if (content.length == 0) {
       content = "No Papers";
     } else {
       content = favPapers?.data[0].papers;
     }
-  };
+  }
 
   console.log(content);
 
   return (
     <>
       {content === "No Papers" ? (
-        <div>
-          No papers
-        </div>
+        <div>No papers</div>
       ) : (
         <TableComponent data={content} />
       )}

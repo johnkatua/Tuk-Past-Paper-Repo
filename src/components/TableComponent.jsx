@@ -18,7 +18,7 @@ const TableComponent = ({ data }) => {
 
   const handleFavoritePapers = (item) => {
     dispatch(addPaperToFav(item));
-  }
+  };
 
   return (
     <Table striped bordered responsive>

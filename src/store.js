@@ -11,6 +11,6 @@ export default configureStore({
     modal: modalSlice,
     auth: authSlice,
     toolTip: toolTipSlice,
-    favPapers: favSlice
+    favPapers: favSlice,
   },
 });
