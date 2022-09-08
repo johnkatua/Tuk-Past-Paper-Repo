@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   show: false,
+  showModal: false,
 };
 
 export const modalSlice = createSlice({
@@ -12,8 +13,14 @@ export const modalSlice = createSlice({
       state.show = true;
     },
     closeModal: (state) => {
-      state.show = false;
+      state.show = false
     },
+    openReusableModal: state => {
+      state.showModal = true
+    },
+    closeReusableModal: state => {
+      state.showModal = false
+    }
   },
 });
 
