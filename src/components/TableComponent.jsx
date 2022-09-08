@@ -57,11 +57,13 @@ const TableComponent = ({ data }) => {
                 content={<Viewer fileUrl={paperDetails?.file} />}
               />
             </td>
-            <td>
+            {location.pathname === '/paper' && (
+              <td>
               <Button onClick={() => handleFavoritePapers(paper)}>
                 Add to favorite
               </Button>
             </td>
+            )}
           </tr>
         ))}
       </tbody>
