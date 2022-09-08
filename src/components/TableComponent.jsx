@@ -34,7 +34,7 @@ const TableComponent = ({ data }) => {
           <th>Level</th>
           <th>Faculty</th>
           <th>View</th>
-          {location.pathname === '/paper' && <th>Add to favorite</th>}
+          {location.pathname === "/paper" && <th>Add to favorite</th>}
         </tr>
       </thead>
       <tbody>
@@ -57,12 +57,12 @@ const TableComponent = ({ data }) => {
                 content={<Viewer fileUrl={paperDetails?.file} />}
               />
             </td>
-            {location.pathname === '/paper' && (
+            {location.pathname === "/paper" && (
               <td>
-              <Button onClick={() => handleFavoritePapers(paper)}>
-                Add to favorite
-              </Button>
-            </td>
+                <Button onClick={() => handleFavoritePapers(paper)}>
+                  Add to favorite
+                </Button>
+              </td>
             )}
           </tr>
         ))}
