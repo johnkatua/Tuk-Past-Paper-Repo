@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Cookies } from "react-cookie";
+import { toast } from "react-toastify";
+
+const cookies = new Cookies();
+
+const token = cookies.get('token');
 
 const initialState = {
   favPapers: [],
@@ -19,7 +25,11 @@ export const fetchFavoritePapers = createAsyncThunk(
 
 export const addPaperToFav = createAsyncThunk("favPapers/addPaperToFav", async (values, { rejectWithValue }) => {
   try {
-    const response = await axios.post("http://localhost:4001/fav/addFavPaper", values);
+    const response = await axios.post("http://localhost:4001/fav/addFavPaper", values, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
     return response.data;
   } catch (error) {
     toast.error(error.response ? error.response.data.msg : error.message);
@@ -32,19 +42,18 @@ export const favSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
+    builder.addCase(fetchFavoritePapers.pending, (state) => {
+      state.status = 'loading'
+    })
     builder.addCase(fetchFavoritePapers.fulfilled, (state, action) => {
       state.status = 'success',
       state.favPapers = action.payload;
-    });
-    builder.addCase(addPaperToFav.pending, (state) => {
-      state.status = 'loading';
     });
     builder.addCase(addPaperToFav.fulfilled, (state, action) => {
       state.status = 'success';
       state.favPapers = state.favPapers.push(action.payload);
     });
     builder.addCase(addPaperToFav.rejected, (state, action) => {
-      state.status = 'failed';
       state.error = action.payload;
     })
   }

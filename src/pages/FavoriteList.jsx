@@ -9,6 +9,7 @@ const FavoriteList = () => {
   const dispatch = useDispatch();
   const { favPapers } = useSelector((state) => state.favPapers);
   const { status } = useSelector((state) => state.favPapers);
+  console.log(status);
   const userId = cookies.get('userId');
 
   useEffect(() => {
@@ -26,6 +27,8 @@ const FavoriteList = () => {
       content = favPapers?.data[0].papers;
     }
   };
+
+  console.log(content);
 
   return (
     <>
