@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { openReusableModal, closeReusableModal } from "../features/modal/modalSlice";
 import DisplayPaperModal from "./Modal";
+import AddPaperForm from "./AddPaperForm";
+import { Button } from "react-bootstrap";
 
 const Tooltip = ({ logout }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { showModal } = useSelector(state => state.modal);
-  console.log(showModal);
   return (
     <div className="tooltip--container">
       <div className="tooltip--details">Account Settings</div>
@@ -21,10 +22,12 @@ const Tooltip = ({ logout }) => {
         Add Paper
       </div>
       <hr />
-      <DisplayPaperModal 
+      <DisplayPaperModal
+        title={"Create Paper"}
         show={showModal}
         close={() => dispatch(closeReusableModal())}
-        content={<div>Hi</div>}
+        content={<AddPaperForm />}
+        button={<Button>Create</Button>}
       />
       <div className="tooltip--details" onClick={logout}>
         Logout
