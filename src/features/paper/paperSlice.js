@@ -58,6 +58,12 @@ export const paperSlice = createSlice({
       state.currentPage = +action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
     });
+    builder.addCase(addPaper.fulfilled, (state, action) => {
+      state.papers.push(action.payload.data);
+    });
+    builder.addCase(addPaper.rejected, (state) => {
+      state.error = action.payload;
+    })
   },
 });
 
