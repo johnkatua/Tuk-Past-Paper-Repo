@@ -45,14 +45,6 @@ const AddPaperForm = () => {
             <option>Diploma</option>
           </Form.Select>
         </Col>
-        <Col>
-          <Form.Select>
-            <option>Open this select menu</option>
-            <option>FSST</option>
-            <option>FEBE</option>
-            <option>FAST</option>
-          </Form.Select>
-        </Col>
       </Row>
     </Form>
   );
