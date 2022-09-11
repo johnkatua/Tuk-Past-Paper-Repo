@@ -12,14 +12,10 @@ const DisplayPaperModal = ({ show, close, content, title, button }) => {
       }}
     >
       <Modal.Header closeButton>
-        <h3>
-          {title}
-        </h3>
+        <h3>{title}</h3>
       </Modal.Header>
       <Modal.Body>{content}</Modal.Body>
-      <Modal.Footer>
-        {button}
-      </Modal.Footer>
+      <Modal.Footer>{button}</Modal.Footer>
     </Modal>
   );
 };

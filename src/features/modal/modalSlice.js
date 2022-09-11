@@ -13,17 +13,18 @@ export const modalSlice = createSlice({
       state.show = true;
     },
     closeModal: (state) => {
-      state.show = false
+      state.show = false;
     },
-    openReusableModal: state => {
-      state.showModal = true
+    openReusableModal: (state) => {
+      state.showModal = true;
     },
-    closeReusableModal: state => {
+    closeReusableModal: (state) => {
       state.showModal = false;
-    }
+    },
   },
 });
 
-export const { openModal, closeModal, openReusableModal,closeReusableModal } = modalSlice.actions;
+export const { openModal, closeModal, openReusableModal, closeReusableModal } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;
