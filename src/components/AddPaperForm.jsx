@@ -4,36 +4,54 @@ import { Form, Col, Row } from 'react-bootstrap';
 const AddPaperForm = () => {
   return (
     <Form>
-      <Row>
+      <Row className='mb-4'>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Control placeholder="Name" />
         </Col>
         <Col>
-          <Form.Control placeholder="First name" />
-        </Col>
-      </Row>
-       <Row>
-        <Col>
-          <Form.Control placeholder="First name" />
-        </Col>
-        <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Control placeholder="File" />
         </Col>
       </Row>
-       <Row>
+       <Row className='mb-4'>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Control placeholder="Year" />
         </Col>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Control placeholder="Academic Year" />
         </Col>
       </Row>
-       <Row>
+       <Row className='mb-4'>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Select>
+            <option>Open this select menu</option>
+            <option>Main Exam</option>
+            <option>Cat</option>
+          </Form.Select>
         </Col>
         <Col>
-          <Form.Control placeholder="First name" />
+          <Form.Select>
+            <option>Open this select menu</option>
+            <option>FSST</option>
+            <option>FEBE</option>
+            <option>FAST</option>
+          </Form.Select>
+        </Col>
+      </Row>
+       <Row className='mb-4'>
+        <Col>
+          <Form.Select>
+            <option>Open this select menu</option>
+            <option>Degree</option>
+            <option>Diploma</option>
+          </Form.Select>
+        </Col>
+        <Col>
+          <Form.Select>
+            <option>Open this select menu</option>
+            <option>FSST</option>
+            <option>FEBE</option>
+            <option>FAST</option>
+          </Form.Select>
         </Col>
       </Row>
     </Form>
