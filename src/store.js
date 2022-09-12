@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authSlice from "./features/auth/authSlice";
+import courseSlice from "./features/course/courseSlice";
 import facultySlice from "./features/faculty/facultySlice";
 import favSlice from "./features/favorite/favoriteSlice";
 import modalSlice from "./features/modal/modalSlice";
@@ -14,5 +15,6 @@ export default configureStore({
     toolTip: toolTipSlice,
     favPapers: favSlice,
     faculty: facultySlice,
+    courses: courseSlice
   },
 });
