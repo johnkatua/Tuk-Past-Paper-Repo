@@ -1,12 +1,13 @@
 import React from "react";
 import { Form, Col, Row } from "react-bootstrap";
 
-const AddPaperForm = () => {
+const AddPaperForm = (props) => {
+  console.log(props);
   return (
     <Form>
       <Row className="mb-4">
         <Col>
-          <Form.Control placeholder="Name" />
+          <Form.Control type="text" placeholder="Name" value={props.name} onChange={props.handleChange} />
         </Col>
         <Col>
           <Form.Control placeholder="File" />
