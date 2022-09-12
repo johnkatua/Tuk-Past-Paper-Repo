@@ -15,6 +15,6 @@ export default configureStore({
     toolTip: toolTipSlice,
     favPapers: favSlice,
     faculty: facultySlice,
-    courses: courseSlice
+    courses: courseSlice,
   },
 });
