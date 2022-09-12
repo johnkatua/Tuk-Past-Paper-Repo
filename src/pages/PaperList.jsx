@@ -7,7 +7,7 @@ import { fetchFaculties } from "../features/faculty/facultySlice";
 const PaperList = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
-  const { faculties } = useSelector(state => state.faculty);
+  const { faculties } = useSelector((state) => state.faculty);
   console.log(faculties);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);

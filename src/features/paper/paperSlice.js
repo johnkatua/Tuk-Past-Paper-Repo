@@ -25,14 +25,17 @@ export const addPaper = createAsyncThunk(
   "papers/addPaper",
   async (values, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:4001/paper/createPaper", values);
+      const response = await axios.post(
+        "http://localhost:4001/paper/createPaper",
+        values
+      );
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
-)
+);
 
 export const paperSlice = createSlice({
   name: "papers",
@@ -63,7 +66,7 @@ export const paperSlice = createSlice({
     });
     builder.addCase(addPaper.rejected, (state) => {
       state.error = action.payload;
-    })
+    });
   },
 });
 
