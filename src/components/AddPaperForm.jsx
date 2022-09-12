@@ -1,7 +1,10 @@
 import React from "react";
 import { Form, Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const AddPaperForm = (props) => {
+  const { faculty } = useSelector(state => state.faculty)
+  const { courses } = useSelector(state => state.courses);
   return (
     <Form>
       <Row className="mb-4">
@@ -31,9 +34,9 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Select value={props.facultyId} onChange={props.handleChange}>
             <option>Open this select menu</option>
-            <option>FSST</option>
-            <option>FEBE</option>
-            <option>FAST</option>
+            {faculty.map((faculty) => (
+              <option key={faculty._id} value={faculty._id}>{faculty.acroynm}</option>
+            ))}
           </Form.Select>
         </Col>
       </Row>
@@ -41,8 +44,9 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Select value={props.courseId} onChange={props.handleChange}>
             <option>Open this select menu</option>
-            <option>Degree</option>
-            <option>Diploma</option>
+            {courses.map((course) => (
+              <option key={course._id} value={course._id}>{course.status}</option>
+            ))}
           </Form.Select>
         </Col>
       </Row>
