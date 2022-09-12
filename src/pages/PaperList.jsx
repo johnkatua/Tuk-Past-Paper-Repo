@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import TableComponent from "../components/TableComponent";
-import { fetchFaculties } from "../features/faculty/facultySlice";
-import { fetchCourses } from "../features/course/courseSlice";
 
 const PaperList = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
-  const { faculties } = useSelector((state) => state.faculty);
-  console.log(faculties);
-  const { courses } = useSelector(state => state.courses);
-  console.log('**', courses);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const [page, setPage] = useState(currentPage);
@@ -34,8 +28,6 @@ const PaperList = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchFaculties());
-    dispatch(fetchCourses());
     if (paperStatus === "idle") {
       dispatch(fetchPapers({ limit: LIMIT, page: page * 1 }));
     }
