@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
-  const response = await axios.get('http://localhost:4001/courses/getAllCourses', {
+  const response = await axios.get('http://localhost:4001/course/getAllCourses', {
     headers: {
       authorization: `Bearer ${token}`
     }
@@ -23,7 +23,11 @@ export const courseSlice = createSlice({
   name: 'courses',
   initialState,
   reducers: {},
-  extraReducers(builder) {},
+  extraReducers(builder) {
+    builder.addCase(fetchCourses.fulfilled, (state, action) => {
+      state.courses = action.payload.data;
+    })
+  },
 });
 
 export default courseSlice.reducer;
