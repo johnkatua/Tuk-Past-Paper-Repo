@@ -66,7 +66,7 @@ export const paperSlice = createSlice({
     builder.addCase(createPaper.fulfilled, (state, action) => {
       state.papers.push(action.payload.data);
     });
-    builder.addCase(createPaper.rejected, (state) => {
+    builder.addCase(createPaper.rejected, (state, action) => {
       state.error = action.payload;
     });
   },

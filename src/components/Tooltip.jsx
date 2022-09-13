@@ -8,6 +8,7 @@ import {
 import DisplayPaperModal from "./Modal";
 import AddPaperForm from "./AddPaperForm";
 import { Button } from "react-bootstrap";
+import { createPaper } from "../features/paper/paperSlice";
 
 const Tooltip = ({ logout }) => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Tooltip = ({ logout }) => {
     formData.append("facultyId", addPaper.facultyId);
     formData.append("paperFile", paperFile);
 
-    await dispatch();
+    await dispatch(createPaper(formData));
   };
 
   return (
@@ -78,7 +79,7 @@ const Tooltip = ({ logout }) => {
             saveFile={saveFile}
           />
         }
-        button={<Button>Create</Button>}
+        button={<Button onClick={handleSubmit}>Create</Button>}
       />
       <div className="tooltip--details" onClick={logout}>
         Logout
