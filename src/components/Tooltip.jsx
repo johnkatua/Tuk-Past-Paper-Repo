@@ -34,6 +34,19 @@ const Tooltip = ({ logout }) => {
     setPaperFile(e.target.files[0]);
   };
 
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('name', addPaper.name);
+    formData.append('year', addPaper.year);
+    formData.append('academicYear', addPaper.academicYear);
+    formData.append('status', addPaper.status);
+    formData.append('courseId', addPaper.courseId);
+    formData.append('facultyId', addPaper.facultyId);
+    formData.append('paperFile', paperFile);
+
+    await dispatch()
+  }
+
   return (
     <div className="tooltip--container">
       <div className="tooltip--details">Account Settings</div>
