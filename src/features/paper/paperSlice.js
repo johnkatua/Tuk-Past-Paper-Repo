@@ -22,8 +22,8 @@ export const fetchPapers = createAsyncThunk(
   }
 );
 
-export const addPaper = createAsyncThunk(
-  "papers/addPaper",
+export const createPaper = createAsyncThunk(
+  "papers/createPaper",
   async (values, { rejectWithValue }) => {
     try {
       await validatePaperDetails(values);
@@ -63,10 +63,10 @@ export const paperSlice = createSlice({
       state.currentPage = +action.payload.currentPage;
       state.totalPages = action.payload.totalPages;
     });
-    builder.addCase(addPaper.fulfilled, (state, action) => {
+    builder.addCase(createPaper.fulfilled, (state, action) => {
       state.papers.push(action.payload.data);
     });
-    builder.addCase(addPaper.rejected, (state) => {
+    builder.addCase(createPaper.rejected, (state) => {
       state.error = action.payload;
     });
   },
