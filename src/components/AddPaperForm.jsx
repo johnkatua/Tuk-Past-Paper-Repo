@@ -1,10 +1,13 @@
 import React from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { getFacultyStatus } from "../features/faculty/facultySlice";
 
 const AddPaperForm = (props) => {
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
+  const facultyStatus = useSelector(getFacultyStatus);
+  console.log(facultyStatus);
   return (
     <Form>
       <Row className="mb-4">
