@@ -8,6 +8,7 @@ const token = cookie.get("token");
 
 const initialState = {
   courses: [],
+  status: 'idle'
 };
 
 export const fetchCourses = createAsyncThunk(
@@ -37,3 +38,5 @@ export const courseSlice = createSlice({
 });
 
 export default courseSlice.reducer;
+
+export const getCourseStatus = state => state.courses.status;
