@@ -38,6 +38,7 @@ const AddPaperForm = (props) => {
             type="file"
             name="file"
             placeholder="File"
+            accept=".pdf"
             formEncType="multipart/form-data"
             onChange={props.saveFile}
           />

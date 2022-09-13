@@ -24,6 +24,10 @@ const Tooltip = ({ logout }) => {
     facultyId: "",
   });
 
+  console.log(addPaper);
+
+  console.log(paperFile);
+
   const handleChange = (e) => {
     setAddPaper((addPaper) => ({
       ...addPaper,
@@ -43,7 +47,7 @@ const Tooltip = ({ logout }) => {
     formData.append("status", addPaper.status);
     formData.append("courseId", addPaper.courseId);
     formData.append("facultyId", addPaper.facultyId);
-    formData.append("paperFile", paperFile);
+    formData.append("file", paperFile);
 
     await dispatch(createPaper(formData));
   };

@@ -6,7 +6,7 @@ import { Cookies } from "react-cookie";
 
 const cookie = new Cookies();
 
-const token = cookie.get('token');
+const token = cookie.get("token");
 
 const initialState = {
   papers: [],
@@ -32,18 +32,19 @@ export const createPaper = createAsyncThunk(
   "papers/createPaper",
   async (values, { rejectWithValue }) => {
     try {
-      // await validatePaperDetails(values);
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",
         values,
         {
           headers: {
-            authorization: `Bearer ${token}`
-          }
+            "authorization": `Bearer ${token}`,
+            "content-type": "multipart/form-data"
+          },
         }
       );
       return response.data;
     } catch (error) {
+      console.log(error);
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
