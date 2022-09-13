@@ -34,7 +34,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Select value={props.facultyId} onChange={props.handleChange}>
             <option>Open this select menu</option>
-            {faculty.map((faculty) => (
+            {faculty?.map((faculty) => (
               <option key={faculty._id} value={faculty._id}>{faculty.acroynm}</option>
             ))}
           </Form.Select>
@@ -44,7 +44,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Select value={props.courseId} onChange={props.handleChange}>
             <option>Open this select menu</option>
-            {courses.map((course) => (
+            {courses?.map((course) => (
               <option key={course._id} value={course._id}>{course.status}</option>
             ))}
           </Form.Select>
