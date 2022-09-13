@@ -14,8 +14,8 @@ const Tooltip = ({ logout }) => {
   const dispatch = useDispatch();
   const { showModal } = useSelector((state) => state.modal);
   const [addPaper, setAddPaper] = useState({
-    name: ''
-  })
+    name: "",
+  });
   return (
     <div className="tooltip--container">
       <div className="tooltip--details">Account Settings</div>

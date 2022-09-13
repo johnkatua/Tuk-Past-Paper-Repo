@@ -3,24 +3,44 @@ import { Form, Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
 const AddPaperForm = (props) => {
-  const { faculties } = useSelector(state => state.faculty)
-  const { courses } = useSelector(state => state.courses);
+  const { faculties } = useSelector((state) => state.faculty);
+  const { courses } = useSelector((state) => state.courses);
   return (
     <Form>
       <Row className="mb-4">
         <Col>
-          <Form.Control type="text" placeholder="Name" value={props.name} onChange={props.handleChange} />
+          <Form.Control
+            type="text"
+            placeholder="Name"
+            value={props.name}
+            onChange={props.handleChange}
+          />
         </Col>
         <Col>
-          <Form.Control type="file" placeholder="File" formEncType="multipart/form-data" onChange={props.saveFile} />
+          <Form.Control
+            type="file"
+            placeholder="File"
+            formEncType="multipart/form-data"
+            onChange={props.saveFile}
+          />
         </Col>
       </Row>
       <Row className="mb-4">
         <Col>
-          <Form.Control placeholder="Year" type="text" value={props.year} onChange={props.handleChange} />
+          <Form.Control
+            placeholder="Year"
+            type="text"
+            value={props.year}
+            onChange={props.handleChange}
+          />
         </Col>
         <Col>
-          <Form.Control placeholder="Academic Year" type="text" value={props.academicYear} onChange={props.handleChange} />
+          <Form.Control
+            placeholder="Academic Year"
+            type="text"
+            value={props.academicYear}
+            onChange={props.handleChange}
+          />
         </Col>
       </Row>
       <Row className="mb-4">
@@ -35,7 +55,9 @@ const AddPaperForm = (props) => {
           <Form.Select value={props.facultyId} onChange={props.handleChange}>
             <option>Open this select menu</option>
             {faculties?.map((faculty) => (
-              <option key={faculty._id} value={faculty._id}>{faculty.acroynm}</option>
+              <option key={faculty._id} value={faculty._id}>
+                {faculty.acroynm}
+              </option>
             ))}
           </Form.Select>
         </Col>
@@ -45,7 +67,9 @@ const AddPaperForm = (props) => {
           <Form.Select value={props.courseId} onChange={props.handleChange}>
             <option>Open this select menu</option>
             {courses?.map((course) => (
-              <option key={course._id} value={course._id}>{course.status}</option>
+              <option key={course._id} value={course._id}>
+                {course.status}
+              </option>
             ))}
           </Form.Select>
         </Col>
