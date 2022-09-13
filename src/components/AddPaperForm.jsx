@@ -46,13 +46,17 @@ const AddPaperForm = (props) => {
       </Row>
       <Row className="mb-4">
         <Col>
-          <Form.Control
-            placeholder="Year"
+          <Form.Select
             name="year"
-            type="text"
             value={props.year}
             onChange={props.handleChange}
-          />
+          >
+            <option disabled>Select the year</option>
+            <option value={"firstYear"}>First Year</option>
+            <option value={"secondYear"}>Second Year</option>
+            <option value={"thirdYear"}>Third Year</option>
+            <option value={"fourthYear"}>Fourth Year</option>
+          </Form.Select>
         </Col>
         <Col>
           <Form.Control
@@ -72,8 +76,8 @@ const AddPaperForm = (props) => {
             onChange={props.handleChange}
           >
             <option>Open this select menu</option>
-            <option>Main Exam</option>
-            <option>Cat</option>
+            <option value={"mainExam"}>Main Exam</option>
+            <option value={"cat"}>Cat</option>
           </Form.Select>
         </Col>
         <Col>
