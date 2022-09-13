@@ -69,7 +69,7 @@ const AddPaperForm = (props) => {
             <option>Open this select menu</option>
             {faculties?.map((faculty) => (
               <option key={faculty._id} value={faculty._id}>
-                {faculty.acroynm}
+                {faculty.acronym}
               </option>
             ))}
           </Form.Select>
