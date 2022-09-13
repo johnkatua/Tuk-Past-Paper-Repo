@@ -1,14 +1,23 @@
 import { useEffect } from "react";
 import { Form, Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { getCourseStatus } from "../features/course/courseSlice";
-import { getFacultyStatus } from "../features/faculty/facultySlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCourses, getCourseStatus } from "../features/course/courseSlice";
+import { fetchFaculties, getFacultyStatus } from "../features/faculty/facultySlice";
 
 const AddPaperForm = (props) => {
+  const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
   const facultyStatus = useSelector(getFacultyStatus);
   const courseStatus = useSelector(getCourseStatus);
+
+  useEffect(() => {
+    if (facultyStatus === 'idle' && courseStatus === 'idle') {
+      dispatch(fetchCourses())
+      dispatch(fetchFaculties());
+    }
+  }, [facultyStatus, courseStatus])
+
   return (
     <Form>
       <Row className="mb-4">
