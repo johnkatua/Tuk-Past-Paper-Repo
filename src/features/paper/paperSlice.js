@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { validatePaperDetails } from "../../helpers/validation";
 
 const initialState = {
   papers: [],
@@ -25,6 +26,7 @@ export const addPaper = createAsyncThunk(
   "papers/addPaper",
   async (values, { rejectWithValue }) => {
     try {
+      await validatePaperDetails(values)
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",
         values
