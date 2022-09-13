@@ -8,7 +8,6 @@ import {
 } from "../features/faculty/facultySlice";
 
 const AddPaperForm = (props) => {
-  console.log(props);
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);

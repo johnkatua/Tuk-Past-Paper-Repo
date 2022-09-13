@@ -13,6 +13,7 @@ const Tooltip = ({ logout }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { showModal } = useSelector((state) => state.modal);
+  const [paperFile, setPaperFile] = useState(null);
   const [addPaper, setAddPaper] = useState({
     name: "",
     year: "",
@@ -27,6 +28,10 @@ const Tooltip = ({ logout }) => {
       ...addPaper,
       [e.target.name]: e.target.value
     }))
+  };
+
+  const saveFile = e => {
+    setPaperFile(e.target.files[0]);
   };
 
   return (
@@ -48,7 +53,7 @@ const Tooltip = ({ logout }) => {
         title={"Create Paper"}
         show={showModal}
         close={() => dispatch(closeReusableModal())}
-        content={<AddPaperForm name={addPaper.name} year={addPaper.year} academicYear={addPaper.academicYear} status={addPaper.status} courseId={addPaper.courseId} facultyId={addPaper.facultyId} handleChange={handleChange} />}
+        content={<AddPaperForm name={addPaper.name} year={addPaper.year} academicYear={addPaper.academicYear} status={addPaper.status} courseId={addPaper.courseId} facultyId={addPaper.facultyId} handleChange={handleChange} saveFile={saveFile} />}
         button={<Button>Create</Button>}
       />
       <div className="tooltip--details" onClick={logout}>
