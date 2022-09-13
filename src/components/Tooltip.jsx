@@ -20,32 +20,32 @@ const Tooltip = ({ logout }) => {
     academicYear: "",
     status: "",
     courseId: "",
-    facultyId: ""
+    facultyId: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setAddPaper((addPaper) => ({
       ...addPaper,
-      [e.target.name]: e.target.value
-    }))
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const saveFile = e => {
+  const saveFile = (e) => {
     setPaperFile(e.target.files[0]);
   };
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('name', addPaper.name);
-    formData.append('year', addPaper.year);
-    formData.append('academicYear', addPaper.academicYear);
-    formData.append('status', addPaper.status);
-    formData.append('courseId', addPaper.courseId);
-    formData.append('facultyId', addPaper.facultyId);
-    formData.append('paperFile', paperFile);
+    formData.append("name", addPaper.name);
+    formData.append("year", addPaper.year);
+    formData.append("academicYear", addPaper.academicYear);
+    formData.append("status", addPaper.status);
+    formData.append("courseId", addPaper.courseId);
+    formData.append("facultyId", addPaper.facultyId);
+    formData.append("paperFile", paperFile);
 
-    await dispatch()
-  }
+    await dispatch();
+  };
 
   return (
     <div className="tooltip--container">
@@ -66,7 +66,18 @@ const Tooltip = ({ logout }) => {
         title={"Create Paper"}
         show={showModal}
         close={() => dispatch(closeReusableModal())}
-        content={<AddPaperForm name={addPaper.name} year={addPaper.year} academicYear={addPaper.academicYear} status={addPaper.status} courseId={addPaper.courseId} facultyId={addPaper.facultyId} handleChange={handleChange} saveFile={saveFile} />}
+        content={
+          <AddPaperForm
+            name={addPaper.name}
+            year={addPaper.year}
+            academicYear={addPaper.academicYear}
+            status={addPaper.status}
+            courseId={addPaper.courseId}
+            facultyId={addPaper.facultyId}
+            handleChange={handleChange}
+            saveFile={saveFile}
+          />
+        }
         button={<Button>Create</Button>}
       />
       <div className="tooltip--details" onClick={logout}>
