@@ -8,6 +8,7 @@ import {
 } from "../features/faculty/facultySlice";
 
 const AddPaperForm = (props) => {
+  console.log(props);
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
@@ -27,6 +28,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Control
             type="text"
+            name="name"
             placeholder="Name"
             value={props.name}
             onChange={props.handleChange}
@@ -35,6 +37,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Control
             type="file"
+            name="file"
             placeholder="File"
             formEncType="multipart/form-data"
             onChange={props.saveFile}
@@ -45,6 +48,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Control
             placeholder="Year"
+            name="year"
             type="text"
             value={props.year}
             onChange={props.handleChange}
@@ -53,6 +57,7 @@ const AddPaperForm = (props) => {
         <Col>
           <Form.Control
             placeholder="Academic Year"
+            name="academicYear"
             type="text"
             value={props.academicYear}
             onChange={props.handleChange}
@@ -61,14 +66,14 @@ const AddPaperForm = (props) => {
       </Row>
       <Row className="mb-4">
         <Col>
-          <Form.Select value={props.status} onChange={props.handleChange}>
+          <Form.Select name="status" value={props.status} onChange={props.handleChange}>
             <option>Open this select menu</option>
             <option>Main Exam</option>
             <option>Cat</option>
           </Form.Select>
         </Col>
         <Col>
-          <Form.Select value={props.facultyId} onChange={props.handleChange}>
+          <Form.Select name="facultyId" value={props.facultyId} onChange={props.handleChange}>
             <option disabled>Select faculty</option>
             {faculties?.map((faculty) => (
               <option key={faculty._id} value={faculty._id}>
@@ -80,7 +85,7 @@ const AddPaperForm = (props) => {
       </Row>
       <Row className="mb-4">
         <Col>
-          <Form.Select value={props.courseId} onChange={props.handleChange}>
+          <Form.Select name="courseId" value={props.courseId} onChange={props.handleChange}>
             <option disabled>Select course</option>
             {courses?.map((course) => (
               <option key={course._id} value={course._id}>

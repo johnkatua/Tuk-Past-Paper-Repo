@@ -15,7 +15,20 @@ const Tooltip = ({ logout }) => {
   const { showModal } = useSelector((state) => state.modal);
   const [addPaper, setAddPaper] = useState({
     name: "",
+    year: "",
+    academicYear: "",
+    status: "",
+    courseId: "",
+    facultyId: ""
   });
+
+  const handleChange = e => {
+    setAddPaper((addPaper) => ({
+      ...addPaper,
+      [e.target.name]: e.target.value
+    }))
+  };
+
   return (
     <div className="tooltip--container">
       <div className="tooltip--details">Account Settings</div>
@@ -35,7 +48,7 @@ const Tooltip = ({ logout }) => {
         title={"Create Paper"}
         show={showModal}
         close={() => dispatch(closeReusableModal())}
-        content={<AddPaperForm name={addPaper.name} />}
+        content={<AddPaperForm name={addPaper.name} year={addPaper.year} academicYear={addPaper.academicYear} status={addPaper.status} courseId={addPaper.courseId} facultyId={addPaper.facultyId} handleChange={handleChange} />}
         button={<Button>Create</Button>}
       />
       <div className="tooltip--details" onClick={logout}>
