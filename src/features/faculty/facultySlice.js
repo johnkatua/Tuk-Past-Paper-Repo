@@ -39,4 +39,4 @@ export const facultySlice = createSlice({
 
 export default facultySlice.reducer;
 
-export const getFacultyStatus = state => state.status;
+export const getFacultyStatus = state => state.faculty.status;
