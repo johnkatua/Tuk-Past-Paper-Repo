@@ -35,7 +35,12 @@ export const createPaper = createAsyncThunk(
       // await validatePaperDetails(values);
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",
-        values
+        values,
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          }
+        }
       );
       return response.data;
     } catch (error) {
