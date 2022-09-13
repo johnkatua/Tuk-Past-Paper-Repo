@@ -17,15 +17,15 @@ export const validateLoginUser = (user) => {
   return schema.validate(user);
 };
 
-export const validatePaperDetails = paper => {
+export const validatePaperDetails = (paper) => {
   const schema = yup.object().shape({
     name: yup.string().required(),
-    file: yup.mixed().required('File is required'),
+    file: yup.mixed().required("File is required"),
     year: yup.string().required(),
     status: yup.string().required(),
     course: yup.string().required(),
     faculty: yup.string().required(),
-    academicYear: yup.string().required()
+    academicYear: yup.string().required(),
   });
   return schema.validate(paper);
-}
+};

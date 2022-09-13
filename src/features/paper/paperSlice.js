@@ -26,7 +26,7 @@ export const addPaper = createAsyncThunk(
   "papers/addPaper",
   async (values, { rejectWithValue }) => {
     try {
-      await validatePaperDetails(values)
+      await validatePaperDetails(values);
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",
         values

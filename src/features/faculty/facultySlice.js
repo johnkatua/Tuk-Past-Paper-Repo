@@ -8,7 +8,7 @@ const token = cookies.get("token");
 
 const initialState = {
   faculties: [],
-  status: 'idle'
+  status: "idle",
 };
 
 export const fetchFaculties = createAsyncThunk(
@@ -39,4 +39,4 @@ export const facultySlice = createSlice({
 
 export default facultySlice.reducer;
 
-export const getFacultyStatus = state => state.faculty.status;
+export const getFacultyStatus = (state) => state.faculty.status;

@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { Form, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCourses, getCourseStatus } from "../features/course/courseSlice";
-import { fetchFaculties, getFacultyStatus } from "../features/faculty/facultySlice";
+import {
+  fetchFaculties,
+  getFacultyStatus,
+} from "../features/faculty/facultySlice";
 
 const AddPaperForm = (props) => {
   const dispatch = useDispatch();
@@ -12,11 +15,11 @@ const AddPaperForm = (props) => {
   const courseStatus = useSelector(getCourseStatus);
 
   useEffect(() => {
-    if (facultyStatus === 'idle' && courseStatus === 'idle') {
-      dispatch(fetchCourses())
+    if (facultyStatus === "idle" && courseStatus === "idle") {
+      dispatch(fetchCourses());
       dispatch(fetchFaculties());
     }
-  }, [facultyStatus, courseStatus])
+  }, [facultyStatus, courseStatus]);
 
   return (
     <Form>
