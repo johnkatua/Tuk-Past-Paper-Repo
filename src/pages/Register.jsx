@@ -40,27 +40,34 @@ const Register = () => {
       <div className="auth--container__card">
         <h3>Register</h3>
         <div className="auth--card__firstrow">
+          <label htmlFor="firstName" style={{ display: "none" }}></label>
           <input
             type="text"
+            name="firstName"
             placeholder="First Name"
             onChange={set("firstName")}
           />
           <input
             type="text"
+            name="lastName"
             placeholder="Last Name"
             onChange={set("lastName")}
           />
         </div>
         <div className="auth--card__secondrow">
+          <label htmlFor="email"></label>
           <input
             type="email"
+            name="email"
             placeholder="Enter your email address"
             onChange={set("email")}
           />
         </div>
         <div className="auth--card__thirdrow">
+          <label htmlFor="password"></label>
           <input
             type="password"
+            name="password"
             placeholder="Enter password"
             onChange={set("password")}
           />
