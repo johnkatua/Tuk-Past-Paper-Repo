@@ -46,7 +46,7 @@ const Login = () => {
           />
         </div>
         <div className="auth--card__thirdrow">
-          <labal htmlFor="password"></labal>
+          <label htmlFor="password"></label>
           <input
             type="password"
             placeholder="Enter password"
