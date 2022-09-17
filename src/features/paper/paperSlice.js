@@ -37,8 +37,8 @@ export const createPaper = createAsyncThunk(
         values,
         {
           headers: {
-            "authorization": `Bearer ${token}`,
-            "content-type": "multipart/form-data"
+            authorization: `Bearer ${token}`,
+            "content-type": "multipart/form-data",
           },
         }
       );
