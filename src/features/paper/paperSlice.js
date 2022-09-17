@@ -8,6 +8,8 @@ const cookie = new Cookies();
 
 const token = cookie.get("token");
 
+console.log('token', token);
+
 const initialState = {
   papers: [],
   status: "idle",

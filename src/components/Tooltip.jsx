@@ -24,10 +24,6 @@ const Tooltip = ({ logout }) => {
     facultyId: "",
   });
 
-  console.log(addPaper);
-
-  console.log(paperFile);
-
   const handleChange = (e) => {
     setAddPaper((addPaper) => ({
       ...addPaper,
