@@ -37,16 +37,20 @@ const Login = () => {
       <div className="auth--container__card">
         <h3>Login</h3>
         <div className="auth--card__secondrow">
+          <label htmlFor="email"></label>
           <input
             type="email"
+            name="email"
             placeholder="Enter your email address"
             onChange={set("email")}
           />
         </div>
         <div className="auth--card__thirdrow">
+          <labal htmlFor="password"></labal>
           <input
             type="password"
             placeholder="Enter password"
+            name="password"
             onChange={set("password")}
           />
         </div>
