@@ -98,7 +98,7 @@ const authSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(getUserProfile.fulfilled, (state, action) => {
-      state.user = action.payload;
+      state.user = action.payload.data;
     })
   },
 });
