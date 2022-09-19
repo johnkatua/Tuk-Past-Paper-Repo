@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = () => {
     const { email, password } = user;
     dispatch(userLogin({ email, password }));
-    dispatch(getUserProfile());
+    // dispatch(getUserProfile());
   };
 
   useEffect(() => {
