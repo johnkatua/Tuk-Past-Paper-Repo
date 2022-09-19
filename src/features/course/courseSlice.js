@@ -1,10 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Cookies } from "react-cookie";
-
-const cookie = new Cookies();
-
-const token = cookie.get("token");
 
 const initialState = {
   courses: [],
@@ -14,6 +9,7 @@ const initialState = {
 export const fetchCourses = createAsyncThunk(
   "courses/fetchCourses",
   async () => {
+    const token = localStorage.getItem('token');
     const response = await axios.get(
       "http://localhost:4001/course/getAllCourses",
       {
