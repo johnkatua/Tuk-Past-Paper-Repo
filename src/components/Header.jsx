@@ -26,8 +26,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    cookies.remove("token");
-    cookies.remove("user");
+    localStorage.removeItem('token')
     window.location.reload(false);
   };
 
