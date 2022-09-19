@@ -51,6 +51,19 @@ export const userRegister = createAsyncThunk(
   }
 );
 
+export const getUserProfile = createAsyncThunk(
+  "auth/getUserProfile",
+  async () => {
+    const token = localStorage.getItem('token');
+    const response = await axios.get("http://localhost:4001/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    return response.data
+  }
+)
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -84,6 +97,9 @@ const authSlice = createSlice({
       state.status = "failed";
       state.error = action.payload;
     });
+    builder.addCase(getUserProfile.fulfilled, (state, action) => {
+      state.user = action.payload;
+    })
   },
 });
 
