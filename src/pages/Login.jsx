@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userLogin } from "../features/auth/authSlice";
+import { getUserProfile, userLogin } from "../features/auth/authSlice";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,6 +21,7 @@ const Login = () => {
   const handleSubmit = () => {
     const { email, password } = user;
     dispatch(userLogin({ email, password }));
+    dispatch(getUserProfile());
   };
 
   useEffect(() => {
