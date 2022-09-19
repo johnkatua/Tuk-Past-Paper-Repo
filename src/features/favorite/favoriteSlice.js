@@ -3,9 +3,7 @@ import axios from "axios";
 import { Cookies } from "react-cookie";
 import { toast } from "react-toastify";
 
-const cookies = new Cookies();
 
-const token = cookies.get("token");
 
 const initialState = {
   favPapers: [],
@@ -26,6 +24,10 @@ export const fetchFavoritePapers = createAsyncThunk(
 export const addPaperToFav = createAsyncThunk(
   "favPapers/addPaperToFav",
   async (values, { rejectWithValue }) => {
+    const cookies = new Cookies();
+
+    const token = cookies.get("token");
+
     try {
       const response = await axios.post(
         "http://localhost:4001/fav/addFavPaper",

@@ -13,7 +13,6 @@ const App = () => {
   console.log("token", token);
   const dispatch = useDispatch();
   const userDetails = cookie.get("token");
-  console.log(userDetails);
   useEffect(() => {
     if (userDetails) {
       dispatch(setToken(userDetails));
