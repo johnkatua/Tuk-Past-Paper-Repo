@@ -23,6 +23,7 @@ export const userLogin = createAsyncThunk(
     try {
       await validateLoginUser(values);
       const response = await axios.post("http://localhost:4001/login", values);
+      localStorage.setItem('token', response.data.accessToken);
       cookies.set("token", response.data.accessToken, { path: "/" });
       cookies.set("user", response.data.data.email, { path: "/" });
       cookies.set("userId", response.data.data.id, { path: "/" });
