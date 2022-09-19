@@ -9,16 +9,16 @@ import { setToken } from "./features/auth/authSlice";
 
 const App = () => {
   const cookie = new Cookies();
-  const { token } = useSelector((state) => state.auth); 
-  console.log('token', token)
+  const { token } = useSelector((state) => state.auth);
+  console.log("token", token);
   const dispatch = useDispatch();
-  const userDetails = cookie.get('token');
-  console.log(userDetails)
+  const userDetails = cookie.get("token");
+  console.log(userDetails);
   useEffect(() => {
     if (userDetails) {
-      dispatch(setToken(userDetails))
+      dispatch(setToken(userDetails));
     }
-  }, [userDetails])
+  }, [userDetails]);
 
   return (
     <CookiesProvider>

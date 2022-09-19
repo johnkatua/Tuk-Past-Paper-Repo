@@ -26,10 +26,10 @@ const Pages = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (user) {
-    dispatch(setUser(user));
-  }
-  }, [user])
-  
+      dispatch(setUser(user));
+    }
+  }, [user]);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Router>
