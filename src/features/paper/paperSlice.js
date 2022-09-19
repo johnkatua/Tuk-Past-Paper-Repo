@@ -2,13 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { validatePaperDetails } from "../../helpers/validation";
 import { toast } from "react-toastify";
-import { Cookies } from "react-cookie";
-
-const cookie = new Cookies();
-
-const token = cookie.get("token");
-
-console.log("token", token);
 
 const initialState = {
   papers: [],
@@ -33,6 +26,7 @@ export const fetchPapers = createAsyncThunk(
 export const createPaper = createAsyncThunk(
   "papers/createPaper",
   async (values, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
     try {
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",

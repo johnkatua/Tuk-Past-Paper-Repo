@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Cookies } from "react-cookie";
 import Tooltip from "./Tooltip";
 import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
-import { setToken, setUser } from "../features/auth/authSlice";
+import { setToken } from "../features/auth/authSlice";
 
 const Header = () => {
   const cookies = new Cookies();
@@ -13,7 +13,6 @@ const Header = () => {
   const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
-  console.log(user);
   const { showToolTip } = useSelector((state) => state.toolTip);
   const token = cookies.get("token");
   const userData = cookies.get("user");
@@ -33,16 +32,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (userData && token) {
-      dispatch(setToken(token));
-      // dispatch(setUser(userData));
-    }
     if (location.pathname == "/login" || location.pathname == "/register") {
       setCurrentLocation(true);
     } else if (location.pathname == "/") {
       setCurrentLocation(false);
     }
-  }, [currentLocation, location, user, token, close]);
+  }, [currentLocation, location, close]);
 
   return (
     <div className="header--container">
