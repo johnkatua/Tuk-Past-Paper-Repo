@@ -13,6 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const { showToolTip } = useSelector((state) => state.toolTip);
   const token = cookies.get("token");
   const userData = cookies.get("user");
@@ -34,7 +35,7 @@ const Header = () => {
   useEffect(() => {
     if (userData && token) {
       dispatch(setToken(token));
-      dispatch(setUser(userData));
+      // dispatch(setUser(userData));
     }
     if (location.pathname == "/login" || location.pathname == "/register") {
       setCurrentLocation(true);
@@ -48,7 +49,7 @@ const Header = () => {
       <h1 onClick={() => navigate("/")}>Tuk Past Past Repo</h1>
       {showToolTip && <Tooltip logout={handleLogout} />}
       {user ? (
-        <div onClick={handleToolTip}>{user}</div>
+        <div onClick={handleToolTip}>{user.email}</div>
       ) : (
         <>
           {currentLocation === false ? (
