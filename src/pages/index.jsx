@@ -10,7 +10,9 @@ import Register from "./Register";
 import FavoriteList from "./FavoriteList";
 import AdminDashboard from "./AdminDashboard";
 import AdminLayout from "../components/AdminLayout";
-import PaperPage from "../pages/Admin/Paper";
+import PaperPage from "./Admin/Paper";
+import FacultyPage from "./Admin/Faculties";
+import CoursePage from "./Admin/Courses";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -75,6 +77,22 @@ const Pages = () => {
           />
           <Route
             path="/admin-dashboard"
+            element={
+              <AdminDashboardRoute>
+                <FacultyPage />
+              </AdminDashboardRoute>
+            }
+          />
+          <Route
+            path="/courses"
+            element={
+              <AdminDashboardRoute>
+                <CoursePage />
+              </AdminDashboardRoute>
+            }
+          />
+          <Route
+            path="/admin-papers"
             element={
               <AdminDashboardRoute>
                 <PaperPage />
