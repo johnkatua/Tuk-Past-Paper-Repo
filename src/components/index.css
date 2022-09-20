@@ -109,7 +109,16 @@
   width: 15%;
 }
 
+.admin--sidebar__closed {
+  width: 0;
+}
+
 .admin--content {
   background-color: cyan;
   width: 85%;
+}
+
+.admin--content__opened {
+  width: 100%;
+  background-color: darkblue;
 }
