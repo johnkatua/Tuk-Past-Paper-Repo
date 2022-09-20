@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Worker } from "@react-pdf-viewer/core";
-import { CookiesProvider } from "react-cookie";
 import { useDispatch } from "react-redux";
 import "./App.css";
 import Pages from "./pages/index";
@@ -17,11 +16,9 @@ const App = () => {
   }, [token]);
 
   return (
-    <CookiesProvider>
-      <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
-        <Pages />
-      </Worker>
-    </CookiesProvider>
+    <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
+      <Pages />
+    </Worker>
   );
 };
 
