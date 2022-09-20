@@ -105,7 +105,7 @@
 }
 
 .admin--icon {
-  background-color: white;
+  background-color: var(--white);
   padding: 5px 8px;
   cursor: pointer;
   margin-right: 3%;
@@ -117,6 +117,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   letter-spacing: 1.5px;
+  color: var(--white);
 }
 
 .admin--auth {
