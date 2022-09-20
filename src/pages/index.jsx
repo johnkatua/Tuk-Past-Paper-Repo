@@ -10,7 +10,7 @@ import Register from "./Register";
 import FavoriteList from "./FavoriteList";
 import AdminDashboard from "./AdminDashboard";
 import AdminLayout from "../components/AdminLayout";
-import PaperPage from "./PaperPage";
+import PaperPage from "../pages/Admin/Paper";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
