@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-const AdminLayout = () => {
+const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);
+  console.log(show);
 
   const handleSidebar = () => {
     if (!show) {
@@ -17,14 +18,14 @@ const AdminLayout = () => {
       </div>
       <div className="admin--layout__body">
         <div
-          className={`${show ? "admin--sidebar" : "admin--sidebar__closed"}`}
+          className={`${show ? "admin--sidebar__closed" : "admin--sidebar"}`}
         >
           Sidebar
         </div>
         <div
-          className={`${show ? "admin--content" : "admin--content__opened"}`}
+          className={`${show ? "admin--content__opened" : "admin--content"}`}
         >
-          Children
+          {children}
         </div>
       </div>
     </div>
