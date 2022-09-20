@@ -129,7 +129,7 @@
   margin-right: 4%;
   padding: 10px;
   border-radius: 50%;
-  box-shadow: 0px 5px 30px var(--black);
+  box-shadow: 0px 10px 20px -5px var(--black);
   cursor: pointer;
 }
 
@@ -146,6 +146,7 @@
 .admin--sidebar {
   width: 15%;
   background-color: var(--white);
+  box-shadow: 1px 0px 30px 0px var(--black);
 }
 
 .admin--sidebar__closed {
