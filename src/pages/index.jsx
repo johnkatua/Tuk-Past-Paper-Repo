@@ -8,7 +8,6 @@ import PaperList from "./PaperList";
 import Login from "./Login";
 import Register from "./Register";
 import FavoriteList from "./FavoriteList";
-import AdminDashboard from "./AdminDashboard";
 import AdminLayout from "../components/AdminLayout";
 import PaperPage from "./Admin/Paper";
 import FacultyPage from "./Admin/Faculties";
