@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "../components/Layout";
 import Welcome from "./Welcome";
@@ -8,12 +8,6 @@ import PaperList from "./PaperList";
 import Login from "./Login";
 import Register from "./Register";
 import FavoriteList from "./FavoriteList";
-
-// const token = localStorage.getItem('token');
-
-// useEffect(() => {
-//   console.log('token', token);
-// }, []) 
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
