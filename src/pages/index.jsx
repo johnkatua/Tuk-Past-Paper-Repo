@@ -10,14 +10,15 @@ import Register from "./Register";
 import FavoriteList from "./FavoriteList";
 import AdminDashboard from "./AdminDashboard";
 import AdminLayout from "../components/AdminLayout";
+import PaperPage from "./PaperPage";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
 };
 
 const AdminDashboardRoute = ({ children }) => {
-  return <AdminLayout>{children}</AdminLayout>
-}
+  return <AdminLayout>{children}</AdminLayout>;
+};
 
 const Pages = () => {
   return (
@@ -72,7 +73,14 @@ const Pages = () => {
               </LayoutRoute>
             }
           />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/admin-dashboard"
+            element={
+              <AdminDashboardRoute>
+                <PaperPage />
+              </AdminDashboardRoute>
+            }
+          />
         </Routes>
       </Router>
     </Suspense>

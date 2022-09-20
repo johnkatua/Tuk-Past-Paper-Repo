@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const AdminLists = () => {
-  return (
-    <div>AdminLists</div>
-  )
-}
+  return <div>AdminLists</div>;
+};
 
 export default AdminLists;

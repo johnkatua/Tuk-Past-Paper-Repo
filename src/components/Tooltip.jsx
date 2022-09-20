@@ -81,7 +81,12 @@ const Tooltip = ({ logout }) => {
         }
         button={<Button onClick={handleSubmit}>Create</Button>}
       />
-      <div className="tooltip--details" onClick={() => navigate('/admin-dashboard')}>Admin Dashboard</div>
+      <div
+        className="tooltip--details"
+        onClick={() => navigate("/admin-dashboard")}
+      >
+        Admin Dashboard
+      </div>
       <hr />
       <div className="tooltip--details" onClick={logout}>
         Logout
