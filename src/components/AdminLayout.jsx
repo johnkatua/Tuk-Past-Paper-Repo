@@ -32,7 +32,7 @@ const AdminLayout = ({ children }) => {
         <div
           className={`${show ? "admin--sidebar__closed" : "admin--sidebar"}`}
         >
-          <Sidebar /> Hello
+          <Sidebar />
         </div>
         <div
           className={`${show ? "admin--content__opened" : "admin--content"}`}
