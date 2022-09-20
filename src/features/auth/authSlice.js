@@ -20,7 +20,7 @@ export const userLogin = createAsyncThunk(
     try {
       await validateLoginUser(values);
       const response = await axios.post("http://localhost:4001/login", values);
-      localStorage.setItem('token', response.data.accessToken);
+      localStorage.setItem("token", response.data.accessToken);
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -35,7 +35,7 @@ export const userRegister = createAsyncThunk(
     try {
       await validateRegisterUser(values);
       const response = await axios.post("http://localhost:4001/signup", values);
-      localStorage.setItem('token', response.data.accessToken);
+      localStorage.setItem("token", response.data.accessToken);
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -47,15 +47,15 @@ export const userRegister = createAsyncThunk(
 export const getUserProfile = createAsyncThunk(
   "auth/getUserProfile",
   async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const response = await axios.get("http://localhost:4001/profile", {
       headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-    return response.data
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
   }
-)
+);
 
 const authSlice = createSlice({
   name: "auth",
@@ -92,7 +92,7 @@ const authSlice = createSlice({
     });
     builder.addCase(getUserProfile.fulfilled, (state, action) => {
       state.user = action.payload.data;
-    })
+    });
   },
 });
 

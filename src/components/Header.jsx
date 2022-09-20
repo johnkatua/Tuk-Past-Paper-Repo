@@ -13,7 +13,7 @@ const Header = () => {
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const { showToolTip } = useSelector((state) => state.toolTip);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const handleToolTip = () => {
     if (showToolTip) {
@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
+    localStorage.removeItem("token");
     window.location.reload(false);
   };
 

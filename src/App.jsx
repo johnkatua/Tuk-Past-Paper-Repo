@@ -8,7 +8,7 @@ import { getUserProfile } from "./features/auth/authSlice";
 
 const App = () => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   useEffect(() => {
     if (token) {
       dispatch(getUserProfile());

@@ -26,7 +26,7 @@ export const fetchPapers = createAsyncThunk(
 export const createPaper = createAsyncThunk(
   "papers/createPaper",
   async (values, { rejectWithValue }) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
         "http://localhost:4001/paper/createPaper",

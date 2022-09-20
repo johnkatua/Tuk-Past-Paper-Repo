@@ -9,7 +9,7 @@ const initialState = {
 export const fetchFaculties = createAsyncThunk(
   "faculty/fetchFaculties",
   async () => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     const response = await axios.get(
       "http://localhost:4001/faculty/getAllFaculties",
       {

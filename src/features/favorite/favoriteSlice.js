@@ -22,7 +22,7 @@ export const fetchFavoritePapers = createAsyncThunk(
 export const addPaperToFav = createAsyncThunk(
   "favPapers/addPaperToFav",
   async (values, { rejectWithValue }) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
         "http://localhost:4001/fav/addFavPaper",

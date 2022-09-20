@@ -8,6 +8,7 @@ import PaperList from "./PaperList";
 import Login from "./Login";
 import Register from "./Register";
 import FavoriteList from "./FavoriteList";
+import AdminDashboard from "./AdminDashboard";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -66,6 +67,7 @@ const Pages = () => {
               </LayoutRoute>
             }
           />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </Suspense>
