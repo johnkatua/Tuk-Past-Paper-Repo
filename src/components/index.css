@@ -76,3 +76,40 @@
   margin: 0.5rem 2rem;
   cursor: pointer;
 }
+
+/* Admin Dashboard */
+.admin--layout {
+  position: relative;
+  height: auto;
+  background-color: burlywood;
+}
+
+.admin--layout__header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 65px;
+  background-color: coral;
+  z-index: 1;
+}
+
+.admin--layout__body {
+  display: flex;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  height: 50rem;
+  background-color: cornflowerblue;
+}
+
+.admin--sidebar {
+  background-color: crimson;
+  width: 15%;
+}
+
+.admin--content {
+  background-color: cyan;
+  width: 85%;
+}

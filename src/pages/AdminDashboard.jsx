@@ -1,7 +1,8 @@
 import React from "react";
+import AdminLayout from "../components/AdminLayout";
 
 const AdminDashboard = () => {
-  return <div>AdminDashboard</div>;
+  return <AdminLayout />;
 };
 
 export default AdminDashboard;
