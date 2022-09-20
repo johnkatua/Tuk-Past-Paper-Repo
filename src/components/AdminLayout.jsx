@@ -18,7 +18,7 @@ const AdminLayout = ({ children }) => {
           A
         </div>
         <div className="admin--auth">
-
+          <AiOutlineUser />
         </div>
       </div>
       <div className="admin--layout__body">
