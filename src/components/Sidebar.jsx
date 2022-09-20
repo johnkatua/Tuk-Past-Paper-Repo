@@ -27,7 +27,7 @@ const Sidebar = () => {
       <ul>
         {menus.map((item) => (
           <li>
-            <NavLink to={item.path} className='sidebar--items' activeStyle={{ color: 'blue' }}>
+            <NavLink to={item.path} className={(data) => (data.isActive ? 'sidebar--items__active' : 'sidebar--items')}>
               <span className='sidebar--icon'>{item.icon}</span>
               <span className='sidebar--name'>{item.name}</span>
             </NavLink>

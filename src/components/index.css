@@ -177,7 +177,7 @@
 
 .sidebar ul li {
   padding: 10px 15px;
-  border-bottom: 1px solid var(--blue);
+  border-bottom: 1px solid var(--light-gray);
   cursor: pointer;
 }
 
@@ -188,6 +188,23 @@
   align-items: center;
   text-decoration: none;
   color: var(--gray);
+}
+
+.sidebar--items__active {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--blue);
+}
+
+.sidebar--items:hover {
+  color: var(--black);
+}
+
+.sidebar--items__active:hover {
+  color: var(--blue);
 }
 
 .sidebar--icon {
