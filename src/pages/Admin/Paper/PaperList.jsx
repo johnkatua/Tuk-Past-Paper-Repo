@@ -2,7 +2,7 @@ import React from 'react'
 
 const PaperList = () => {
   return (
-    <div>PaperList</div>
+    <div className='admin--dashboard__list'>PaperList</div>
   )
 }
 

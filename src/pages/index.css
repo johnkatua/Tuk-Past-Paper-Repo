@@ -212,5 +212,16 @@ td {
   height: calc(100% - 20px);
   gap: 10px;
   margin: 10px;
-  background-color: white;
+}
+
+.admin--dashboard__list  {
+  background-color: var(--white);
+  width: 100%;
+  border-radius: 5px;
+}
+
+.admin--dashboard__details {
+  background-color: var(--white);
+  width: 100%;
+  border-radius: 5px;
 }
