@@ -205,3 +205,12 @@ td {
   outline: none;
   cursor: not-allowed !important;
 }
+
+/* papers dashboard */
+.admin--papers__container {
+  display: flex;
+  height: calc(100% - 20px);
+  gap: 10px;
+  margin: 10px;
+  background-color: white;
+}
