@@ -84,6 +84,8 @@
 }
 
 .admin--layout__header {
+  display: flex;
+  align-items: center;
   position: fixed;
   top: 0;
   right: 0;
