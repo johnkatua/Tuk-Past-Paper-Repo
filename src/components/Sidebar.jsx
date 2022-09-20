@@ -26,9 +26,9 @@ const Sidebar = () => {
       <ul>
         {menus.map((item) => (
           <li>
-            <div>
-              <span>{item.icon}</span>
-              <span>{item.name}</span>
+            <div className='sidebar--items'>
+              <span className='sidebar--icon'>{item.icon}</span>
+              <span className='sidebar--name'>{item.name}</span>
             </div>
           </li>
         ))}

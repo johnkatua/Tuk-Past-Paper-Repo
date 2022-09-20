@@ -164,8 +164,9 @@
 
 /* Sidebar */
 .sidebar {
-  width: 100%;
+  width: 15%;
   height: 100%;
+  position: fixed;
 }
 
 .sidebar ul {
@@ -175,9 +176,28 @@
 }
 
 .sidebar ul li {
-  display: flex;
-  align-items: center;
   padding: 10px 15px;
   border-bottom: 1px solid var(--blue);
   cursor: pointer;
+  color: var(--gray);
+}
+
+.sidebar--items {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar--icon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.sidebar--name {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
