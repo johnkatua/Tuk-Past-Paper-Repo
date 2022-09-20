@@ -40,7 +40,6 @@ export const createPaper = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.log(error);
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
