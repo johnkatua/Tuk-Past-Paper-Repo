@@ -9,10 +9,15 @@ import Login from "./Login";
 import Register from "./Register";
 import FavoriteList from "./FavoriteList";
 import AdminDashboard from "./AdminDashboard";
+import AdminLayout from "../components/AdminLayout";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
 };
+
+const AdminDashboardRoute = ({ children }) => {
+  return <AdminLayout>{children}</AdminLayout>
+}
 
 const Pages = () => {
   return (
