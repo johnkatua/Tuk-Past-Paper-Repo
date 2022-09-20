@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSchool } from 'react-icons/fa';
 import { BsListUl, BsNewspaper } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 
 const menus = [
   {
@@ -11,12 +12,12 @@ const menus = [
   {
     name: 'Courses',
     icon: <BsListUl />,
-    path: '/admin-dashboard',
+    path: '/courses',
   },
   {
     name: 'Papers',
     icon: <BsNewspaper />,
-    path: '/admin-dashboard',
+    path: '/admin-papers',
   }
 ]
 
@@ -26,10 +27,10 @@ const Sidebar = () => {
       <ul>
         {menus.map((item) => (
           <li>
-            <div className='sidebar--items'>
+            <NavLink to={item.path} className='sidebar--items' activeStyle={{ color: 'blue' }}>
               <span className='sidebar--icon'>{item.icon}</span>
               <span className='sidebar--name'>{item.name}</span>
-            </div>
+            </NavLink>
           </li>
         ))}
       </ul>
