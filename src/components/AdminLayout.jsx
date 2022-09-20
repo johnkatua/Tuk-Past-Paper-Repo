@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);
-  console.log(show);
 
   const handleSidebar = () => {
     if (!show) {
@@ -14,7 +13,10 @@ const AdminLayout = ({ children }) => {
   return (
     <div className="admin--layout">
       <div className="admin--layout__header" onClick={handleSidebar}>
-        Header
+        <div className="admin--title">
+          A
+        </div>
+        <div className="admin--auth">B</div>
       </div>
       <div className="admin--layout__body">
         <div

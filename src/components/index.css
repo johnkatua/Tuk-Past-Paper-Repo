@@ -96,6 +96,22 @@
   box-shadow: 0px 1px 28px var(--gray);
 }
 
+.admin--title {
+  background-color: violet;
+  height: auto;
+  flex-basis: 92%;
+  margin-left: 4%;
+}
+
+.admin--auth {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: green;
+  flex-grow: 1;
+  margin-right: 4%;
+}
+
 .admin--layout__body {
   display: flex;
   position: absolute;
