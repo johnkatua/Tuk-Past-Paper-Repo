@@ -26,7 +26,8 @@ body {
   --white: hsl(0, 0%, 98%);
   --gray: hsl(0, 0%, 41%);
   --black: hsl(0, 0%, 8%);
-  --blue: rgb(62, 84, 164);
+  --blue: rgb(99, 121, 202);
+  --light-gray: rgb(232, 232, 248);
 }
 
 img {

@@ -81,7 +81,6 @@
 .admin--layout {
   position: relative;
   height: auto;
-  background-color: burlywood;
 }
 
 .admin--layout__header {
@@ -90,8 +89,9 @@
   right: 0;
   left: 0;
   height: 65px;
-  background-color: coral;
+  background-color: var(--blue);
   z-index: 1;
+  box-shadow: 0px 1px 28px var(--gray);
 }
 
 .admin--layout__body {
@@ -101,12 +101,12 @@
   left: 0;
   right: 0;
   height: 50rem;
-  background-color: cornflowerblue;
+  background-color: var(--light-gray);
 }
 
 .admin--sidebar {
-  background-color: crimson;
   width: 15%;
+  background-color: var(--white);
 }
 
 .admin--sidebar__closed {
@@ -114,9 +114,7 @@
 }
 
 .admin--content {
-  background-color: cyan;
   width: 85%;
-  padding: 2rem;
 }
 
 .admin--content__opened {
