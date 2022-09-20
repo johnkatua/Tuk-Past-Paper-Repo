@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineUser } from 'react-icons/ai';
+import { BsList } from 'react-icons/bs';
 
 const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -15,7 +16,12 @@ const AdminLayout = ({ children }) => {
     <div className="admin--layout">
       <div className="admin--layout__header" onClick={handleSidebar}>
         <div className="admin--title">
-          A
+          <div className="admin--icon">
+            <BsList />
+          </div>
+          <div className="admin--content">
+            Tuk Admin Dashboard
+          </div>
         </div>
         <div className="admin--auth">
           <AiOutlineUser />

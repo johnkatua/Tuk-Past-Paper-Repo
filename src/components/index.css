@@ -97,10 +97,19 @@
 }
 
 .admin--title {
+  display: flex;
+  align-items: center;
   background-color: violet;
   height: auto;
   flex-basis: 92%;
   margin-left: 4%;
+}
+
+.admin--icon {
+  background-color: white;
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 3%;
 }
 
 .admin--auth {
