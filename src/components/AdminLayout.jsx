@@ -14,12 +14,12 @@ const AdminLayout = ({ children }) => {
   };
   return (
     <div className="admin--layout">
-      <div className="admin--layout__header" onClick={handleSidebar}>
+      <div className="admin--layout__header">
         <div className="admin--title">
-          <div className="admin--icon">
+          <div className="admin--icon"  onClick={handleSidebar}>
             <BsList />
           </div>
-          <div className="admin--content">
+          <div className="admin--title__content">
             Tuk Admin Dashboard
           </div>
         </div>
