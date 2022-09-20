@@ -164,5 +164,20 @@
 
 /* Sidebar */
 .sidebar {
-  background-color: turquoise;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--blue);
+  cursor: pointer;
 }

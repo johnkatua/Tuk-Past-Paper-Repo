@@ -22,7 +22,18 @@ const menus = [
 
 const Sidebar = () => {
   return (
-    <div className='sidebar'>Sidebar</div>
+    <div className='sidebar'>
+      <ul>
+        {menus.map((item) => (
+          <li>
+            <div>
+              <span>{item.icon}</span>
+              <span>{item.name}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
