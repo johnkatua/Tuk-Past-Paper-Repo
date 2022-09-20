@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AiOutlineUser } from 'react-icons'
 
 const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -16,7 +17,9 @@ const AdminLayout = ({ children }) => {
         <div className="admin--title">
           A
         </div>
-        <div className="admin--auth">B</div>
+        <div className="admin--auth">
+
+        </div>
       </div>
       <div className="admin--layout__body">
         <div
