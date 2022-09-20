@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 const AdminLayout = () => {
   const [show, setShow] = useState(false);
-  console.log(show);
 
   const handleSidebar = () => {
     if(!show) {
