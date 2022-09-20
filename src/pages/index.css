@@ -218,10 +218,15 @@ td {
   background-color: var(--white);
   width: 100%;
   border-radius: 5px;
+  padding: 1rem 2rem;
 }
 
 .admin--dashboard__details {
   background-color: var(--white);
   width: 100%;
   border-radius: 5px;
+}
+
+.admin--list__header {
+  text-decoration: underline;
 }
