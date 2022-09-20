@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiOutlineUser } from 'react-icons'
+import { AiOutlineUser } from 'react-icons/ai'
 
 const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Cookies } from "react-cookie";
 import Tooltip from "./Tooltip";
 import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 import { getUserProfile } from "../features/auth/authSlice";
