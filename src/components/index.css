@@ -110,15 +110,15 @@
 }
 
 .admin--sidebar__closed {
-  width: 0;
+  display: none;
 }
 
 .admin--content {
   background-color: cyan;
   width: 85%;
+  padding: 2rem;
 }
 
 .admin--content__opened {
   width: 100%;
-  background-color: darkblue;
 }
