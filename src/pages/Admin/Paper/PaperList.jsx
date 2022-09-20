@@ -1,6 +1,9 @@
-import React from 'react'
+import { useSelector } from "react-redux"
 
 const PaperList = () => {
+  const { papers } = useSelector((state) => state.papers);
+
+  console.log(papers);
   return (
     <div className='admin--dashboard__list'>
       <h3 className='admin--list__header'>Paper List</h3>

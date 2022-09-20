@@ -230,3 +230,8 @@ td {
 .admin--list__header {
   text-decoration: underline;
 }
+
+.admin--list {
+  background-color: wheat;
+  padding: 1rem 0;
+}
