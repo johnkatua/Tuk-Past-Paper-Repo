@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiOutlineUser } from 'react-icons/ai';
 import { BsList } from 'react-icons/bs';
+import Sidebar from "./Sidebar";
 
 const AdminLayout = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -31,7 +32,7 @@ const AdminLayout = ({ children }) => {
         <div
           className={`${show ? "admin--sidebar__closed" : "admin--sidebar"}`}
         >
-          Sidebar
+          <Sidebar /> Hello
         </div>
         <div
           className={`${show ? "admin--content__opened" : "admin--content"}`}

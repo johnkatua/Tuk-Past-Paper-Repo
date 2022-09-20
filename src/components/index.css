@@ -160,3 +160,9 @@
 .admin--content__opened {
   width: 100%;
 }
+
+
+/* Sidebar */
+.sidebar {
+  background-color: turquoise;
+}

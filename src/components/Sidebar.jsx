@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSchool } from 'react-icons/fa';
-import { IoNewspaperSharp, IoList } from 'react-icons/io';
+import { BsListUl, BsNewspaper } from 'react-icons/bs';
 
 const menus = [
   {
@@ -10,19 +10,19 @@ const menus = [
   },
   {
     name: 'Courses',
-    icon: <IoList />,
+    icon: <BsListUl />,
     path: '/admin-dashboard',
   },
   {
     name: 'Papers',
-    icon: <IoNewspaperSharp />,
+    icon: <BsNewspaper />,
     path: '/admin-dashboard',
   }
 ]
 
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <div className='sidebar'>Sidebar</div>
   )
 }
 
