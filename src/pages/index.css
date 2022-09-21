@@ -249,3 +249,11 @@ td {
   padding: 1rem 0;
   width: 90%;
 }
+
+.list--header {
+  font-weight: 500;
+}
+
+.list--details {
+  font-size: 13px;
+}

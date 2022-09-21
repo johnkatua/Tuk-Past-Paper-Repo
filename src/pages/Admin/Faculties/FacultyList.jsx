@@ -18,8 +18,8 @@ const FacultyList = () => {
         {faculties.map((faculty) => (
           <li key={faculty._id}>
             <div className="admin--list">
-                <div>{faculty.name}</div>
-                <div>{faculty.description}</div>
+                <div className="list--header">{faculty.name}</div>
+                <div className="list--details">{faculty.description}</div>
             </div>
             <div>
               Delete
