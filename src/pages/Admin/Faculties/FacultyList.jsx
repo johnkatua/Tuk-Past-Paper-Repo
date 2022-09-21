@@ -22,7 +22,7 @@ const FacultyList = () => {
       <ul>
         {faculties.map((faculty) => (
           <li key={faculty._id}>
-            <div className="admin--list" onClick={() => setFacultyId(faculty._id)}>
+            <div className="admin--list" onClick={() => dispatch(getSelectedFaculty(faculty))}>
                 <div className="list--header">{faculty.name}</div>
                 <div className="list--details">{faculty.description}</div>
             </div>

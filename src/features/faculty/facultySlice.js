@@ -28,7 +28,7 @@ export const facultySlice = createSlice({
   initialState,
   reducers: {
     getSelectedFaculty: (state, action) => {
-      state.faculty = state.faculties.find((faculty) => faculty._id === id);
+      state.faculty = action.payload;
     }
   },
   extraReducers(builder) {
