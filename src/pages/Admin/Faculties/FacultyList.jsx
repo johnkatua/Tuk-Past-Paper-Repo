@@ -1,7 +1,7 @@
 import React from "react";
 
 const FacultyList = () => {
-  return <div>FacultyList</div>;
+  return <div className="admin--dashboard__list">FacultyList</div>;
 };
 
 export default FacultyList;
