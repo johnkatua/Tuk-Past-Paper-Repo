@@ -23,7 +23,7 @@ const FacultyList = () => {
                 <div className="list--header">{faculty.name}</div>
                 <div className="list--details">{faculty.description}</div>
             </div>
-            <IconContext.Provider value={{ color: 'red', size: '1.2rem' }}>
+            <IconContext.Provider value={{ color: 'red', size: '1.2rem', title: 'Delete' }}>
               <div className="list--delete">
               <AiOutlineDelete />
             </div>

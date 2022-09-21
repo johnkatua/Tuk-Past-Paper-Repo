@@ -259,6 +259,13 @@ td {
   padding: 1rem 2rem;
 }
 
+.details--header {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
 .form--container__group {
   margin-bottom: 30px;
   width: 100%;
@@ -288,3 +295,17 @@ td {
   background-color: inherit;
 }
 
+.form--container__btns {
+  display: flex;
+  gap: 2rem;
+}
+
+.details--btn {
+  background-color: inherit;
+  padding: 5px 25px;
+  outline: none;
+  border: none;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 3px;
+}
