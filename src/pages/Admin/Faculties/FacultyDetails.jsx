@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const FacultyDetails = () => {
   const [title, setTitle] = useState('Select a faculty')
   const { faculty } = useSelector((state) => state.faculty);
-  console.log(faculty);
   const [selectedFaculty, setSelectedFaculty] = useState(null);
   console.log('selected', selectedFaculty);
   const [item, setItem] = useState({
@@ -40,10 +39,6 @@ const FacultyDetails = () => {
       description: ""
     });
   };
-
-  console.log('title', title)
-
-  console.log('selected', selectedFaculty);
   
   return (
     <div className="admin--dashboard__details">
