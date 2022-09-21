@@ -1,15 +1,12 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties, getSelectedFaculty } from "../../../features/faculty/facultySlice";
 import { AiOutlineDelete } from 'react-icons/ai';
 import { IconContext } from "react-icons";
 
 const FacultyList = () => {
-  const [facultyId, setFacultyId] = useState('');
-  console.log(facultyId)
   const dispatch = useDispatch();
-  const { faculties, faculty } = useSelector((state) => state.faculty);
-  console.log(faculty)
+  const { faculties } = useSelector((state) => state.faculty);
   useEffect(() => {
     if (faculties.length === 0) {
       dispatch(fetchFaculties());
