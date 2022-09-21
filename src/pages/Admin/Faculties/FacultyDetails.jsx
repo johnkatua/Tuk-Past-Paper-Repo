@@ -8,9 +8,14 @@ const FacultyDetails = () => {
     name: faculty?.name,
     acronym: faculty?.acronym,
     description: faculty?.description
-  })
+  });
 
-  console.log(item);
+  const handleChange = e => {
+    setItem((item) => ({
+      ...item,
+      [e.target.name]: e.target.value
+    }))
+  }
 
   useEffect(() => {
     if (faculty !== null) {
@@ -25,15 +30,15 @@ const FacultyDetails = () => {
       </div>
       <div className="form--container__group">
         <label>Name</label>
-        <input type="text" name="name" placeholder="name" value={item.name} />
+        <input type="text" name="name" placeholder="name" value={item.name} onChange={handleChange} />
       </div>
       <div className="form--container__group">
         <label>Acronym</label>
-        <input type="text" name="acronym" placeholder="acronym" value={item.acronym} />
+        <input type="text" name="acronym" placeholder="acronym" value={item.acronym} onChange={handleChange} />
       </div>
       <div className="form--container__group">
         <label>Description</label>
-        <textarea placeholder="description" name="description" value={item.description}></textarea>
+        <textarea placeholder="description" name="description" value={item.description} onChange={handleChange}></textarea>
       </div>
       <div className="form--container__btns">
         <button className="details--btn">Save</button>
