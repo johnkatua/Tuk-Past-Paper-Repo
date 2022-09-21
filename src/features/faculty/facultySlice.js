@@ -27,8 +27,10 @@ export const facultySlice = createSlice({
   name: "faculty",
   initialState,
   reducers: {
-    getSelectedFaculty: (state, id) => {
-      state.faculty = state.faculties.find((faculty) => faculty.id === id);
+    getSelectedFaculty: (state, action) => {
+      const { id } = action.payload;
+      state.faculty = state.faculties.find((faculty) => faculty._id === id);
+      console.log(state.faculty);
     }
   },
   extraReducers(builder) {
@@ -43,3 +45,7 @@ export default facultySlice.reducer;
 export const getFacultyStatus = (state) => state.faculty.status;
 
 export const { getSelectedFaculty } = facultySlice.actions;
+
+export const selectFacultyById = (state, id) => {
+  return state.faculties.find((faculty) => faculty._id === id);
+}
