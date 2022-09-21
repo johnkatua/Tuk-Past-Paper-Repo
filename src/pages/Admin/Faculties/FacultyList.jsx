@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties, getSelectedFaculty } from "../../../features/faculty/facultySlice";
 import { AiOutlineDelete } from 'react-icons/ai';
 import { IconContext } from "react-icons";
 
 const FacultyList = () => {
+  const [facultyId, setFacultyId] = useState('');
+  console.log(facultyId)
   const dispatch = useDispatch();
   const { faculties, faculty } = useSelector((state) => state.faculty);
   console.log(faculty)
@@ -20,7 +22,7 @@ const FacultyList = () => {
       <ul>
         {faculties.map((faculty) => (
           <li key={faculty._id}>
-            <div className="admin--list" onClick={() => dispatch(getSelectedFaculty(faculty._id))}>
+            <div className="admin--list" onClick={() => setFacultyId(faculty._id)}>
                 <div className="list--header">{faculty.name}</div>
                 <div className="list--details">{faculty.description}</div>
             </div>
