@@ -221,6 +221,19 @@ td {
   padding: 1rem 2rem;
 }
 
+.admin--dashboard__list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin--dashboard__list ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+
 .admin--dashboard__details {
   background-color: var(--white);
   width: 100%;
@@ -234,4 +247,5 @@ td {
 .admin--list {
   background-color: wheat;
   padding: 1rem 0;
+  width: 90%;
 }

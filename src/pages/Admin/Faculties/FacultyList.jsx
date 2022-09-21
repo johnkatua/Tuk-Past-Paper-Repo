@@ -14,7 +14,19 @@ const FacultyList = () => {
   return (
     <div className="admin--dashboard__list">
       <h3 className="admin--list__header">Faculties</h3>
-      <div className="admin--list">A</div>
+      <ul>
+        {faculties.map((faculty) => (
+          <li key={faculty._id}>
+            <div className="admin--list">
+                <div>{faculty.name}</div>
+                <div>{faculty.description}</div>
+            </div>
+            <div>
+              Delete
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
