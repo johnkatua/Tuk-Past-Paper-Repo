@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import FacultyDetails from "./FacultyDetails";
+import FacultyList from "./FacultyList";
 
 const FacultyPage = () => {
   return (
-    <div>FacultyPage</div>
-  )
-}
+    <div className="admin--container">
+      <FacultyList />
+      <FacultyDetails />
+    </div>
+  );
+};
 
 export default FacultyPage;

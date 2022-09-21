@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const PaperDetails = () => {
-  return (
-    <div className='admin--dashboard__details'>PaperDetails</div>
-  )
-}
+  return <div className="admin--dashboard__details">PaperDetails</div>;
+};
 
 export default PaperDetails;
