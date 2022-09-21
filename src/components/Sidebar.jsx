@@ -26,7 +26,7 @@ const Sidebar = () => {
     <div className="sidebar">
       <ul>
         {menus.map((item) => (
-          <li>
+          <li key={item.name}>
             <NavLink
               to={item.path}
               className={(data) =>
