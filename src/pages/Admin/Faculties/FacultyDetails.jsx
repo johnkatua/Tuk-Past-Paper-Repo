@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 const FacultyDetails = () => {
   const [title, setTitle] = useState('Select a faculty')
   const { faculty } = useSelector((state) => state.faculty);
-  console.log(faculty)
+  console.log(faculty);
+  const [selectedFaculty, setSelectedFaculty] = useState(null);
+  console.log('selected', selectedFaculty);
   const [item, setItem] = useState({
     name: "",
     acronym: "",
@@ -20,21 +22,33 @@ const FacultyDetails = () => {
 
   useEffect(() => {
     if (faculty !== null) {
-      setTitle(faculty.name);
+      setSelectedFaculty(faculty);
+    }
+    if (selectedFaculty) {
       setItem({
-        name: faculty.name,
-        acronym: faculty.acronym,
-        description: faculty.description
+        name: selectedFaculty.name,
+        acronym: selectedFaculty.acronym,
+        description: selectedFaculty.description
       })
     }
-  }, [title, faculty]);
+  }, [faculty, selectedFaculty]);
 
-  
+  const handleRemove = () => {
+    setItem({
+      name: "",
+      acronym: "",
+      description: ""
+    });
+  };
+
+  console.log('title', title)
+
+  console.log('selected', selectedFaculty);
   
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">
-        {title}
+        {selectedFaculty ? selectedFaculty.name : title}
       </div>
       <div className="form--container__group">
         <label>Name</label>
@@ -50,7 +64,7 @@ const FacultyDetails = () => {
       </div>
       <div className="form--container__btns">
         <button className="details--btn">Save</button>
-        <button className="details--btn">Cancel</button>
+        <button className="details--btn" onClick={() => handleRemove()}>Cancel</button>
       </div>
     </div>
     );
