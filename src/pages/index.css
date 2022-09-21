@@ -245,9 +245,10 @@ td {
 }
 
 .admin--list {
-  background-color: wheat;
   padding: 1rem 0;
   width: 90%;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .list--header {
