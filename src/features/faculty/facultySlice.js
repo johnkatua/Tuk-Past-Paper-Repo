@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   faculties: [],
-  faculty: {},
+  faculty: null,
   status: "idle",
 };
 
@@ -43,7 +43,3 @@ export default facultySlice.reducer;
 export const getFacultyStatus = (state) => state.faculty.status;
 
 export const { getSelectedFaculty } = facultySlice.actions;
-
-export const selectFacultyById = (state, id) => {
-  return state.faculties.find((faculty) => faculty._id === id);
-}
