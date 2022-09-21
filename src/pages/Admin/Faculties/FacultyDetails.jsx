@@ -22,6 +22,8 @@ const FacultyDetails = () => {
       setTitle(faculty.name);
     }
   }, [title, faculty])
+
+  console.log(item);
   
   return (
     <div className="admin--dashboard__details">
@@ -30,15 +32,15 @@ const FacultyDetails = () => {
       </div>
       <div className="form--container__group">
         <label>Name</label>
-        <input type="text" name="name" placeholder="name" value={item.name} onChange={handleChange} />
+        <input type="text" name="name" placeholder="name" value={item.name || ''} onChange={handleChange} />
       </div>
       <div className="form--container__group">
         <label>Acronym</label>
-        <input type="text" name="acronym" placeholder="acronym" value={item.acronym} onChange={handleChange} />
+        <input type="text" name="acronym" placeholder="acronym" value={item.acronym || ''} onChange={handleChange} />
       </div>
       <div className="form--container__group">
         <label>Description</label>
-        <textarea placeholder="description" name="description" value={item.description} onChange={handleChange}></textarea>
+        <textarea placeholder="description" name="description" value={item.description || ''} onChange={handleChange}></textarea>
       </div>
       <div className="form--container__btns">
         <button className="details--btn">Save</button>
