@@ -233,13 +233,6 @@ td {
   margin-bottom: 3px;
 }
 
-
-.admin--dashboard__details {
-  background-color: var(--white);
-  width: 100%;
-  border-radius: 5px;
-}
-
 .admin--list__header {
   text-decoration: underline;
 }
@@ -257,5 +250,41 @@ td {
 
 .list--details {
   font-size: 13px;
+}
+
+.admin--dashboard__details {
+  background-color: var(--white);
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+}
+
+.form--container__group {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.form--container__group label {
+  display: none;
+}
+
+.form--container__group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  outline: none;
+  padding: 2px 20px;
+  font-size: 12px;
+  background-color: inherit;
+}
+
+.form--container__group textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  outline: none;
+  padding: 2px 20px;
+  font-size: 12px;
+  background-color: inherit;
 }
 
