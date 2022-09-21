@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
+import { AiOutlineDelete } from 'react-icons/ai';
 
 const FacultyList = () => {
   const dispatch = useDispatch();
@@ -21,8 +22,8 @@ const FacultyList = () => {
                 <div className="list--header">{faculty.name}</div>
                 <div className="list--details">{faculty.description}</div>
             </div>
-            <div>
-              Delete
+            <div className="list--delete">
+              <AiOutlineDelete />
             </div>
           </li>
         ))}
