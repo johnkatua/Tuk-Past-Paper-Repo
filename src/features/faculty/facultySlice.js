@@ -6,6 +6,7 @@ const initialState = {
   faculties: [],
   faculty: null,
   status: "idle",
+  error: null,
 };
 
 export const fetchFaculties = createAsyncThunk(
@@ -54,6 +55,12 @@ export const facultySlice = createSlice({
     builder.addCase(fetchFaculties.fulfilled, (state, action) => {
       state.faculties = action.payload.data;
     });
+    builder.addCase(createFaculty.fulfilled, (state, action) => {
+      state.faculties.push(action.payload.data)
+    });
+    builder.addCase(createFaculty.rejected, (state, action) => {
+      state.error = action.payload
+    })
   },
 });
 
