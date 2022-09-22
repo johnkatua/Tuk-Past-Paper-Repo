@@ -29,3 +29,12 @@ export const validatePaperDetails = (paper) => {
   });
   return schema.validate(paper);
 };
+
+export const validateFacultyDetails = (faculty) => {
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    acronym: yup.string().required(),
+    description: yup.string().required()
+  });
+  return schema.validate(faculty);
+};
