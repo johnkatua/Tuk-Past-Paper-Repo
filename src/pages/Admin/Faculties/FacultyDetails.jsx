@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { createFaculty } from "../../../features/faculty/facultySlice";
 
 const FacultyDetails = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState("Select a faculty");
   const { faculty } = useSelector((state) => state.faculty);
   const [selectedFaculty, setSelectedFaculty] = useState(null);
@@ -39,6 +41,10 @@ const FacultyDetails = () => {
     });
   };
 
+  const handleSubmit = () => {
+    dispatch(createFaculty(item));
+  }
+
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">
@@ -74,7 +80,7 @@ const FacultyDetails = () => {
         ></textarea>
       </div>
       <div className="form--container__btns">
-        <button className="details--btn">Save</button>
+        <button className="details--btn" onClick={() => handleSubmit()}>Save</button>
         <button className="details--btn" onClick={() => handleRemove()}>
           Cancel
         </button>

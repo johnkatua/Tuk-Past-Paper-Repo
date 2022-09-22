@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { validateFacultyDetails } from "../../helpers/validation";
 
 const initialState = {
   faculties: [],
@@ -29,7 +30,8 @@ export const createFaculty = createAsyncThunk(
   "faculty/createFaculty",
   async (values, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem('token')
+      await validateFacultyDetails(values);
+      const token = localStorage.getItem('token');
       const response = await axios.post("http://localhost:4001/faculty/createFaculty", values, {
         headers: {
           Authorization: `Bearer ${token}`
