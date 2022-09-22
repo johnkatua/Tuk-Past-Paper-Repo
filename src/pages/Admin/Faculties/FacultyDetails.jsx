@@ -5,7 +5,6 @@ const FacultyDetails = () => {
   const [title, setTitle] = useState("Select a faculty");
   const { faculty } = useSelector((state) => state.faculty);
   const [selectedFaculty, setSelectedFaculty] = useState(null);
-  console.log("selected", selectedFaculty);
   const [item, setItem] = useState({
     name: "",
     acronym: "",
