@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFaculties, getSelectedFaculty } from "../../../features/faculty/facultySlice";
-import { AiOutlineDelete } from 'react-icons/ai';
+import {
+  fetchFaculties,
+  getSelectedFaculty,
+} from "../../../features/faculty/facultySlice";
+import { AiOutlineDelete } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
 const FacultyList = () => {
@@ -19,14 +22,19 @@ const FacultyList = () => {
       <ul>
         {faculties.map((faculty) => (
           <li key={faculty._id}>
-            <div className="admin--list" onClick={() => dispatch(getSelectedFaculty(faculty))}>
-                <div className="list--header">{faculty.name}</div>
-                <div className="list--details">{faculty.description}</div>
+            <div
+              className="admin--list"
+              onClick={() => dispatch(getSelectedFaculty(faculty))}
+            >
+              <div className="list--header">{faculty.name}</div>
+              <div className="list--details">{faculty.description}</div>
             </div>
-            <IconContext.Provider value={{ color: 'red', size: '1.2rem', title: 'Delete' }}>
+            <IconContext.Provider
+              value={{ color: "red", size: "1.2rem", title: "Delete" }}
+            >
               <div className="list--delete">
-              <AiOutlineDelete />
-            </div>
+                <AiOutlineDelete />
+              </div>
             </IconContext.Provider>
           </li>
         ))}

@@ -29,7 +29,7 @@ export const facultySlice = createSlice({
   reducers: {
     getSelectedFaculty: (state, action) => {
       state.faculty = action.payload;
-    }
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchFaculties.fulfilled, (state, action) => {
