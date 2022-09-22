@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const initialState = {
   faculties: [],
@@ -22,6 +23,24 @@ export const fetchFaculties = createAsyncThunk(
     return response.data;
   }
 );
+
+export const createFaculty = createAsyncThunk(
+  "faculty/createFaculty",
+  async (values, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token')
+      const response = await axios.post("http://localhost:4001/faculty/createFaculty", values, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      return response.data
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
 
 export const facultySlice = createSlice({
   name: "faculty",
