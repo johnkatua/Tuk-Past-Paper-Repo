@@ -43,6 +43,24 @@ export const createFaculty = createAsyncThunk(
       return rejectWithValue(error.response.data.msg);
     }
   }
+);
+
+export const deleteFaculty = createAsyncThunk(
+  "faculty/deleteFaculty",
+  async (id, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(`http://localhost:4001/faculty/deleteFaculty/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      return {id}
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
 )
 
 export const facultySlice = createSlice({
@@ -52,6 +70,9 @@ export const facultySlice = createSlice({
     getSelectedFaculty: (state, action) => {
       state.faculty = action.payload;
     },
+    resetFaculty : state=>{
+      state.faculty = null
+    }
   },
   extraReducers(builder) {
     builder.addCase(fetchFaculties.fulfilled, (state, action) => {
@@ -62,6 +83,9 @@ export const facultySlice = createSlice({
     });
     builder.addCase(createFaculty.rejected, (state, action) => {
       state.error = action.payload
+    });
+    builder.addCase(deleteFaculty.fulfilled, (state, action) => {
+      state.faculties = state.faculties.filter(faculty => faculty._id !== action.payload.id);
     })
   },
 });
@@ -70,4 +94,4 @@ export default facultySlice.reducer;
 
 export const getFacultyStatus = (state) => state.faculty.status;
 
-export const { getSelectedFaculty } = facultySlice.actions;
+export const { getSelectedFaculty, resetFaculty } = facultySlice.actions;

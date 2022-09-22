@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createFaculty } from "../../../features/faculty/facultySlice";
+import { createFaculty, resetFaculty } from "../../../features/faculty/facultySlice";
 
 const FacultyDetails = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const FacultyDetails = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
   useEffect(() => {
     if (faculty !== null) {
       setSelectedFaculty(faculty);
@@ -32,8 +32,10 @@ const FacultyDetails = () => {
       });
     }
   }, [faculty, selectedFaculty]);
-
+  
   const handleRemove = () => {
+    setSelectedFaculty(null)
+    dispatch(resetFaculty())
     setItem({
       name: "",
       acronym: "",
@@ -48,7 +50,7 @@ const FacultyDetails = () => {
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">
-        {selectedFaculty ? selectedFaculty.name : title}
+        {selectedFaculty?._id ? selectedFaculty.name : title}
       </div>
       <div className="form--container__group">
         <label>Name</label>
@@ -81,9 +83,12 @@ const FacultyDetails = () => {
       </div>
       <div className="form--container__btns">
         <button className="details--btn" onClick={() => handleSubmit()}>Save</button>
+
+        {selectedFaculty?._id &&
         <button className="details--btn" onClick={() => handleRemove()}>
           Cancel
         </button>
+        }
       </div>
     </div>
   );
