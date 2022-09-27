@@ -50,11 +50,8 @@ const FacultyDetails = () => {
 
   const handleSubmit = () => {
     if (selectedFaculty?._id) {
-      console.log('clicked', selectedFaculty?._id);
       dispatch(updateFaculty({ id: selectedFaculty._id, values: item }));
-      // dispatch(fetchFaculties());
     } else {
-      console.log('not clicked', selectedFaculty?._id);
       dispatch(createFaculty(item));
     }
   };
