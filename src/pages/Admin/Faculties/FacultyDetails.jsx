@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createFaculty,
-  fetchFaculties,
   resetFaculty,
-  updateFaculty
+  updateFaculty,
 } from "../../../features/faculty/facultySlice";
 
 const FacultyDetails = () => {

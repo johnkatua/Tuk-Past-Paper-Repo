@@ -252,6 +252,10 @@ td {
   font-size: 13px;
 }
 
+.list--delete {
+  cursor: pointer;
+}
+
 .admin--dashboard__details {
   background-color: var(--white);
   width: 100%;

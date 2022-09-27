@@ -51,36 +51,37 @@ export const createFaculty = createAsyncThunk(
 
 export const updateFaculty = createAsyncThunk(
   "faculty/updateFaculty",
-  async ({id, values}, { rejectWithValue }) => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:4001/faculty/updateFaculty/${id}`, values, {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-     toast.success(response.data.msg);
-      return { id, values: response.data.data };
-    } catch (error) {
-      toast.error(error.response ? error.response.data.msg : error.message);
-      return rejectWithValue(error.response.data.msg);
-    }
-  }
-)
-
-export const deleteFaculty = createAsyncThunk(
-  "faculty/deleteFaculty",
-  async (id, { rejectWithValue }) => {
+  async ({ id, values }, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(
-        `http://localhost:4001/faculty/deleteFaculty/${id}`,
+      const response = await axios.put(
+        `http://localhost:4001/faculty/updateFaculty/${id}`,
+        values,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      toast.success(response.data.msg);
+      return { id, values: response.data.data };
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
+export const deleteFaculty = createAsyncThunk(
+  "faculty/deleteFaculty",
+  async (id, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`http://localhost:4001/faculty/deleteFaculty/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return { id };
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -111,12 +112,13 @@ export const facultySlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updateFaculty.fulfilled, (state, action) => {
-      state.faculties = state.faculties.map(faculty=>faculty._id === action.payload.id ? action.payload.values : faculty)
-      
+      state.faculties = state.faculties.map((faculty) =>
+        faculty._id === action.payload.id ? action.payload.values : faculty
+      );
     });
     builder.addCase(updateFaculty.rejected, (state, action) => {
-      state.error = action.payload
-    })
+      state.error = action.payload;
+    });
     builder.addCase(deleteFaculty.fulfilled, (state, action) => {
       state.faculties = state.faculties.filter(
         (faculty) => faculty._id !== action.payload.id
