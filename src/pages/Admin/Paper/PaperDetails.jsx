@@ -1,10 +1,20 @@
-import React from "react";
+import { useState } from "react";
 
 const PaperDetails = () => {
+  const [title, setTitle] = useState('Select a paper')
+  const [item, setItem] = useState({
+    name: ''
+  });
+
+  const handleChange = (e) => {
+    console.log('hello');
+  }
+
   return (
         <div className="admin--dashboard__details">
       <div className="details--header">
-        {selectedFaculty?._id ? selectedFaculty.name : title}
+        {title}
+        {/* {selectedFaculty?._id ? selectedFaculty.name : title} */}
       </div>
       <div className="form--container__group">
         <label>Name</label>
@@ -40,11 +50,11 @@ const PaperDetails = () => {
           Save
         </button>
 
-        {selectedFaculty?._id && (
+        {/* {selectedFaculty?._id && (
           <button className="details--btn" onClick={() => handleRemove()}>
             Cancel
           </button>
-        )}
+        )} */}
       </div>
     </div>
   );
