@@ -72,7 +72,7 @@ export const deleteFaculty = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.delete(
+      await axios.delete(
         `http://localhost:4001/faculty/deleteFaculty/${id}`,
         {
           headers: {
