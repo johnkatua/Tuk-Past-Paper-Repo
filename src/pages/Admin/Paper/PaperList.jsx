@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPapers } from "../../../features/paper/paperSlice";
 import { IconContext } from "react-icons";
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineDelete } from "react-icons/ai";
 
 const PaperList = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const PaperList = () => {
 
   useEffect(() => {
     dispatch(fetchPapers({ page: 1, limit: 10 }));
-  }, [])
+  }, []);
 
   console.log(papers);
 

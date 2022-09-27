@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 const PaperDetails = () => {
-  const [title, setTitle] = useState('Select a paper')
+  const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
-    name: ''
+    name: "",
   });
 
   const handleChange = (e) => {
-    console.log('hello');
-  }
+    console.log("hello");
+  };
 
   return (
-        <div className="admin--dashboard__details">
+    <div className="admin--dashboard__details">
       <div className="details--header">
         {title}
         {/* {selectedFaculty?._id ? selectedFaculty.name : title} */}
