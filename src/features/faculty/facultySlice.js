@@ -59,6 +59,7 @@ export const updateFaculty = createAsyncThunk(
           Authorization: `Bearer ${token}`
         }
       })
+     toast.success(response.data.msg);
       return { id, values: response.data.data };
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -113,6 +114,9 @@ export const facultySlice = createSlice({
       state.faculties = state.faculties.map(faculty=>faculty._id === action.payload.id ? action.payload.values : faculty)
       
     });
+    builder.addCase(updateFaculty.rejected, (state, action) => {
+      state.error = action.payload
+    })
     builder.addCase(deleteFaculty.fulfilled, (state, action) => {
       state.faculties = state.faculties.filter(
         (faculty) => faculty._id !== action.payload.id
