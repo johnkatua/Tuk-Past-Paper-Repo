@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPapers } from "../../../features/paper/paperSlice";
+import { IconContext } from "react-icons";
+import { AiOutlineDelete } from 'react-icons/ai';
 
 const PaperList = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ const PaperList = () => {
   return (
     <div className="admin--dashboard__list">
       <h3 className="admin--list__header">Papers</h3>
-      {/* <ul>
+      <ul>
         {papers.map((paper) => (
           <li key={paper._id}>
             <div
@@ -23,7 +25,7 @@ const PaperList = () => {
               // onClick={() => dispatch(getSelectedFaculty(faculty))}
             >
               <div className="list--header">{paper.name}</div>
-              <div className="list--details">{paper.description}</div>
+              <div className="list--details">{paper.status}</div>
             </div>
             <IconContext.Provider
               value={{ color: "red", size: "1.2rem", title: "Delete" }}
@@ -37,7 +39,7 @@ const PaperList = () => {
             </IconContext.Provider>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 };
