@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   createFaculty,
   resetFaculty,
+  updateFaculty
 } from "../../../features/faculty/facultySlice";
 
 const FacultyDetails = () => {
@@ -47,7 +48,11 @@ const FacultyDetails = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(createFaculty(item));
+    if (selectedFaculty?._id) {
+      dispatch(updateFaculty(selectedFaculty._id, item));
+    } else {
+      dispatch(createFaculty(item));
+    }
   };
 
   return (

@@ -109,6 +109,12 @@ export const facultySlice = createSlice({
     builder.addCase(createFaculty.rejected, (state, action) => {
       state.error = action.payload;
     });
+    builder.addCase(updateFaculty.fulfilled, (state, action) => {
+      const existingFaculty = state.faculties.find(faculty => faculty._id === action.payload.id);
+      if (existingFaculty) {
+        state.faculties = state.faculties.push(action.payload.values)
+      }
+    });
     builder.addCase(deleteFaculty.fulfilled, (state, action) => {
       state.faculties = state.faculties.filter(
         (faculty) => faculty._id !== action.payload.id
