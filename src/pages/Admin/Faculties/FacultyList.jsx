@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFaculties,
   getSelectedFaculty,
-  deleteFaculty
+  deleteFaculty,
 } from "../../../features/faculty/facultySlice";
 import { AiOutlineDelete } from "react-icons/ai";
 import { IconContext } from "react-icons";
@@ -33,7 +33,10 @@ const FacultyList = () => {
             <IconContext.Provider
               value={{ color: "red", size: "1.2rem", title: "Delete" }}
             >
-              <div className="list--delete" onClick={() => dispatch(deleteFaculty(faculty._id))}>
+              <div
+                className="list--delete"
+                onClick={() => dispatch(deleteFaculty(faculty._id))}
+              >
                 <AiOutlineDelete />
               </div>
             </IconContext.Provider>

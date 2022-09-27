@@ -31,13 +31,17 @@ export const createFaculty = createAsyncThunk(
   async (values, { rejectWithValue }) => {
     try {
       await validateFacultyDetails(values);
-      const token = localStorage.getItem('token');
-      const response = await axios.post("http://localhost:4001/faculty/createFaculty", values, {
-        headers: {
-          Authorization: `Bearer ${token}`
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        "http://localhost:4001/faculty/createFaculty",
+        values,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
-      return response.data
+      );
+      return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
@@ -49,19 +53,22 @@ export const deleteFaculty = createAsyncThunk(
   "faculty/deleteFaculty",
   async (id, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.delete(`http://localhost:4001/faculty/deleteFaculty/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`
+      const token = localStorage.getItem("token");
+      const response = await axios.delete(
+        `http://localhost:4001/faculty/deleteFaculty/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      })
-      return {id}
+      );
+      return { id };
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
-)
+);
 
 export const facultySlice = createSlice({
   name: "faculty",
@@ -70,23 +77,25 @@ export const facultySlice = createSlice({
     getSelectedFaculty: (state, action) => {
       state.faculty = action.payload;
     },
-    resetFaculty : state=>{
-      state.faculty = null
-    }
+    resetFaculty: (state) => {
+      state.faculty = null;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchFaculties.fulfilled, (state, action) => {
       state.faculties = action.payload.data;
     });
     builder.addCase(createFaculty.fulfilled, (state, action) => {
-      state.faculties.push(action.payload.data)
+      state.faculties.push(action.payload.data);
     });
     builder.addCase(createFaculty.rejected, (state, action) => {
-      state.error = action.payload
+      state.error = action.payload;
     });
     builder.addCase(deleteFaculty.fulfilled, (state, action) => {
-      state.faculties = state.faculties.filter(faculty => faculty._id !== action.payload.id);
-    })
+      state.faculties = state.faculties.filter(
+        (faculty) => faculty._id !== action.payload.id
+      );
+    });
   },
 });
 
