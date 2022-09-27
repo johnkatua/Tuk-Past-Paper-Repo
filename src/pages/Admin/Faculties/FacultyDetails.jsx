@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   createFaculty,
+  fetchFaculties,
   resetFaculty,
   updateFaculty
 } from "../../../features/faculty/facultySlice";
@@ -49,8 +50,11 @@ const FacultyDetails = () => {
 
   const handleSubmit = () => {
     if (selectedFaculty?._id) {
-      dispatch(updateFaculty(selectedFaculty._id, item));
+      console.log('clicked', selectedFaculty?._id);
+      dispatch(updateFaculty({ id: selectedFaculty._id, values: item }));
+      dispatch(fetchFaculties());
     } else {
+      console.log('not clicked', selectedFaculty?._id);
       dispatch(createFaculty(item));
     }
   };

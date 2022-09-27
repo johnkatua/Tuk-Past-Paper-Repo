@@ -110,10 +110,13 @@ export const facultySlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updateFaculty.fulfilled, (state, action) => {
-      const existingFaculty = state.faculties.find(faculty => faculty._id === action.payload.id);
+      let existingFaculty = state.faculties.find(faculty => faculty._id === action.payload.id);
       if (existingFaculty) {
-        state.faculties = state.faculties.push(action.payload.values)
+        existingFaculty = action.payload.values;
       }
+      // if (existingFaculty) {
+      //   state.faculties = state.faculties.push(action.payload.values)
+      // }
     });
     builder.addCase(deleteFaculty.fulfilled, (state, action) => {
       state.faculties = state.faculties.filter(
