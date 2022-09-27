@@ -19,7 +19,7 @@ const PaperList = () => {
       <h3 className="admin--list__header">Papers</h3>
       <ul>
         {papers.map((paper) => (
-          <li key={paper._id}>
+          <li key={paper.id}>
             <div
               className="admin--list"
               // onClick={() => dispatch(getSelectedFaculty(faculty))}
