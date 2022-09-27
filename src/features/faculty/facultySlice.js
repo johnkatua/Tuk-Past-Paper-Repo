@@ -49,6 +49,24 @@ export const createFaculty = createAsyncThunk(
   }
 );
 
+export const updateFaculty = createAsyncThunk(
+  "faculty/updateFaculty",
+  async ({id, values}, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.put(`http://localhost:4001/faculty/updateFaculty/${id}`, values, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      return { id, values };
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
+
 export const deleteFaculty = createAsyncThunk(
   "faculty/deleteFaculty",
   async (id, { rejectWithValue }) => {
