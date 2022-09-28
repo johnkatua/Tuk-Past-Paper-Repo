@@ -19,8 +19,15 @@ const PaperDetails = () => {
   });
 
   const handleChange = (e) => {
-    console.log("hello");
+    setItem((item) => ({
+      ...item,
+      [e.target.name]: e.target.value
+    }))
   };
+
+  const saveFile = e => {
+    setPaperFile(e.target.files[0]);
+  }
 
   useEffect(() => {
     if (faculties.length === 0) {
@@ -28,6 +35,15 @@ const PaperDetails = () => {
     }
     dispatch(fetchCourses());
   }, [faculties]);
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+    formData.append('name', item.name);
+    formData.append('academicYear', item.academicYear);
+    formData.append('status', item.status);
+    formData.append('year', item.year);
+    formData.append('courseId', item.course)
+  }
 
   return (
     <div className="admin--dashboard__details">
@@ -57,9 +73,9 @@ const PaperDetails = () => {
       </div>
       <div className="form--container__group">
         <label>File</label>
-        <input type="file" value={item.academicYear} onChange={handleChange} />
+        <input type="file" name="file" placeholder="File" accept=".pdf" formEncType="multipart/form-data" onChange={saveFile} />
       </div>
-      <div className="form--container__group">
+      <div className="form--container__group" onChange={handleChange}>
         <div>Select Paper Status</div>
         <div className="form--container__status">
           <div className="form--status__firstRow">
