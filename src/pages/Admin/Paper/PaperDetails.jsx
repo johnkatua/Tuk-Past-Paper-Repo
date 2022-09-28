@@ -9,6 +9,7 @@ const PaperDetails = () => {
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
   const { paper } = useSelector((state) => state.papers);
+  console.log(paper);
   const [title, setTitle] = useState("Select a paper");
   const [selectedPaper, setSelectedPaper] = useState(null);
   const [paperFile, setPaperFile] = useState(null);
@@ -35,7 +36,17 @@ const PaperDetails = () => {
   useEffect(() => {
     dispatch(fetchFaculties());
     dispatch(fetchCourses());
-  }, [faculties]);
+    if (paper !== null) {
+      setItem({
+        name: paper.name,
+        academicYear: paper.academicYear,
+        year: paper.year,
+        status: paper.status,
+        facultyId: paper.faculty,
+        courseId: paper.courseCode
+      })
+    }
+  }, [paper, setItem]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -51,12 +62,12 @@ const PaperDetails = () => {
   };
 
   console.log(item);
+  console.log(paperFile);
 
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">
-        {title}
-        {/* {selectedFaculty?._id ? selectedFaculty.name : title} */}
+        {paper.id ? paper.name : title}
       </div>
       <div className="form--container__group">
         <label>Name</label>
@@ -94,11 +105,11 @@ const PaperDetails = () => {
         <div className="form--container__status">
           <div className="form--status__firstRow">
             <span>Main Exam</span>
-            <input type="radio" value="mainExam" name="status" />
+            <input type="radio" value="mainExam" name="status" checked={item.status === "mainExam"} />
           </div>
           <div className="form--status__secondRow">
             <span>Cat</span>
-            <input type="radio" value="cat" name="status" />
+            <input type="radio" value="cat" name="status" checked={item.status === "cat"} />
           </div>
         </div>
       </div>
@@ -109,21 +120,21 @@ const PaperDetails = () => {
           <div className="form--year__firstRow">
             <div className="form--year__firstYear">
               <span>First Year</span>
-              <input type="radio" value="firstYear" name="year" />
+              <input type="radio" value="firstYear" name="year" checked={item.year === "firstYear"} />
             </div>
             <div className="form--year__secondYear">
               <span>Second Year</span>
-              <input type="radio" value="secondYear" name="year" />
+              <input type="radio" value="secondYear" name="year" checked={item.year === "secondYear"} />
             </div>
           </div>
           <div className="form--year__secondRow">
             <div className="form--year__firstYear">
               <span>Third Year</span>
-              <input type="radio" value="thirdYear" name="year" />
+              <input type="radio" value="thirdYear" name="year" checked={item.year === "thirdYear"} />
             </div>
             <div className="form--year__secondYear">
               <span>Fourth Year</span>
-              <input type="radio" value="fourthYear" name="year" />
+              <input type="radio" value="fourthYear" name="year" checked={item.year === "fourthYear"} />
             </div>
           </div>
         </div>
@@ -135,7 +146,7 @@ const PaperDetails = () => {
           {faculties.map((faculty) => (
             <div className="form--faculties">
               <span>{faculty.acronym}</span>
-              <input type="radio" value={faculty._id} name="facultyId" />
+              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty.acronym} />
             </div>
           ))}
         </div>
@@ -145,7 +156,7 @@ const PaperDetails = () => {
         <select size="5" name="courseId" value={item.courseId} onChange={handleChange}>
           <optgroup label="Select a course">
             {courses.map((course) => (
-              <option key={course._id} value={course._id}>
+              <option key={course._id} value={course._id} selected>
                 {course.name}
               </option>
             ))}
@@ -156,12 +167,11 @@ const PaperDetails = () => {
         <button className="details--btn" onClick={() => handleSubmit()}>
           Save
         </button>
-
-        {/* {selectedFaculty?._id && (
+        {paper?.id && (
           <button className="details--btn" onClick={() => handleRemove()}>
             Cancel
           </button>
-        )} */}
+        )}
       </div>
     </div>
   );
