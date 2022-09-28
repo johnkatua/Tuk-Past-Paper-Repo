@@ -61,14 +61,21 @@ const PaperDetails = () => {
       </div>
       <hr />
       <div className="form--container__group">
-        <input type="radio" value="firstYear" name="year" />
-        First Year
-        <input type="radio" value="secondYear" name="year" />
-        Second Year
-        <input type="radio" value="thirdYear" name="year" />
-        Third Year
-        <input type="radio" value="fourthYear" name="year" />
-        Fourth Year
+        <div>Select Paper Year</div>
+        <div className="form--container__year">
+           <div>
+           <input type="radio" value="firstYear" name="year" />
+            First Year
+            <input type="radio" value="secondYear" name="year" />
+            Second Year
+          </div>
+          <div>
+            <input type="radio" value="thirdYear" name="year" />
+            Third Year
+            <input type="radio" value="fourthYear" name="year" />
+            Fourth Year
+          </div>
+        </div>
       </div>
       <div className="form--container__group">
         <label>Description</label>
