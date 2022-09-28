@@ -348,7 +348,7 @@ td {
   display: flex;
   height: 50%;
   align-items: flex-start;
-  margin-bottom: 8px
+  margin-bottom: 8px;
 }
 
 .form--year__secondYear {
@@ -371,5 +371,3 @@ td {
   color: var(--white);
   border-radius: 3px;
 }
-
-

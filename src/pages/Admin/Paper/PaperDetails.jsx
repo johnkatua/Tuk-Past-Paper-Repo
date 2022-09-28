@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const PaperDetails = () => {
+  const { faculties } = useSelector(state => state.faculty);
   const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
     name: "",
@@ -82,6 +84,20 @@ const PaperDetails = () => {
               <span>Fourth Year</span>
               <input type="radio" value="fourthYear" name="year" />
             </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div className="form--container__group">
+        <div>Select Faculty</div>
+        <div className="form--container__status">
+          <div className="form--status__firstRow">
+            <span>Main Exam</span>
+            <input type="radio" value="mainExam" name="status" />
+          </div>
+          <div className="form--status__secondRow">
+            <span>Cat</span>
+            <input type="radio" value="cat" name="status" />
           </div>
         </div>
       </div>
