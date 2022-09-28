@@ -21,13 +21,13 @@ const PaperDetails = () => {
   const handleChange = (e) => {
     setItem((item) => ({
       ...item,
-      [e.target.name]: e.target.value
-    }))
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const saveFile = e => {
+  const saveFile = (e) => {
     setPaperFile(e.target.files[0]);
-  }
+  };
 
   useEffect(() => {
     if (faculties.length === 0) {
@@ -38,12 +38,12 @@ const PaperDetails = () => {
 
   const handleSubmit = async () => {
     const formData = new FormData();
-    formData.append('name', item.name);
-    formData.append('academicYear', item.academicYear);
-    formData.append('status', item.status);
-    formData.append('year', item.year);
-    formData.append('courseId', item.course)
-  }
+    formData.append("name", item.name);
+    formData.append("academicYear", item.academicYear);
+    formData.append("status", item.status);
+    formData.append("year", item.year);
+    formData.append("courseId", item.course);
+  };
 
   return (
     <div className="admin--dashboard__details">
@@ -73,7 +73,14 @@ const PaperDetails = () => {
       </div>
       <div className="form--container__group">
         <label>File</label>
-        <input type="file" name="file" placeholder="File" accept=".pdf" formEncType="multipart/form-data" onChange={saveFile} />
+        <input
+          type="file"
+          name="file"
+          placeholder="File"
+          accept=".pdf"
+          formEncType="multipart/form-data"
+          onChange={saveFile}
+        />
       </div>
       <div className="form--container__group" onChange={handleChange}>
         <div>Select Paper Status</div>
