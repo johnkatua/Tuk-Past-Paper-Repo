@@ -311,6 +311,7 @@ td {
   align-items: center;
   width: 50%;
   font-size: 12px;
+  color: var(--gray);
 }
 
 .form--status__secondRow {
@@ -318,6 +319,7 @@ td {
   align-items: center;
   width: 50%;
   font-size: 12px;
+  color: var(--gray);
 }
 
 .form--container__btns {
