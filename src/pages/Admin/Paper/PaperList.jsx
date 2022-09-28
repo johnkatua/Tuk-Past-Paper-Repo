@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPapers } from "../../../features/paper/paperSlice";
 import { IconContext } from "react-icons";
 import { AiOutlineDelete } from "react-icons/ai";
-import { getSe}
+import { getSelectedPaper } from "../../../features/paper/paperSlice";
 
 const PaperList = () => {
   const dispatch = useDispatch();
-  const { papers } = useSelector((state) => state.papers);
+  const { papers, paper } = useSelector((state) => state.papers);
+  console.log(paper);
 
   useEffect(() => {
     dispatch(fetchPapers({ page: 1, limit: 10 }));
