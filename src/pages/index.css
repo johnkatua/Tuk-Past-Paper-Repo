@@ -299,6 +299,14 @@ td {
   background-color: inherit;
 }
 
+.form--container__status {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  gap: 2rem;
+  background-color: aquamarine;
+}
+
 .form--container__btns {
   display: flex;
   gap: 2rem;
