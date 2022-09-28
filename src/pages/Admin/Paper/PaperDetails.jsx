@@ -4,6 +4,12 @@ const PaperDetails = () => {
   const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
     name: "",
+    academicYear: "",
+    status: '',
+    year: '',
+    file: '',
+    courseId: '',
+    faculty: ''
   });
 
   const handleChange = (e) => {
@@ -27,14 +33,34 @@ const PaperDetails = () => {
         />
       </div>
       <div className="form--container__group">
-        <label>Acronym</label>
+        <label>AcademicYear</label>
         <input
           type="text"
-          name="acronym"
-          placeholder="acronym"
-          value={item.acronym}
+          name="academicYear"
+          placeholder="Academic Year"
+          value={item.academicYear}
           onChange={handleChange}
         />
+      </div>
+       <div className="form--container__group">
+        <label>File</label>
+        <input
+          type="file"
+          value={item.academicYear}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="form--container__group">
+        <div>
+          <input type="radio" value="mainExam" name="status" />Main Exam
+        <input type="radio" value="cat" name="status" />Cat
+        </div>
+      </div>
+       <div className="form--container__group">
+        <input type="radio" value="firstYear" name="year" />First Year
+        <input type="radio" value="secondYear" name="year" />Second Year
+        <input type="radio" value="thirdYear" name="year" />Third Year
+        <input type="radio" value="fourthYear" name="year" />Fourth Year
       </div>
       <div className="form--container__group">
         <label>Description</label>
