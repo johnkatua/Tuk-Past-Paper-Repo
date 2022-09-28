@@ -5,11 +5,11 @@ const PaperDetails = () => {
   const [item, setItem] = useState({
     name: "",
     academicYear: "",
-    status: '',
-    year: '',
-    file: '',
-    courseId: '',
-    faculty: ''
+    status: "",
+    year: "",
+    file: "",
+    courseId: "",
+    faculty: "",
   });
 
   const handleChange = (e) => {
@@ -42,25 +42,29 @@ const PaperDetails = () => {
           onChange={handleChange}
         />
       </div>
-       <div className="form--container__group">
+      <div className="form--container__group">
         <label>File</label>
-        <input
-          type="file"
-          value={item.academicYear}
-          onChange={handleChange}
-        />
+        <input type="file" value={item.academicYear} onChange={handleChange} />
       </div>
       <div className="form--container__group">
+        <div>Select Paper Status</div>
         <div>
-          <input type="radio" value="mainExam" name="status" />Main Exam
-        <input type="radio" value="cat" name="status" />Cat
+          <input type="radio" value="mainExam" name="status" />
+          Main Exam
+          <input type="radio" value="cat" name="status" />
+          Cat
         </div>
       </div>
-       <div className="form--container__group">
-        <input type="radio" value="firstYear" name="year" />First Year
-        <input type="radio" value="secondYear" name="year" />Second Year
-        <input type="radio" value="thirdYear" name="year" />Third Year
-        <input type="radio" value="fourthYear" name="year" />Fourth Year
+      <hr />
+      <div className="form--container__group">
+        <input type="radio" value="firstYear" name="year" />
+        First Year
+        <input type="radio" value="secondYear" name="year" />
+        Second Year
+        <input type="radio" value="thirdYear" name="year" />
+        Third Year
+        <input type="radio" value="fourthYear" name="year" />
+        Fourth Year
       </div>
       <div className="form--container__group">
         <label>Description</label>
