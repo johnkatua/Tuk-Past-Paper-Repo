@@ -5,8 +5,8 @@ import { fetchCourses } from "../../../features/course/courseSlice";
 
 const PaperDetails = () => {
   const dispatch = useDispatch();
-  const { faculties } = useSelector(state => state.faculty);
-  const { courses } = useSelector(state => state.courses);
+  const { faculties } = useSelector((state) => state.faculty);
+  const { courses } = useSelector((state) => state.courses);
   console.log(courses);
   const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
@@ -24,8 +24,8 @@ const PaperDetails = () => {
   };
 
   useEffect(() => {
-    if(faculties.length === 0) {
-      dispatch(fetchFaculties())
+    if (faculties.length === 0) {
+      dispatch(fetchFaculties());
     }
     dispatch(fetchCourses());
   }, [faculties]);
@@ -104,11 +104,11 @@ const PaperDetails = () => {
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
-          <div className="form--faculties">
-            <span>{faculty.acronym}</span>
-            <input type="radio" value={faculty._id} name="facultyId" />
-          </div>
-        ))}
+            <div className="form--faculties">
+              <span>{faculty.acronym}</span>
+              <input type="radio" value={faculty._id} name="facultyId" />
+            </div>
+          ))}
         </div>
       </div>
       <hr />
@@ -116,7 +116,9 @@ const PaperDetails = () => {
         <select size="5">
           <optgroup label="Select a course">
             {courses.map((course) => (
-              <option key={course._id} value={course.name}>{course.name}</option>
+              <option key={course._id} value={course.name}>
+                {course.name}
+              </option>
             ))}
           </optgroup>
         </select>
