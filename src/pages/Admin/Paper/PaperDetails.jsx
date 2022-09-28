@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchFaculties } from "../../../features/faculty/facultySlice";
 
 const PaperDetails = () => {
+  const dispatch = useDispatch();
   const { faculties } = useSelector(state => state.faculty);
+  console.log(faculties);
   const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
     name: "",
@@ -17,6 +20,12 @@ const PaperDetails = () => {
   const handleChange = (e) => {
     console.log("hello");
   };
+
+  useEffect(() => {
+    if(faculties.length === 0) {
+      dispatch(fetchFaculties())
+    }
+  }, [faculties]);
 
   return (
     <div className="admin--dashboard__details">
@@ -90,7 +99,15 @@ const PaperDetails = () => {
       <hr />
       <div className="form--container__group">
         <div>Select Faculty</div>
-        <div className="form--container__status">
+        <div>
+          {faculties.map((faculty) => (
+          <>
+            <span>{faculty.acronym}</span>
+            <input type="radio" value={faculty._id} name="facultyId" />
+          </>
+        ))}
+        </div>
+        {/* <div className="form--container__status">
           <div className="form--status__firstRow">
             <span>Main Exam</span>
             <input type="radio" value="mainExam" name="status" />
@@ -99,7 +116,7 @@ const PaperDetails = () => {
             <span>Cat</span>
             <input type="radio" value="cat" name="status" />
           </div>
-        </div>
+        </div> */}
       </div>
       <hr />
       <div className="form--container__btns">
