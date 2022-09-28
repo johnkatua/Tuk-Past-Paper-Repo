@@ -288,6 +288,7 @@ td {
   border-radius: 5px;
   box-shadow: 0px 12px 37px -12px rgba(94, 65, 65, 0.64);
   overflow-y: hidden;
+  outline: none;
 }
 
 .form--container__group option {
