@@ -8,7 +8,6 @@ const PaperDetails = () => {
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
-  console.log(courses);
   const [title, setTitle] = useState("Select a paper");
   const [paperFile, setPaperFile] = useState(null);
   const [item, setItem] = useState({

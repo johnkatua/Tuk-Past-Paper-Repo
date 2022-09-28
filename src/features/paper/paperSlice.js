@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const initialState = {
   papers: [],
   status: "idle",
+  paper: {},
   currentPage: 1,
   totalPages: 0,
   error: null,
@@ -50,18 +51,9 @@ export const paperSlice = createSlice({
   name: "papers",
   initialState,
   reducers: {
-    paperAdded: {
-      reducer(state, action) {
-        state.papers.push(action.payload);
-      },
-    },
-    paperUpdated(state, action) {
-      const { id, name } = action.payload;
-      const existingPaper = state.papers.find((paper) => paper.id === id);
-      if (existingPaper) {
-        existingPaper.name = name;
-      }
-    },
+    getSelectedPaper: (state, action) => {
+      state.paper = action.payload
+    }
   },
   extraReducers(builder) {
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
@@ -79,13 +71,10 @@ export const paperSlice = createSlice({
   },
 });
 
-export const { paperAdded, paperUpdated } = paperSlice.actions;
+export const { getSelectedPaper } = paperSlice.actions;
 
 export default paperSlice.reducer;
 
 export const selectAllPapers = (state) => state.papers;
 export const selectFavPapers = (state) => state.favPapers;
 
-export const selectPaperById = (state, paperId) => {
-  return state.papers.find((paper) => paper.id === paperId);
-};

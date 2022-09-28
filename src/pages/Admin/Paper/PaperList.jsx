@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPapers } from "../../../features/paper/paperSlice";
 import { IconContext } from "react-icons";
 import { AiOutlineDelete } from "react-icons/ai";
+import { getSe}
 
 const PaperList = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const PaperList = () => {
           <li key={paper.id}>
             <div
               className="admin--list"
+              onClick={() => dispatch(getSelectedPaper(paper))}
               // onClick={() => dispatch(getSelectedFaculty(faculty))}
             >
               <div className="list--header">{paper.name}</div>
