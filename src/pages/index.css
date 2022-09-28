@@ -275,6 +275,10 @@ td {
   width: 100%;
 }
 
+.form--container__group span {
+  width: 80%;
+}
+
 .form--container__group label {
   display: none;
 }
@@ -304,6 +308,7 @@ td {
   align-items: center;
   margin-top: 15px;
   gap: 2rem;
+  margin-bottom: -10px;
 }
 
 .form--status__firstRow {
@@ -328,6 +333,28 @@ td {
   margin-top: 15px;
   font-size: 12px;
   color: var(--gray);
+  margin-bottom: -10px;
+}
+
+.form--year__firstRow {
+  width: 50%;
+}
+
+.form--year__secondRow {
+  width: 50%;
+}
+
+.form--year__firstYear {
+  display: flex;
+  height: 50%;
+  align-items: flex-start;
+  margin-bottom: 8px
+}
+
+.form--year__secondYear {
+  display: flex;
+  height: 50%;
+  align-items: flex-end;
 }
 
 .form--container__btns {
@@ -344,3 +371,5 @@ td {
   color: var(--white);
   border-radius: 3px;
 }
+
+
