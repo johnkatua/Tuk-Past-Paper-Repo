@@ -8,7 +8,6 @@ import { getSelectedPaper } from "../../../features/paper/paperSlice";
 const PaperList = () => {
   const dispatch = useDispatch();
   const { papers, paper } = useSelector((state) => state.papers);
-  console.log(paper);
 
   useEffect(() => {
     dispatch(fetchPapers({ page: 1, limit: 10 }));

@@ -31,9 +31,7 @@ const PaperDetails = () => {
   };
 
   useEffect(() => {
-    if (faculties.length === 0) {
-      dispatch(fetchFaculties());
-    }
+    dispatch(fetchFaculties());
     dispatch(fetchCourses());
   }, [faculties]);
 
