@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 import { fetchCourses } from "../../../features/course/courseSlice";
+import { createPaper } from "../../../features/paper/paperSlice";
 
 const PaperDetails = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,11 @@ const PaperDetails = () => {
     formData.append("academicYear", item.academicYear);
     formData.append("status", item.status);
     formData.append("year", item.year);
-    formData.append("courseId", item.course);
+    formData.append("courseId", item.courseId);
+    formData.append("facultyId", item.facultyId);
+    formData.append("file", paperFile);
+
+    await dispatch(createPaper(formData));
   };
 
   return (
