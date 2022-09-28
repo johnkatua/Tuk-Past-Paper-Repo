@@ -277,6 +277,9 @@ td {
 
 .form--container__group span {
   width: 80%;
+  font-size: 12px;
+  color: var(--gray);
+  color-scheme: dark;
 }
 
 .form--container__group label {
@@ -360,6 +363,21 @@ td {
 .form--container__btns {
   display: flex;
   gap: 2rem;
+}
+
+.form--container__faculties {
+  display: flex;
+  gap: 2rem;
+  margin-top: 15px;
+}
+
+.form--faculties {
+  display: flex;
+  width: 100%;
+}
+
+.form--faculties span {
+  font-size: 11px;
 }
 
 .details--btn {

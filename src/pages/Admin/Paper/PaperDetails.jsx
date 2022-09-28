@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
+import { fetchCourses } from "../../../features/course/courseSlice";
 
 const PaperDetails = () => {
   const dispatch = useDispatch();
   const { faculties } = useSelector(state => state.faculty);
-  console.log(faculties);
+  const { courses } = useSelector(state => state.courses);
+  console.log(courses);
   const [title, setTitle] = useState("Select a paper");
   const [item, setItem] = useState({
     name: "",
@@ -25,6 +27,7 @@ const PaperDetails = () => {
     if(faculties.length === 0) {
       dispatch(fetchFaculties())
     }
+    dispatch(fetchCourses());
   }, [faculties]);
 
   return (
@@ -99,26 +102,25 @@ const PaperDetails = () => {
       <hr />
       <div className="form--container__group">
         <div>Select Faculty</div>
-        <div>
+        <div className="form--container__faculties">
           {faculties.map((faculty) => (
-          <>
+          <div className="form--faculties">
             <span>{faculty.acronym}</span>
             <input type="radio" value={faculty._id} name="facultyId" />
-          </>
+          </div>
         ))}
         </div>
-        {/* <div className="form--container__status">
-          <div className="form--status__firstRow">
-            <span>Main Exam</span>
-            <input type="radio" value="mainExam" name="status" />
-          </div>
-          <div className="form--status__secondRow">
-            <span>Cat</span>
-            <input type="radio" value="cat" name="status" />
-          </div>
-        </div> */}
       </div>
       <hr />
+      <div className="form--container__group">
+        <select size="5">
+          <optgroup label="Select a course">
+            {courses.map((course) => (
+              <option key={course._id} value={course.name}>{course.name}</option>
+            ))}
+          </optgroup>
+        </select>
+      </div>
       <div className="form--container__btns">
         <button className="details--btn" onClick={() => handleSubmit()}>
           Save
