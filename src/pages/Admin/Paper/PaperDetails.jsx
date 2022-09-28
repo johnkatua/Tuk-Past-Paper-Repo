@@ -120,6 +120,10 @@ const PaperDetails = () => {
                 {course.name}
               </option>
             ))}
+            <option>Selected</option>
+            <option>Selected</option>
+            <option>Selected</option>
+            <option>Selected</option>
           </optgroup>
         </select>
       </div>
