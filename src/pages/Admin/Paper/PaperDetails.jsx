@@ -63,8 +63,8 @@ const PaperDetails = () => {
       <div className="form--container__group">
         <div>Select Paper Year</div>
         <div className="form--container__year">
-           <div>
-           <input type="radio" value="firstYear" name="year" />
+          <div>
+            <input type="radio" value="firstYear" name="year" />
             First Year
             <input type="radio" value="secondYear" name="year" />
             Second Year
@@ -76,15 +76,6 @@ const PaperDetails = () => {
             Fourth Year
           </div>
         </div>
-      </div>
-      <div className="form--container__group">
-        <label>Description</label>
-        <textarea
-          placeholder="description"
-          name="description"
-          value={item.description}
-          onChange={handleChange}
-        ></textarea>
       </div>
       <div className="form--container__btns">
         <button className="details--btn" onClick={() => handleSubmit()}>
