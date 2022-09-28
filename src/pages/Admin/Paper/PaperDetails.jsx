@@ -8,6 +8,7 @@ const PaperDetails = () => {
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
+  console.log(courses);
   const [title, setTitle] = useState("Select a paper");
   const [paperFile, setPaperFile] = useState(null);
   const [item, setItem] = useState({
@@ -16,7 +17,7 @@ const PaperDetails = () => {
     status: "",
     year: "",
     courseId: "",
-    faculty: "",
+    facultyId: "",
   });
 
   const handleChange = (e) => {
@@ -49,6 +50,8 @@ const PaperDetails = () => {
 
     await dispatch(createPaper(formData));
   };
+
+  console.log(item);
 
   return (
     <div className="admin--dashboard__details">
@@ -87,7 +90,7 @@ const PaperDetails = () => {
           onChange={saveFile}
         />
       </div>
-      <div className="form--container__group" onChange={handleChange}>
+      <div className="form--container__group" value={item.status} onChange={handleChange}>
         <div>Select Paper Status</div>
         <div className="form--container__status">
           <div className="form--status__firstRow">
@@ -101,7 +104,7 @@ const PaperDetails = () => {
         </div>
       </div>
       <hr />
-      <div className="form--container__group">
+      <div className="form--container__group" value={item.year} onChange={handleChange}>
         <div>Select Paper Year</div>
         <div className="form--container__year">
           <div className="form--year__firstRow">
@@ -127,7 +130,7 @@ const PaperDetails = () => {
         </div>
       </div>
       <hr />
-      <div className="form--container__group">
+      <div className="form--container__group" value={item.facultyId} onChange={handleChange}>
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
@@ -140,17 +143,13 @@ const PaperDetails = () => {
       </div>
       <hr />
       <div className="form--container__group">
-        <select size="5">
+        <select size="5" name="courseId" value={item.courseId} onChange={handleChange}>
           <optgroup label="Select a course">
             {courses.map((course) => (
-              <option key={course._id} value={course.name}>
+              <option key={course._id} value={course._id}>
                 {course.name}
               </option>
             ))}
-            <option>Selected</option>
-            <option>Selected</option>
-            <option>Selected</option>
-            <option>Selected</option>
           </optgroup>
         </select>
       </div>
