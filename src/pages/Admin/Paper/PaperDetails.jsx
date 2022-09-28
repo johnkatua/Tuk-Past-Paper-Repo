@@ -49,11 +49,11 @@ const PaperDetails = () => {
       <div className="form--container__group">
         <div>Select Paper Status</div>
         <div className="form--container__status">
-          <div>
+          <div className="form--status__firstRow">
             MainExam
             <input type="radio" value="mainExam" name="status" />
           </div>
-          <div>
+          <div className="form--status__secondRow">
             Cat
             <input type="radio" value="cat" name="status" />
           </div>

@@ -302,9 +302,22 @@ td {
 .form--container__status {
   display: flex;
   align-items: center;
-  /* justify-content: flex-start; */
+  margin-top: 15px;
   gap: 2rem;
-  background-color: aquamarine;
+}
+
+.form--status__firstRow {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  font-size: 12px;
+}
+
+.form--status__secondRow {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  font-size: 12px;
 }
 
 .form--container__btns {
