@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 import { fetchCourses } from "../../../features/course/courseSlice";
-import { createPaper } from "../../../features/paper/paperSlice";
+import { createPaper, resetPaper } from "../../../features/paper/paperSlice";
 
 const PaperDetails = () => {
   const dispatch = useDispatch();
@@ -61,6 +61,7 @@ const PaperDetails = () => {
   };
 
   const handleRemove = () => {
+    dispatch(resetPaper());
     setItem({
       name: '',
       academicYear: '',
@@ -75,7 +76,7 @@ const PaperDetails = () => {
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">
-        {paper.id ? paper.name : title}
+        {paper?.id ? paper.name : title}
       </div>
       <div className="form--container__group">
         <label>Name</label>
