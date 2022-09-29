@@ -47,6 +47,26 @@ export const createPaper = createAsyncThunk(
   }
 );
 
+export const deletePaper = createAsyncThunk(
+  "papers/deletePaper",
+  async(id, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
+    try {
+      await axios.delete(`http://localhost:4001/paper/deletePaper/${id}`, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      })
+      toast.success(response.data.msg)
+      return id
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
+
+
 export const paperSlice = createSlice({
   name: "papers",
   initialState,
