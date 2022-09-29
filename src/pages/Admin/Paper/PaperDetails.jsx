@@ -173,11 +173,11 @@ const PaperDetails = () => {
         </select>
       </div>
       <div className="form--container__btns">
-        <button className="details--btn" onClick={() => handleSubmit()}>
+        <button className="details--btn" onClick={handleSubmit}>
           Save
         </button>
         {paper?.id && (
-          <button className="details--btn" onClick={() => handleRemove()}>
+          <button className="details--btn" onClick={handleRemove}>
             Cancel
           </button>
         )}
