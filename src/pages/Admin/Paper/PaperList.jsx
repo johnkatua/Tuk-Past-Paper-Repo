@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPapers } from "../../../features/paper/paperSlice";
 import { IconContext } from "react-icons";
 import { AiOutlineDelete } from "react-icons/ai";
-import { getSelectedPaper } from "../../../features/paper/paperSlice";
+import { getSelectedPaper, deletePaper } from "../../../features/paper/paperSlice";
 
 const PaperList = () => {
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const PaperList = () => {
             >
               <div
                 className="list--delete"
+                onClick={() => dispatch(deletePaper(paper.id))}
                 // onClick={() => dispatch(deleteFaculty(faculty._id))}
               >
                 <AiOutlineDelete />

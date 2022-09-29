@@ -39,6 +39,7 @@ export const createPaper = createAsyncThunk(
           },
         }
       );
+      toast.success(response.data.msg)
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -52,13 +53,13 @@ export const deletePaper = createAsyncThunk(
   async(id, { rejectWithValue }) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:4001/paper/deletePaper/${id}`, {
+      const response = await axios.delete(`http://localhost:4001/paper/deletePaper/${id}`, {
         headers: {
           authorization: `Bearer ${token}`
         }
       })
       toast.success(response.data.msg)
-      return id
+      return { id }
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
@@ -93,6 +94,9 @@ export const paperSlice = createSlice({
     });
     builder.addCase(deletePaper.fulfilled, (state, action) => {
       state.papers = state.papers.filter(paper => paper.id !== action.payload.id);
+    });
+    builder.addCase(deletePaper.rejected, (state, action) => {
+      state.error = action.payload
     })
   },
 });
