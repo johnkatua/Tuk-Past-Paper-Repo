@@ -9,7 +9,6 @@ const PaperDetails = () => {
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
   const { paper } = useSelector((state) => state.papers);
-  console.log(paper);
   const [title, setTitle] = useState("Select a paper");
   const [selectedPaper, setSelectedPaper] = useState(null);
   const [paperFile, setPaperFile] = useState(null);
@@ -64,9 +63,6 @@ const PaperDetails = () => {
   const handleRemove = () => {
     console.log('rr')
   }
-
-  console.log(item)
-  console.log(paperFile)
 
   return (
     <div className="admin--dashboard__details">
