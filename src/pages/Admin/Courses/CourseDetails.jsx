@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchFaculties } from '../../../features/faculty/facultySlice';
 
 const CourseDetails = () => {
+  const dispatch = useDispatch();
   const [title, setTitle] = useState('Select a course');
   const { faculties } = useSelector((state) => state.faculty);
   const [item, setItem] = useState({
@@ -11,7 +14,11 @@ const CourseDetails = () => {
     facultyId: ''
   });
 
-  const handleChange = () => {
+  useEffect(() => {
+    dispatch(fetchFaculties());
+  }, [])
+
+  const handleChange = (e) => {
     setItem((item) => ({
       ...item,
       [e.target.name]: e.target.value 
@@ -45,18 +52,18 @@ const CourseDetails = () => {
         </div>
       </div>
       <hr />
-       {/* <div className="form--container__group" value={item.facultyId} onChange={handleChange}>
+       <div className="form--container__group" value={item.facultyId}>
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
-            <div className="form--faculties">
+            <div className="form--faculties" key={faculty._id}>
               <span>{faculty.acronym}</span>
-              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty._id} />
+              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty._id} onChange={handleChange} />
             </div>
           ))}
         </div>
       </div>
-      <hr /> */}
+      <hr />
     </div>
   )
 }
