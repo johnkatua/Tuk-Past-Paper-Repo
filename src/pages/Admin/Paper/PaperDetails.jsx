@@ -42,7 +42,7 @@ const PaperDetails = () => {
         academicYear: paper.academicYear,
         year: paper.year,
         status: paper.status,
-        facultyId: paper.faculty,
+        facultyId: paper.facultyId,
         courseId: paper.courseCode
       })
     }
@@ -61,8 +61,12 @@ const PaperDetails = () => {
     await dispatch(createPaper(formData));
   };
 
-  console.log(item);
-  console.log(paperFile);
+  const handleRemove = () => {
+    console.log('rr')
+  }
+
+  console.log(item)
+  console.log(paperFile)
 
   return (
     <div className="admin--dashboard__details">
@@ -146,7 +150,7 @@ const PaperDetails = () => {
           {faculties.map((faculty) => (
             <div className="form--faculties">
               <span>{faculty.acronym}</span>
-              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty.acronym} />
+              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty._id} />
             </div>
           ))}
         </div>
