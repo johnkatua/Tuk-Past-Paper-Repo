@@ -24,7 +24,6 @@ const PaperList = () => {
             <div
               className="admin--list"
               onClick={() => dispatch(getSelectedPaper(paper))}
-              // onClick={() => dispatch(getSelectedFaculty(faculty))}
             >
               <div className="list--header">{paper.name}</div>
               <div className="list--details">{paper.status}</div>
@@ -34,8 +33,7 @@ const PaperList = () => {
             >
               <div
                 className="list--delete"
-                onClick={() => dispatch(deletePaper(paper.id))}
-                // onClick={() => dispatch(deleteFaculty(faculty._id))}
+                onClick={() => dispatch(deletePaper({id: paper.id}))}
               >
                 <AiOutlineDelete />
               </div>
