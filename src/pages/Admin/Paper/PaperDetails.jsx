@@ -61,7 +61,15 @@ const PaperDetails = () => {
   };
 
   const handleRemove = () => {
-    console.log('rr')
+    setItem({
+      name: '',
+      academicYear: '',
+      year: '',
+      status: '',
+      facultyId: '',
+      courseId: ''
+    })
+    setPaperFile(null);
   }
 
   return (
