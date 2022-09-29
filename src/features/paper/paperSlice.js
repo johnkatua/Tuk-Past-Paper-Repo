@@ -93,7 +93,6 @@ export const paperSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(deletePaper.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.papers = state.papers.filter(paper => paper.id !== action.payload.id);
     });
     builder.addCase(deletePaper.rejected, (state, action) => {

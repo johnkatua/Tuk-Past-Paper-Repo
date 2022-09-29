@@ -7,6 +7,7 @@ import { fetchCourses } from '../../../features/course/courseSlice';
 const CourseList = () => {
   const dispatch =  useDispatch();
   const { courses } = useSelector((state) => state.courses);
+  console.log(courses);
 
   useEffect(() => {
     dispatch(fetchCourses());

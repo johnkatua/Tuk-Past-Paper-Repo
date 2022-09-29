@@ -31,7 +31,7 @@ export const createCourse = createAsyncThunk(
     const token = localStorage.getItem('token');
     try {
       await validateCourseDetails(values);
-       const response = await axios.create(
+       const response = await axios.post(
       "http://localhost:4001/course/createCourse", values, {
         headers: {
           authorization: `Bearer ${token}`
@@ -56,7 +56,7 @@ export const courseSlice = createSlice({
       state.courses = action.payload.data;
     });
     builder.addCase(createCourse.fulfilled, (state, action) => {
-      state.courses = state.courses.push(action.payload);
+      state.courses = state.courses.push(action.payload.data);
     });
     builder.addCase(createCourse.rejected, (state, action) => {
       state.error = action.payload
