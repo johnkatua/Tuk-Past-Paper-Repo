@@ -74,7 +74,7 @@ export const paperSlice = createSlice({
   },
 });
 
-export const { getSelectedPaper } = paperSlice.actions;
+export const { getSelectedPaper, resetPaper } = paperSlice.actions;
 
 export default paperSlice.reducer;
 
