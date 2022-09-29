@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { validateCourseDetails } from "../../helpers/validation";
 
 const initialState = {
   courses: [],
   status: "idle",
+  error: null
 };
 
 export const fetchCourses = createAsyncThunk(
@@ -28,6 +30,7 @@ export const createCourse = createAsyncThunk(
   async (values, { rejectWithValue }) => {
     const token = localStorage.getItem('token');
     try {
+      await validateCourseDetails(values);
        const response = await axios.create(
       "http://localhost:4001/course/createCourse", values, {
         headers: {
@@ -35,6 +38,7 @@ export const createCourse = createAsyncThunk(
         }
       }
     );
+    toast.success(response.data.msg);
     return response.data
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message)
@@ -51,6 +55,12 @@ export const courseSlice = createSlice({
     builder.addCase(fetchCourses.fulfilled, (state, action) => {
       state.courses = action.payload.data;
     });
+    builder.addCase(createCourse.fulfilled, (state, action) => {
+      state.courses = state.courses.push(action.payload);
+    });
+    builder.addCase(createCourse.rejected, (state, action) => {
+      state.error = action.payload
+    })
   },
 });
 
