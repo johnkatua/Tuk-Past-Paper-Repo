@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const initialState = {
   papers: [],
   status: "idle",
-  paper: {},
+  paper: null,
   currentPage: 1,
   totalPages: 0,
   error: null,
@@ -53,6 +53,9 @@ export const paperSlice = createSlice({
   reducers: {
     getSelectedPaper: (state, action) => {
       state.paper = action.payload
+    },
+    resetPaper: (state) => {
+      state.paper = null;
     }
   },
   extraReducers(builder) {
