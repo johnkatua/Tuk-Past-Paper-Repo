@@ -43,7 +43,7 @@ const PaperDetails = () => {
         year: paper.year,
         status: paper.status,
         facultyId: paper.facultyId,
-        courseId: paper.courseCode
+        courseId: paper.courseId
       })
     }
   }, [paper, setItem]);
