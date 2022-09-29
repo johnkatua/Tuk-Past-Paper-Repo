@@ -113,11 +113,11 @@ const PaperDetails = () => {
         <div className="form--container__status">
           <div className="form--status__firstRow">
             <span>Main Exam</span>
-            <input type="radio" value="mainExam" name="status" checked={item.status === "mainExam"} />
+            <input type="radio" value="mainExam" name="status" defaultChecked={item.status === "mainExam"} />
           </div>
           <div className="form--status__secondRow">
             <span>Cat</span>
-            <input type="radio" value="cat" name="status" checked={item.status === "cat"} />
+            <input type="radio" value="cat" name="status" defaultChecked={item.status === "cat"} />
           </div>
         </div>
       </div>
@@ -128,21 +128,21 @@ const PaperDetails = () => {
           <div className="form--year__firstRow">
             <div className="form--year__firstYear">
               <span>First Year</span>
-              <input type="radio" value="firstYear" name="year" checked={item.year === "firstYear"} />
+              <input type="radio" value="firstYear" name="year" defaultChecked={item.year === "firstYear"} />
             </div>
             <div className="form--year__secondYear">
               <span>Second Year</span>
-              <input type="radio" value="secondYear" name="year" checked={item.year === "secondYear"} />
+              <input type="radio" value="secondYear" name="year" defaultChecked={item.year === "secondYear"} />
             </div>
           </div>
           <div className="form--year__secondRow">
             <div className="form--year__firstYear">
               <span>Third Year</span>
-              <input type="radio" value="thirdYear" name="year" checked={item.year === "thirdYear"} />
+              <input type="radio" value="thirdYear" name="year" defaultChecked={item.year === "thirdYear"} />
             </div>
             <div className="form--year__secondYear">
               <span>Fourth Year</span>
-              <input type="radio" value="fourthYear" name="year" checked={item.year === "fourthYear"} />
+              <input type="radio" value="fourthYear" name="year" defaultChecked={item.year === "fourthYear"} />
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@ const PaperDetails = () => {
           {faculties.map((faculty) => (
             <div className="form--faculties">
               <span>{faculty.acronym}</span>
-              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty._id} />
+              <input type="radio" value={faculty._id} name="facultyId" defaultChecked={item.facultyId === faculty._id} />
             </div>
           ))}
         </div>
