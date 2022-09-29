@@ -11,6 +11,7 @@ import { IconContext } from "react-icons";
 const FacultyList = () => {
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
+  
   useEffect(() => {
     if (faculties.length === 0) {
       dispatch(fetchFaculties());

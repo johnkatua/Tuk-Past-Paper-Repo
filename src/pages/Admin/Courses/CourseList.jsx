@@ -11,10 +11,10 @@ const CourseList = () => {
   useEffect(() => {
     dispatch(fetchCourses());
   }, []);
-  
+
   return (
     <div className='admin--dashboard__list'>
-      <h3 className='admin--list__header'>Papers</h3>
+      <h3 className='admin--list__header'>Courses</h3>
       <ul>
         {courses.map((course) => (
           <li key={course._id}>
