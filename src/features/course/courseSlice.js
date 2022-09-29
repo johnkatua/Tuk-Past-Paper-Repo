@@ -56,7 +56,7 @@ export const courseSlice = createSlice({
       state.courses = action.payload.data;
     });
     builder.addCase(createCourse.fulfilled, (state, action) => {
-      state.courses = state.courses.push(action.payload.data);
+      state.courses.push(action.payload.data);
     });
     builder.addCase(createCourse.rejected, (state, action) => {
       state.error = action.payload
