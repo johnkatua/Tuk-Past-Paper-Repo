@@ -64,6 +64,16 @@ const CourseDetails = () => {
         </div>
       </div>
       <hr />
+      <div className='form--container__btns'>
+        <button className='details--btn'>
+          Save
+        </button>
+        {course._id && (
+          <button className='details--btn'>
+            Cancel
+          </button>
+        )}
+      </div>
     </div>
   )
 }
