@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { createCourse } from '../../../features/course/courseSlice';
 import { fetchFaculties } from '../../../features/faculty/facultySlice';
 
 const CourseDetails = () => {
@@ -24,6 +25,10 @@ const CourseDetails = () => {
       [e.target.name]: e.target.value 
     }))
   };
+
+  const handleSubmit = () => {
+    dispatch(createCourse(item))
+  }
 
   return (
     <div className='admin--dashboard__details'>
@@ -65,7 +70,7 @@ const CourseDetails = () => {
       </div>
       <hr />
       <div className='form--container__btns'>
-        <button className='details--btn'>
+        <button className='details--btn' onClick={handleSubmit}>
           Save
         </button>
         {/* {course._id && (
