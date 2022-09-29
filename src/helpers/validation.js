@@ -38,3 +38,13 @@ export const validateFacultyDetails = (faculty) => {
   });
   return schema.validate(faculty);
 };
+
+export const validateCourseDetails = course => {
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    courseCode: yup.string().required(),
+    status: yup.string().required(),
+    facultyId: yup.string().required()
+  });
+  return schema.validate(course);
+}
