@@ -7,13 +7,11 @@ import { getSelectedPaper, deletePaper } from "../../../features/paper/paperSlic
 
 const PaperList = () => {
   const dispatch = useDispatch();
-  const { papers, paper } = useSelector((state) => state.papers);
+  const { papers } = useSelector((state) => state.papers);
 
   useEffect(() => {
     dispatch(fetchPapers({ page: 1, limit: 10 }));
   }, []);
-
-  console.log(papers);
 
   return (
     <div className="admin--dashboard__list">
