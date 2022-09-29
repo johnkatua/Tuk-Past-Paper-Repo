@@ -79,5 +79,4 @@ export const { getSelectedPaper, resetPaper } = paperSlice.actions;
 export default paperSlice.reducer;
 
 export const selectAllPapers = (state) => state.papers;
-export const selectFavPapers = (state) => state.favPapers;
 
