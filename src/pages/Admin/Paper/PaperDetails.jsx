@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 import { fetchCourses } from "../../../features/course/courseSlice";
 import { createPaper, resetPaper, updatePaper } from "../../../features/paper/paperSlice";
 
 const PaperDetails = () => {
+  const ref = useRef();
   const dispatch = useDispatch();
   const { faculties } = useSelector((state) => state.faculty);
   const { courses } = useSelector((state) => state.courses);
@@ -74,7 +75,10 @@ const PaperDetails = () => {
       courseId: "",
     });
     setPaperFile(null);
+    ref.current.value = "";
   };
+
+  console.log(paperFile)
 
 
   return (
@@ -109,6 +113,7 @@ const PaperDetails = () => {
           accept=".pdf"
           formEncType="multipart/form-data"
           onChange={saveFile}
+          ref={ref}
         />
       </div>
       <div

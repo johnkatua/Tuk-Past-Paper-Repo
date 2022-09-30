@@ -35,7 +35,6 @@ export const createPaper = createAsyncThunk(
         {
           headers: {
             authorization: `Bearer ${token}`,
-            // "content-type": "multipart/form-data",
           },
         }
       );
@@ -57,13 +56,11 @@ export const updatePaper = createAsyncThunk(
       const response = await axios.put(`http://localhost:4001/paper/updatePaper/${id}`, values, {
         headers: {
           authorization: `Bearer ${token}`,
-          "content-type": "multipart/form-data",  
         }
       });
       toast.success(response.data.msg);
       return { id, values: response.data.data };
     } catch (error) {
-      console.log(error.response);
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
@@ -118,7 +115,7 @@ export const paperSlice = createSlice({
     });
     builder.addCase(updatePaper.fulfilled, (state, action) => {
       console.log(action);
-      state.papers = state.papers.map((paper) => paper.id === action.payload.id ? action.payload.value : paper);
+      state.papers = state.papers.map((paper) => paper.id === action.payload.id ? action.payload.values : paper);
     });
     builder.addCase(updatePaper.rejected, (state, action) => {
       state.error = action.payload;
