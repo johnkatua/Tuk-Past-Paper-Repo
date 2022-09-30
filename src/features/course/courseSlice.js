@@ -49,6 +49,29 @@ export const createCourse = createAsyncThunk(
   }
 );
 
+export const deleteCourse = createAsyncThunk(
+  "courses/deleteCourse",
+  async(id, { rejectWithValue }) => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await axios.delete(
+        `http://localhost:4001/course/deleteCourse/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`
+          },
+        }
+      );
+      toast.success(response.data.msg);
+      return id;
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
+
+
 export const courseSlice = createSlice({
   name: "courses",
   initialState,
@@ -63,6 +86,7 @@ export const courseSlice = createSlice({
     builder.addCase(createCourse.rejected, (state, action) => {
       state.error = action.payload;
     });
+    
   },
 });
 
