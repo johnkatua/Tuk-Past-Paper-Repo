@@ -79,6 +79,9 @@ export const courseSlice = createSlice({
   reducers: {
     setCourse: (state, action) => {
       state.course = action.payload;
+    },
+    resetCourse: (state) => {
+      state.course = null;
     }
   },
   extraReducers(builder) {
