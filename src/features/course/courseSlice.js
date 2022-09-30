@@ -6,7 +6,7 @@ import { validateCourseDetails } from "../../helpers/validation";
 const initialState = {
   courses: [],
   status: "idle",
-  error: null
+  error: null,
 };
 
 export const fetchCourses = createAsyncThunk(
@@ -28,24 +28,26 @@ export const fetchCourses = createAsyncThunk(
 export const createCourse = createAsyncThunk(
   "courses/createCourse",
   async (values, { rejectWithValue }) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     try {
       await validateCourseDetails(values);
-       const response = await axios.post(
-      "http://localhost:4001/course/createCourse", values, {
-        headers: {
-          authorization: `Bearer ${token}`
+      const response = await axios.post(
+        "http://localhost:4001/course/createCourse",
+        values,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
         }
-      }
-    );
-    toast.success(response.data.msg);
-    return response.data
+      );
+      toast.success(response.data.msg);
+      return response.data;
     } catch (error) {
-      toast.error(error.response ? error.response.data.msg : error.message)
+      toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
-)
+);
 
 export const courseSlice = createSlice({
   name: "courses",
@@ -59,8 +61,8 @@ export const courseSlice = createSlice({
       state.courses.push(action.payload.data);
     });
     builder.addCase(createCourse.rejected, (state, action) => {
-      state.error = action.payload
-    })
+      state.error = action.payload;
+    });
   },
 });
 

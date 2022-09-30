@@ -39,7 +39,7 @@ export const createPaper = createAsyncThunk(
           },
         }
       );
-      toast.success(response.data.msg)
+      toast.success(response.data.msg);
       return response.data;
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
@@ -50,34 +50,36 @@ export const createPaper = createAsyncThunk(
 
 export const deletePaper = createAsyncThunk(
   "papers/deletePaper",
-  async({ id }, { rejectWithValue }) => {
-    const token = localStorage.getItem('token');
+  async ({ id }, { rejectWithValue }) => {
+    const token = localStorage.getItem("token");
     try {
-      const response = await axios.delete(`http://localhost:4001/paper/deletePaper/${id}`, {
-        headers: {
-          authorization: `Bearer ${token}`
+      const response = await axios.delete(
+        `http://localhost:4001/paper/deletePaper/${id}`,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
         }
-      })
-      toast.success(response.data.msg)
+      );
+      toast.success(response.data.msg);
       return { id };
     } catch (error) {
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
-)
-
+);
 
 export const paperSlice = createSlice({
   name: "papers",
   initialState,
   reducers: {
     getSelectedPaper: (state, action) => {
-      state.paper = action.payload
+      state.paper = action.payload;
     },
     resetPaper: (state) => {
       state.paper = null;
-    }
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchPapers.fulfilled, (state, action) => {
@@ -93,11 +95,13 @@ export const paperSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(deletePaper.fulfilled, (state, action) => {
-      state.papers = state.papers.filter(paper => paper.id !== action.payload.id);
+      state.papers = state.papers.filter(
+        (paper) => paper.id !== action.payload.id
+      );
     });
     builder.addCase(deletePaper.rejected, (state, action) => {
-      state.error = action.payload
-    })
+      state.error = action.payload;
+    });
   },
 });
 
@@ -106,4 +110,3 @@ export const { getSelectedPaper, resetPaper } = paperSlice.actions;
 export default paperSlice.reducer;
 
 export const selectAllPapers = (state) => state.papers;
-

@@ -41,8 +41,8 @@ const PaperDetails = () => {
         year: paper.year,
         status: paper.status,
         facultyId: paper.facultyId,
-        courseId: paper.courseId
-      })
+        courseId: paper.courseId,
+      });
     }
   }, [paper, setItem]);
 
@@ -62,21 +62,19 @@ const PaperDetails = () => {
   const handleRemove = () => {
     dispatch(resetPaper());
     setItem({
-      name: '',
-      academicYear: '',
-      year: '',
-      status: '',
-      facultyId: '',
-      courseId: ''
-    })
+      name: "",
+      academicYear: "",
+      year: "",
+      status: "",
+      facultyId: "",
+      courseId: "",
+    });
     setPaperFile(null);
-  }
+  };
 
   return (
     <div className="admin--dashboard__details">
-      <div className="details--header">
-        {paper?.id ? paper.name : title}
-      </div>
+      <div className="details--header">{paper?.id ? paper.name : title}</div>
       <div className="form--container__group">
         <label>Name</label>
         <input
@@ -108,60 +106,112 @@ const PaperDetails = () => {
           onChange={saveFile}
         />
       </div>
-      <div className="form--container__group" value={item.status} onChange={handleChange}>
+      <div
+        className="form--container__group"
+        value={item.status}
+        onChange={handleChange}
+      >
         <div>Select Paper Status</div>
         <div className="form--container__status">
           <div className="form--status__firstRow">
             <span>Main Exam</span>
-            <input type="radio" value="mainExam" name="status" checked={item.status === "mainExam"} />
+            <input
+              type="radio"
+              value="mainExam"
+              name="status"
+              checked={item.status === "mainExam"}
+            />
           </div>
           <div className="form--status__secondRow">
             <span>Cat</span>
-            <input type="radio" value="cat" name="status" checked={item.status === "cat"} />
+            <input
+              type="radio"
+              value="cat"
+              name="status"
+              checked={item.status === "cat"}
+            />
           </div>
         </div>
       </div>
       <hr />
-      <div className="form--container__group" value={item.year} onChange={handleChange}>
+      <div
+        className="form--container__group"
+        value={item.year}
+        onChange={handleChange}
+      >
         <div>Select Paper Year</div>
         <div className="form--container__year">
           <div className="form--year__firstRow">
             <div className="form--year__firstYear">
               <span>First Year</span>
-              <input type="radio" value="firstYear" name="year" checked={item.year === "firstYear"} />
+              <input
+                type="radio"
+                value="firstYear"
+                name="year"
+                checked={item.year === "firstYear"}
+              />
             </div>
             <div className="form--year__secondYear">
               <span>Second Year</span>
-              <input type="radio" value="secondYear" name="year" checked={item.year === "secondYear"} />
+              <input
+                type="radio"
+                value="secondYear"
+                name="year"
+                checked={item.year === "secondYear"}
+              />
             </div>
           </div>
           <div className="form--year__secondRow">
             <div className="form--year__firstYear">
               <span>Third Year</span>
-              <input type="radio" value="thirdYear" name="year" checked={item.year === "thirdYear"} />
+              <input
+                type="radio"
+                value="thirdYear"
+                name="year"
+                checked={item.year === "thirdYear"}
+              />
             </div>
             <div className="form--year__secondYear">
               <span>Fourth Year</span>
-              <input type="radio" value="fourthYear" name="year" checked={item.year === "fourthYear"} />
+              <input
+                type="radio"
+                value="fourthYear"
+                name="year"
+                checked={item.year === "fourthYear"}
+              />
             </div>
           </div>
         </div>
       </div>
       <hr />
-      <div className="form--container__group" value={item.facultyId} onChange={handleChange}>
+      <div
+        className="form--container__group"
+        value={item.facultyId}
+        onChange={handleChange}
+      >
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
             <div className="form--faculties">
               <span>{faculty.acronym}</span>
-              <input type="radio" value={faculty._id} name="facultyId" checked={item.facultyId === faculty._id} />
+              <input
+                type="radio"
+                value={faculty._id}
+                name="facultyId"
+                checked={item.facultyId === faculty._id}
+              />
             </div>
           ))}
         </div>
       </div>
       <hr />
       <div className="form--container__group">
-        <select size="5" name="courseId" value={item.courseId} onChange={handleChange}>
+        <select
+          size="5"
+          name="courseId"
+          value={item.courseId}
+          onChange={handleChange}
+        >
           <optgroup label="Select a course">
             {courses.map((course) => (
               <option key={course._id} value={course._id} selected>
