@@ -43,6 +43,7 @@ const PaperDetails = () => {
         facultyId: paper.facultyId,
         courseId: paper.courseId,
       });
+      setPaperFile(paper.file);
     }
   }, [paper, setItem]);
 
@@ -71,6 +72,9 @@ const PaperDetails = () => {
     });
     setPaperFile(null);
   };
+
+  console.log(item);
+  console.log(paperFile)
 
   return (
     <div className="admin--dashboard__details">
@@ -229,7 +233,7 @@ const PaperDetails = () => {
         </select>
       </div>
       <div className="form--container__btns">
-        <button className="details--btn" onClick={handleSubmit}>
+        <button disabled={paperFile === null} className="details--btn" onClick={handleSubmit}>
           Save
         </button>
         {paper?.id && (
