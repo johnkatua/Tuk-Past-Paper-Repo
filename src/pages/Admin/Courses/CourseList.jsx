@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IconContext } from "react-icons/lib";
 import { AiOutlineDelete } from "react-icons/ai";
-import { deleteCourse, fetchCourses } from "../../../features/course/courseSlice";
+import { deleteCourse, fetchCourses, setCourse } from "../../../features/course/courseSlice";
 
 const CourseList = () => {
   const dispatch = useDispatch();
-  const { courses } = useSelector((state) => state.courses);
+  const { courses, course } = useSelector((state) => state.courses);
+  console.log(course);
 
   useEffect(() => {
     dispatch(fetchCourses());
@@ -18,7 +19,7 @@ const CourseList = () => {
       <ul>
         {courses.map((course) => (
           <li key={course._id}>
-            <div className="admin--list">
+            <div className="admin--list" onClick={() => dispatch(setCourse(course))}>
               <div className="list--header">{course.name}</div>
               <div className="list--details">{course.courseCode}</div>
             </div>

@@ -105,4 +105,6 @@ export const courseSlice = createSlice({
 
 export default courseSlice.reducer;
 
+export const { setCourse, resetCourse } = courseSlice.actions;
+
 export const getCourseStatus = (state) => state.courses.status;
