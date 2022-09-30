@@ -109,8 +109,6 @@ const PaperDetails = () => {
       </div>
       <div
         className="form--container__group"
-        // value={item.status}
-        // onChange={handleChange}
       >
         <div>Select Paper Status</div>
         <div className="form--container__status">
@@ -139,8 +137,6 @@ const PaperDetails = () => {
       <hr />
       <div
         className="form--container__group"
-        // value={item.year}
-        // onChange={handleChange}
       >
         <div>Select Paper Year</div>
         <div className="form--container__year">
@@ -193,13 +189,11 @@ const PaperDetails = () => {
       <hr />
       <div
         className="form--container__group"
-        // value={item.facultyId}
-        // onChange={handleChange}
       >
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
-            <div className="form--faculties">
+            <div className="form--faculties" key={faculty._id}>
               <span>{faculty.acronym}</span>
               <input
                 type="radio"
