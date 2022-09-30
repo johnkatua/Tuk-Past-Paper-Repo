@@ -6,8 +6,7 @@ import { deleteCourse, fetchCourses, setCourse } from "../../../features/course/
 
 const CourseList = () => {
   const dispatch = useDispatch();
-  const { courses, course } = useSelector((state) => state.courses);
-  console.log(course);
+  const { courses } = useSelector((state) => state.courses);
 
   useEffect(() => {
     dispatch(fetchCourses());

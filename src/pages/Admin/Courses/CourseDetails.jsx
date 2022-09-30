@@ -8,6 +8,7 @@ const CourseDetails = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("Select a course");
   const { faculties } = useSelector((state) => state.faculty);
+  const { course } = useSelector((state) => state.courses);
   const [item, setItem] = useState({
     name: "",
     courseCode: "",
@@ -17,6 +18,14 @@ const CourseDetails = () => {
 
   useEffect(() => {
     dispatch(fetchFaculties());
+    if (course !== null) {
+      setItem({
+        name: course.name,
+        courseCode: course.courseCode,
+        status: course.status,
+        facultyId: course.facultyId
+      })
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -103,11 +112,11 @@ const CourseDetails = () => {
         <button className="details--btn" onClick={handleSubmit}>
           Save
         </button>
-        {/* {course._id && (
+        {course?._id && (
           <button className='details--btn'>
             Cancel
           </button>
-        )} */}
+        )}
       </div>
     </div>
   );
