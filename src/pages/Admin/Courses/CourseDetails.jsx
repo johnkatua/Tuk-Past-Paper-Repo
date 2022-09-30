@@ -49,8 +49,6 @@ const CourseDetails = () => {
     })
   }
 
-  console.log(item);
-
   return (
     <div className="admin--dashboard__details">
       <div className="details--header">{title}</div>

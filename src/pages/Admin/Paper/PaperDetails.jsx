@@ -108,8 +108,8 @@ const PaperDetails = () => {
       </div>
       <div
         className="form--container__group"
-        value={item.status}
-        onChange={handleChange}
+        // value={item.status}
+        // onChange={handleChange}
       >
         <div>Select Paper Status</div>
         <div className="form--container__status">
@@ -120,6 +120,7 @@ const PaperDetails = () => {
               value="mainExam"
               name="status"
               checked={item.status === "mainExam"}
+              onChange={handleChange}
             />
           </div>
           <div className="form--status__secondRow">
@@ -129,6 +130,7 @@ const PaperDetails = () => {
               value="cat"
               name="status"
               checked={item.status === "cat"}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -136,8 +138,8 @@ const PaperDetails = () => {
       <hr />
       <div
         className="form--container__group"
-        value={item.year}
-        onChange={handleChange}
+        // value={item.year}
+        // onChange={handleChange}
       >
         <div>Select Paper Year</div>
         <div className="form--container__year">
@@ -149,6 +151,7 @@ const PaperDetails = () => {
                 value="firstYear"
                 name="year"
                 checked={item.year === "firstYear"}
+                onChange={handleChange}
               />
             </div>
             <div className="form--year__secondYear">
@@ -158,6 +161,7 @@ const PaperDetails = () => {
                 value="secondYear"
                 name="year"
                 checked={item.year === "secondYear"}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -169,6 +173,7 @@ const PaperDetails = () => {
                 value="thirdYear"
                 name="year"
                 checked={item.year === "thirdYear"}
+                onChange={handleChange}
               />
             </div>
             <div className="form--year__secondYear">
@@ -178,6 +183,7 @@ const PaperDetails = () => {
                 value="fourthYear"
                 name="year"
                 checked={item.year === "fourthYear"}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -186,8 +192,8 @@ const PaperDetails = () => {
       <hr />
       <div
         className="form--container__group"
-        value={item.facultyId}
-        onChange={handleChange}
+        // value={item.facultyId}
+        // onChange={handleChange}
       >
         <div>Select Faculty</div>
         <div className="form--container__faculties">
@@ -199,6 +205,7 @@ const PaperDetails = () => {
                 value={faculty._id}
                 name="facultyId"
                 checked={item.facultyId === faculty._id}
+                onChange={handleChange}
               />
             </div>
           ))}
