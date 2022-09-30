@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 import { fetchCourses } from "../../../features/course/courseSlice";
-import { createPaper, resetPaper } from "../../../features/paper/paperSlice";
+import { createPaper, resetPaper, updatePaper } from "../../../features/paper/paperSlice";
 
 const PaperDetails = () => {
   const dispatch = useDispatch();
@@ -43,9 +43,8 @@ const PaperDetails = () => {
         facultyId: paper.facultyId,
         courseId: paper.courseId,
       });
-      setPaperFile(paper.file);
     }
-  }, [paper, setItem, paperFile]);
+  }, [paper, setItem]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -57,7 +56,11 @@ const PaperDetails = () => {
     formData.append("facultyId", item.facultyId);
     formData.append("file", paperFile);
 
-    await dispatch(createPaper(formData));
+    if (paper?.id) {
+      await dispatch(updatePaper({ id: paper?.id, values: formData}));
+    } else {
+      await dispatch(createPaper(formData));
+    }
   };
 
   const handleRemove = () => {
@@ -72,6 +75,7 @@ const PaperDetails = () => {
     });
     setPaperFile(null);
   };
+
 
   return (
     <div className="admin--dashboard__details">

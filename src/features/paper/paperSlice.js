@@ -35,7 +35,7 @@ export const createPaper = createAsyncThunk(
         {
           headers: {
             authorization: `Bearer ${token}`,
-            "content-type": "multipart/form-data",
+            // "content-type": "multipart/form-data",
           },
         }
       );
@@ -51,21 +51,24 @@ export const createPaper = createAsyncThunk(
 export const updatePaper = createAsyncThunk(
   "papers/updatePaper",
   async ({id, values}, {rejectWithValue}) => {
-    const token = localStorage.getItem('token');
+    console.log(values);
     try {
-      const response = await axios.put(`http://localhost:4001/updatePaper/${id}`, values, {
+      const token = localStorage.getItem('token');
+      const response = await axios.put(`http://localhost:4001/paper/updatePaper/${id}`, values, {
         headers: {
-          authorization: `Bearer ${token}`
+          authorization: `Bearer ${token}`,
+          "content-type": "multipart/form-data",  
         }
       });
       toast.success(response.data.msg);
       return { id, values: response.data.data };
     } catch (error) {
+      console.log(error.response);
       toast.error(error.response ? error.response.data.msg : error.message);
       return rejectWithValue(error.response.data.msg);
     }
   }
-)
+);
 
 export const deletePaper = createAsyncThunk(
   "papers/deletePaper",
@@ -114,6 +117,7 @@ export const paperSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updatePaper.fulfilled, (state, action) => {
+      console.log(action);
       state.papers = state.papers.map((paper) => paper.id === action.payload.id ? action.payload.value : paper);
     });
     builder.addCase(updatePaper.rejected, (state, action) => {
