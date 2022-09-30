@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IconContext } from "react-icons/lib";
 import { AiOutlineDelete } from "react-icons/ai";
-import { fetchCourses } from "../../../features/course/courseSlice";
+import { deleteCourse, fetchCourses } from "../../../features/course/courseSlice";
 
 const CourseList = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const CourseList = () => {
             <IconContext.Provider
               value={{ color: "red", size: "1.2rem", title: "Delete " }}
             >
-              <div className="list--delete">
+              <div className="list--delete" onClick={() => dispatch(deleteCourse(course._id))}>
                 <AiOutlineDelete />
               </div>
             </IconContext.Provider>
