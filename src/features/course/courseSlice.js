@@ -50,6 +50,25 @@ export const createCourse = createAsyncThunk(
   }
 );
 
+export const updateCourse = createAsyncThunk(
+  "courses/updateCourse",
+  async ({ id, values }, { rejectWithValue }) => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.put(`http://localhost:4001/course/updateCourse/${id}`, values, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
+      toast.success(response.data.msg);
+      return { id, values: response.data.data }
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
+
 export const deleteCourse = createAsyncThunk(
   "courses/deleteCourse",
   async(id, { rejectWithValue }) => {
