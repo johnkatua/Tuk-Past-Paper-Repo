@@ -50,7 +50,6 @@ export const createPaper = createAsyncThunk(
 export const updatePaper = createAsyncThunk(
   "papers/updatePaper",
   async ({id, values}, {rejectWithValue}) => {
-    console.log(values);
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(`http://localhost:4001/paper/updatePaper/${id}`, values, {

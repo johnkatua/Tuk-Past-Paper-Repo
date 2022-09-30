@@ -74,11 +74,8 @@ const PaperDetails = () => {
       facultyId: "",
       courseId: "",
     });
-    setPaperFile(null);
     ref.current.value = "";
   };
-
-  console.log(paperFile)
 
 
   return (
