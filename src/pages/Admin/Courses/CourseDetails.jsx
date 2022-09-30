@@ -76,8 +76,6 @@ const CourseDetails = () => {
       </div>
       <div
         className="form--container__group"
-        value={item.status}
-        onChange={handleChange}
       >
         <div>Select Course Status</div>
         <div className="form--container__status">
@@ -87,7 +85,8 @@ const CourseDetails = () => {
               type="radio"
               value="degree"
               name="status"
-              defaultChecked={item.status === "degree"}
+              checked={item.status === "degree"}
+              onChange={handleChange}
             />
           </div>
           <div className="form--status__secondRow">
@@ -96,7 +95,8 @@ const CourseDetails = () => {
               type="radio"
               value="diploma"
               name="status"
-              defaultChecked={item.status === "diploma"}
+              checked={item.status === "diploma"}
+              onChange={handleChange}
             />
           </div>
         </div>
