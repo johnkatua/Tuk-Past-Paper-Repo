@@ -5,6 +5,7 @@ import { validateCourseDetails } from "../../helpers/validation";
 
 const initialState = {
   courses: [],
+  course: null,
   status: "idle",
   error: null,
 };
