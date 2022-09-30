@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { validateCourseDetails } from "../../helpers/validation";
+import { updatePaper } from "../paper/paperSlice";
 
 const initialState = {
   courses: [],
@@ -112,6 +113,9 @@ export const courseSlice = createSlice({
     });
     builder.addCase(createCourse.rejected, (state, action) => {
       state.error = action.payload;
+    });
+    builder.addCase(updatePaper.fulfilled, (state, action) => {
+      state.courses = state.courses.map((course) => course._id === action.payload.id ? action.payload.values : course);
     });
     builder.addCase(deleteCourse.fulfilled, (state, action) => {
       state.courses = state.courses.filter((course) => course._id !== action.payload);
