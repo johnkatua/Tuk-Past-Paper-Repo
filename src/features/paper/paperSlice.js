@@ -48,6 +48,25 @@ export const createPaper = createAsyncThunk(
   }
 );
 
+export const updatePaper = createAsyncThunk(
+  "papers/updatePaper",
+  async ({id, values}, {rejectWithValue}) => {
+    const token = localStorage.getItem('token');
+    try {
+      const response = await axios.put(`http://localhost:4001/updatePaper/${id}`, values, {
+        headers: {
+          authorization: `Bearer ${token}`
+        }
+      });
+      toast.success(response.data.msg);
+      return response.data;
+    } catch (error) {
+      toast.error(error.response ? error.response.data.msg : error.message);
+      return rejectWithValue(error.response.data.msg);
+    }
+  }
+)
+
 export const deletePaper = createAsyncThunk(
   "papers/deletePaper",
   async ({ id }, { rejectWithValue }) => {
