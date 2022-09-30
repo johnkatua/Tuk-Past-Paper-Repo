@@ -88,6 +88,9 @@ export const courseSlice = createSlice({
     });
     builder.addCase(deleteCourse.fulfilled, (state, action) => {
       state.courses = state.courses.filter((course) => course._id !== action.payload);
+    });
+    builder.addCase(deleteCourse.rejected, (state, action) => {
+      state.error = action.payload;
     })
   },
 });
