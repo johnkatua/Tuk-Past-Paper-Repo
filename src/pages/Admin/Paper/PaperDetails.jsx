@@ -222,7 +222,7 @@ const PaperDetails = () => {
         >
           <optgroup label="Select a course">
             {courses.map((course) => (
-              <option key={course._id} value={course._id} selected>
+              <option key={course._id} value={course._id} defaultValue>
                 {course.name}
               </option>
             ))}
