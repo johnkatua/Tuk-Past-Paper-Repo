@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCourse } from "../../../features/course/courseSlice";
+import { createCourse, resetCourse } from "../../../features/course/courseSlice";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 
 const CourseDetails = () => {
@@ -38,6 +38,16 @@ const CourseDetails = () => {
   const handleSubmit = () => {
     dispatch(createCourse(item));
   };
+
+  const handleRemove = () => {
+    dispatch(resetCourse());
+    setItem({
+      name: '',
+      courseCode: '',
+      status: '',
+      facultyId: ''
+    })
+  }
 
   return (
     <div className="admin--dashboard__details">
@@ -113,7 +123,7 @@ const CourseDetails = () => {
           Save
         </button>
         {course?._id && (
-          <button className='details--btn'>
+          <button className='details--btn' onClick={handleRemove}>
             Cancel
           </button>
         )}
