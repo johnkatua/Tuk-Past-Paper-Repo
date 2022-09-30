@@ -113,7 +113,6 @@ export const paperSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updatePaper.fulfilled, (state, action) => {
-      console.log(action);
       state.papers = state.papers.map((paper) => paper.id === action.payload.id ? action.payload.values : paper);
     });
     builder.addCase(updatePaper.rejected, (state, action) => {

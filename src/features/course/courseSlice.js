@@ -61,6 +61,7 @@ export const updateCourse = createAsyncThunk(
           authorization: `Bearer ${token}`
         }
       });
+      console.log(response);
       toast.success(response.data.msg);
       return { id, values: response.data.data }
     } catch (error) {
@@ -109,18 +110,20 @@ export const courseSlice = createSlice({
       state.courses = action.payload.data;
     });
     builder.addCase(createCourse.fulfilled, (state, action) => {
+      console.log('action');
       state.courses.push(action.payload.data);
     });
     builder.addCase(createCourse.rejected, (state, action) => {
       state.error = action.payload;
     });
-    builder.addCase(updatePaper.fulfilled, (state, action) => {
+    builder.addCase(updateCourse.fulfilled, (state, action) => {
       state.courses = state.courses.map((course) => course._id === action.payload.id ? action.payload.values : course);
     });
-    builder.addCase(updatePaper.rejected, (state, action) => {
+    builder.addCase(updateCourse.rejected, (state, action) => {
       state.error = action.payload;
     })
     builder.addCase(deleteCourse.fulfilled, (state, action) => {
+      console.log('action deleted');
       state.courses = state.courses.filter((course) => course._id !== action.payload);
     });
     builder.addCase(deleteCourse.rejected, (state, action) => {

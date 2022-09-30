@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCourse, resetCourse } from "../../../features/course/courseSlice";
+import { createCourse, resetCourse, updateCourse } from "../../../features/course/courseSlice";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 
 const CourseDetails = () => {
@@ -26,7 +26,7 @@ const CourseDetails = () => {
         facultyId: course.facultyId
       })
     }
-  }, [course]);
+  }, [course, setItem]);
 
   const handleChange = (e) => {
     setItem((item) => ({
@@ -36,7 +36,12 @@ const CourseDetails = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(createCourse(item));
+    if (course?._id) {
+      console.log('updated', item);
+      dispatch(updateCourse({ id: course._id, values: item }))
+    } else {
+      dispatch(createCourse(item));
+    }
   };
 
   const handleRemove = () => {
