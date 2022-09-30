@@ -45,7 +45,7 @@ const PaperDetails = () => {
       });
       setPaperFile(paper.file);
     }
-  }, [paper, setItem]);
+  }, [paper, setItem, paperFile]);
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -72,9 +72,6 @@ const PaperDetails = () => {
     });
     setPaperFile(null);
   };
-
-  console.log(item);
-  console.log(paperFile)
 
   return (
     <div className="admin--dashboard__details">

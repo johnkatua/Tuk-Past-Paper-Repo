@@ -407,3 +407,7 @@ td {
   color: var(--white);
   border-radius: 3px;
 }
+
+.details--btn:disabled {
+  cursor: not-allowed;
+}
