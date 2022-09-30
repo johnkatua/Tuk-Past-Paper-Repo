@@ -26,7 +26,7 @@ const CourseDetails = () => {
         facultyId: course.facultyId
       })
     }
-  }, []);
+  }, [course]);
 
   const handleChange = (e) => {
     setItem((item) => ({
@@ -48,6 +48,8 @@ const CourseDetails = () => {
       facultyId: ''
     })
   }
+
+  console.log(item);
 
   return (
     <div className="admin--dashboard__details">
