@@ -56,7 +56,7 @@ const Tooltip = ({ logout }) => {
         My papers
       </div>
       <hr />
-      <div
+      {/* <div
         className="tooltip--details"
         onClick={() => dispatch(openReusableModal())}
       >
@@ -80,7 +80,7 @@ const Tooltip = ({ logout }) => {
           />
         }
         button={<Button onClick={handleSubmit}>Create</Button>}
-      />
+      /> */}
       <div
         className="tooltip--details"
         onClick={() => navigate("/admin-dashboard")}

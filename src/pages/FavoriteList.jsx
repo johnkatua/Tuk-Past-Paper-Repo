@@ -7,6 +7,9 @@ const FavoriteList = () => {
   const dispatch = useDispatch();
   const { favPapers } = useSelector((state) => state.favPapers);
   const { status } = useSelector((state) => state.favPapers);
+  const { user } = useSelector((state) => state.auth);
+
+  const { userId } = user;
 
   useEffect(() => {
     if (status == "idle") {
