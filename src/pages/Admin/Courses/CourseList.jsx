@@ -15,7 +15,8 @@ const CourseList = () => {
   return (
     <div className="admin--dashboard__list">
       <h3 className="admin--list__header">Courses</h3>
-      <ul>
+      <div className="admin--list__container">
+        <ul>
         {courses.map((course) => (
           <li key={course._id}>
             <div className="admin--list" onClick={() => dispatch(setCourse(course))}>
@@ -32,6 +33,7 @@ const CourseList = () => {
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
