@@ -6,8 +6,6 @@ import TableComponent from "../components/TableComponent";
 const PaperList = () => {
   const dispatch = useDispatch();
   const { currentPage, totalPages } = useSelector((state) => state.papers);
-  const { user } = useSelector((state) => state.auth);
-  console.log(user);
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const [page, setPage] = useState(currentPage);

@@ -22,28 +22,28 @@ const FacultyList = () => {
       <h3 className="admin--list__header">Faculties</h3>
       <div className="admin--list__container">
         <ul>
-        {faculties.map((faculty) => (
-          <li key={faculty._id}>
-            <div
-              className="admin--list"
-              onClick={() => dispatch(getSelectedFaculty(faculty))}
-            >
-              <div className="list--header">{faculty.name}</div>
-              <div className="list--details">{faculty.description}</div>
-            </div>
-            <IconContext.Provider
-              value={{ color: "red", size: "1.2rem", title: "Delete" }}
-            >
+          {faculties.map((faculty) => (
+            <li key={faculty._id}>
               <div
-                className="list--delete"
-                onClick={() => dispatch(deleteFaculty(faculty._id))}
+                className="admin--list"
+                onClick={() => dispatch(getSelectedFaculty(faculty))}
               >
-                <AiOutlineDelete />
+                <div className="list--header">{faculty.name}</div>
+                <div className="list--details">{faculty.description}</div>
               </div>
-            </IconContext.Provider>
-          </li>
-        ))}
-      </ul>
+              <IconContext.Provider
+                value={{ color: "red", size: "1.2rem", title: "Delete" }}
+              >
+                <div
+                  className="list--delete"
+                  onClick={() => dispatch(deleteFaculty(faculty._id))}
+                >
+                  <AiOutlineDelete />
+                </div>
+              </IconContext.Provider>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

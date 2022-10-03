@@ -27,8 +27,6 @@ const FavoriteList = () => {
     }
   }
 
-  console.log(content);
-
   return (
     <>
       {content === "No Papers" ? (

@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCourse, resetCourse, updateCourse } from "../../../features/course/courseSlice";
+import {
+  createCourse,
+  resetCourse,
+  updateCourse,
+} from "../../../features/course/courseSlice";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 
 const CourseDetails = () => {
@@ -23,8 +27,8 @@ const CourseDetails = () => {
         name: course.name,
         courseCode: course.courseCode,
         status: course.status,
-        facultyId: course.facultyId
-      })
+        facultyId: course.facultyId,
+      });
     }
   }, [course, setItem]);
 
@@ -37,8 +41,8 @@ const CourseDetails = () => {
 
   const handleSubmit = () => {
     if (course?._id) {
-      console.log('updated', item);
-      dispatch(updateCourse({ id: course._id, values: item }))
+      console.log("updated", item);
+      dispatch(updateCourse({ id: course._id, values: item }));
     } else {
       dispatch(createCourse(item));
     }
@@ -47,12 +51,12 @@ const CourseDetails = () => {
   const handleRemove = () => {
     dispatch(resetCourse());
     setItem({
-      name: '',
-      courseCode: '',
-      status: '',
-      facultyId: ''
-    })
-  }
+      name: "",
+      courseCode: "",
+      status: "",
+      facultyId: "",
+    });
+  };
 
   return (
     <div className="admin--dashboard__details">
@@ -77,9 +81,7 @@ const CourseDetails = () => {
           onChange={handleChange}
         />
       </div>
-      <div
-        className="form--container__group"
-      >
+      <div className="form--container__group">
         <div>Select Course Status</div>
         <div className="form--container__status">
           <div className="form--status__firstRow">
@@ -128,7 +130,7 @@ const CourseDetails = () => {
           Save
         </button>
         {course?._id && (
-          <button className='details--btn' onClick={handleRemove}>
+          <button className="details--btn" onClick={handleRemove}>
             Cancel
           </button>
         )}

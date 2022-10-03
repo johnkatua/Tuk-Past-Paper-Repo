@@ -2,7 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFaculties } from "../../../features/faculty/facultySlice";
 import { fetchCourses } from "../../../features/course/courseSlice";
-import { createPaper, resetPaper, updatePaper } from "../../../features/paper/paperSlice";
+import {
+  createPaper,
+  resetPaper,
+  updatePaper,
+} from "../../../features/paper/paperSlice";
 
 const PaperDetails = () => {
   const ref = useRef();
@@ -58,7 +62,7 @@ const PaperDetails = () => {
     formData.append("file", paperFile);
 
     if (paper?.id) {
-      await dispatch(updatePaper({ id: paper?.id, values: formData}));
+      await dispatch(updatePaper({ id: paper?.id, values: formData }));
     } else {
       await dispatch(createPaper(formData));
     }
@@ -76,7 +80,6 @@ const PaperDetails = () => {
     });
     ref.current.value = "";
   };
-
 
   return (
     <div className="admin--dashboard__details">
@@ -113,9 +116,7 @@ const PaperDetails = () => {
           ref={ref}
         />
       </div>
-      <div
-        className="form--container__group"
-      >
+      <div className="form--container__group">
         <div>Select Paper Status</div>
         <div className="form--container__status">
           <div className="form--status__firstRow">
@@ -141,9 +142,7 @@ const PaperDetails = () => {
         </div>
       </div>
       <hr />
-      <div
-        className="form--container__group"
-      >
+      <div className="form--container__group">
         <div>Select Paper Year</div>
         <div className="form--container__year">
           <div className="form--year__firstRow">
@@ -193,9 +192,7 @@ const PaperDetails = () => {
         </div>
       </div>
       <hr />
-      <div
-        className="form--container__group"
-      >
+      <div className="form--container__group">
         <div>Select Faculty</div>
         <div className="form--container__faculties">
           {faculties.map((faculty) => (
@@ -230,7 +227,11 @@ const PaperDetails = () => {
         </select>
       </div>
       <div className="form--container__btns">
-        <button disabled={paperFile === null} className="details--btn" onClick={handleSubmit}>
+        <button
+          disabled={paperFile === null}
+          className="details--btn"
+          onClick={handleSubmit}
+        >
           Save
         </button>
         {paper?.id && (

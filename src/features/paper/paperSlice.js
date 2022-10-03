@@ -49,14 +49,18 @@ export const createPaper = createAsyncThunk(
 
 export const updatePaper = createAsyncThunk(
   "papers/updatePaper",
-  async ({id, values}, {rejectWithValue}) => {
+  async ({ id, values }, { rejectWithValue }) => {
     try {
-      const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:4001/paper/updatePaper/${id}`, values, {
-        headers: {
-          authorization: `Bearer ${token}`,
+      const token = localStorage.getItem("token");
+      const response = await axios.put(
+        `http://localhost:4001/paper/updatePaper/${id}`,
+        values,
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
         }
-      });
+      );
       toast.success(response.data.msg);
       return { id, values: response.data.data };
     } catch (error) {
@@ -113,11 +117,13 @@ export const paperSlice = createSlice({
       state.error = action.payload;
     });
     builder.addCase(updatePaper.fulfilled, (state, action) => {
-      state.papers = state.papers.map((paper) => paper.id === action.payload.id ? action.payload.values : paper);
+      state.papers = state.papers.map((paper) =>
+        paper.id === action.payload.id ? action.payload.values : paper
+      );
     });
     builder.addCase(updatePaper.rejected, (state, action) => {
       state.error = action.payload;
-    })
+    });
     builder.addCase(deletePaper.fulfilled, (state, action) => {
       state.papers = state.papers.filter(
         (paper) => paper.id !== action.payload.id
