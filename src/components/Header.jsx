@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Tooltip from "./Tooltip";
 import { closeToolTip, openToolTip } from "../features/tooltip/toolTip";
 import { getUserProfile } from "../features/auth/authSlice";
+import TooltipBox from "./TooltipBox";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -41,9 +42,15 @@ const Header = () => {
   return (
     <div className="header--container">
       <h1 onClick={() => navigate("/")}>Tuk Past Past Repo</h1>
-      {showToolTip && <Tooltip logout={handleLogout} />}
+      {/* {showToolTip && <Tooltip logout={handleLogout} />} */}
       {user ? (
-        <div onClick={handleToolTip}>{user.email}</div>
+        // <div onClick={handleToolTip}>{user.email}</div>
+        <div>
+          <div onClick={() => dispatch(openToolTip())}>{user.email}</div>
+          <TooltipBox show={showToolTip} onClickOutside={() => dispatch(closeToolTip())}>
+            <span>Opened</span>
+          </TooltipBox>
+        </div>
       ) : (
         <>
           {currentLocation === false ? (

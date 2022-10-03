@@ -56,31 +56,6 @@ const Tooltip = ({ logout }) => {
         My papers
       </div>
       <hr />
-      {/* <div
-        className="tooltip--details"
-        onClick={() => dispatch(openReusableModal())}
-      >
-        Add Paper
-      </div>
-      <hr />
-      <DisplayPaperModal
-        title={"Create Paper"}
-        show={showModal}
-        close={() => dispatch(closeReusableModal())}
-        content={
-          <AddPaperForm
-            name={addPaper.name}
-            year={addPaper.year}
-            academicYear={addPaper.academicYear}
-            status={addPaper.status}
-            courseId={addPaper.courseId}
-            facultyId={addPaper.facultyId}
-            handleChange={handleChange}
-            saveFile={saveFile}
-          />
-        }
-        button={<Button onClick={handleSubmit}>Create</Button>}
-      /> */}
       <div
         className="tooltip--details"
         onClick={() => navigate("/admin-dashboard")}
