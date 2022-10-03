@@ -9,13 +9,12 @@ const FavoriteList = () => {
   const { status } = useSelector((state) => state.favPapers);
   const { user } = useSelector((state) => state.auth);
 
-  const { userId } = user;
-
   useEffect(() => {
-    if (status == "idle") {
+    if (status === "idle" && user !== null) {
+      const { userId } = user;
       dispatch(fetchFavoritePapers(userId));
     }
-  }, [status]);
+  }, [status, user]);
 
   let content;
   if (status === "success") {
