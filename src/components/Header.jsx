@@ -45,12 +45,12 @@ const Header = () => {
       {/* {showToolTip && <Tooltip logout={handleLogout} />} */}
       {user ? (
         // <div onClick={handleToolTip}>{user.email}</div>
-        <div>
+        <>
           <div onClick={() => dispatch(openToolTip())}>{user.email}</div>
-          <TooltipBox show={showToolTip} onClickOutside={() => dispatch(closeToolTip())}>
-            <span>Opened</span>
-          </TooltipBox>
-        </div>
+            <TooltipBox show={showToolTip} onClickOutside={() => dispatch(closeToolTip())}>
+              <span>Opened</span>
+            </TooltipBox>
+        </>
       ) : (
         <>
           {currentLocation === false ? (

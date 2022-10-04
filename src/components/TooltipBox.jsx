@@ -19,8 +19,11 @@ const TooltipBox = ({ onClickOutside, show, children }) => {
   if (!show) return null;
 
   return (
-    <div ref={ref}>
-      {children}
+    <div className='tooltip--box'>
+      <div></div>
+      <div ref={ref} className='tooltip--box__container'>
+        {children}
+      </div>
     </div>
   )
 }
