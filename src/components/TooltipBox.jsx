@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import ToolTipContent from './ToolTipContent';
 
-const TooltipBox = ({ onClickOutside, show, children }) => {
+const TooltipBox = ({ onClickOutside, show }) => {
   const ref = useRef(null);
 
   useEffect(() => {
