@@ -25,7 +25,9 @@ const TooltipBox = ({ onClickOutside, show, children }) => {
           <div className='tooltip--box__header'>
             <button onClick={onClickOutside}>X</button>
           </div>
-          {children}
+          <div className='tooltip--box__content'>
+            Hello
+          </div>
         </div>
       </div>
     </div>

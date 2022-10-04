@@ -101,22 +101,10 @@
   border: none;
   font-size: 20px;
 }
-  
-/* .tooltip--box {
-  display: flex;
-  background-color: transparent;
-}
 
-.tooltip--box__container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 80%;
-  bottom: 0;
-  background-color: black;
-  opacity: 1;
-  z-index: 100;
-} */
+.tooltip--box__content {
+  background-color: wheat;
+}
 
 .tooltip--container {
   position: absolute;
