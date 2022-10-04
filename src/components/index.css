@@ -61,12 +61,49 @@
 }
 
 .tooltip--box {
-  display: flex;
-  /* position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.tooltip--box__centered {
+  position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; */
+  left: 100%;
+  transform: translate(-100%, 0%);
+}
+
+.tooltip--box__modal {
+  background-color: black;
+  width: 250px;
+  height: 100vh;
+  z-index: 10;
+  color: white;
+}
+
+.tooltip--box__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
+  padding: 0 10px;
+}
+
+.tooltip--box__header button {
+  background-color: transparent;
+  color: var(--white);
+  outline: none;
+  border: none;
+  font-size: 22px;
+}
+  
+/* .tooltip--box {
+  display: flex;
   background-color: transparent;
 }
 
@@ -79,7 +116,7 @@
   background-color: black;
   opacity: 1;
   z-index: 100;
-}
+} */
 
 .tooltip--container {
   position: absolute;
