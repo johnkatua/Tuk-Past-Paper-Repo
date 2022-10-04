@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const TooltipBox = ({ onClickOutside, show, children, close }) => {
+const TooltipBox = ({ onClickOutside, show, children }) => {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const TooltipBox = ({ onClickOutside, show, children, close }) => {
       <div ref={ref} className='tooltip--box__centered'>
         <div className='tooltip--box__modal'>
           <div className='tooltip--box__header'>
-            <button onClick={close}>X</button>
+            <button onClick={onClickOutside}>X</button>
           </div>
           {children}
         </div>
