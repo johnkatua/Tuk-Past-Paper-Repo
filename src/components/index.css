@@ -102,10 +102,6 @@
   font-size: 20px;
 }
 
-.tooltip--box__content {
-  background-color: wheat;
-}
-
 .tooltip--container {
   position: absolute;
   top: 7%;
@@ -120,6 +116,12 @@
 .tooltip--details {
   margin: 0.5rem 2rem;
   cursor: pointer;
+}
+
+.tooltip--content {
+  display: flex;
+  padding: 10px;
+  border-bottom: 0.2px solid var(--light-gray);
 }
 
 /* Admin Dashboard */

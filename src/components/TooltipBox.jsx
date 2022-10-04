@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import ToolTipContent from './ToolTipContent';
 
 const TooltipBox = ({ onClickOutside, show, children }) => {
   const ref = useRef(null);
@@ -26,7 +27,7 @@ const TooltipBox = ({ onClickOutside, show, children }) => {
             <button onClick={onClickOutside}>X</button>
           </div>
           <div className='tooltip--box__content'>
-            Hello
+            <ToolTipContent />
           </div>
         </div>
       </div>
