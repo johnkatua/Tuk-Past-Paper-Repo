@@ -120,8 +120,23 @@
 
 .tooltip--content {
   display: flex;
-  padding: 10px;
+  margin-top: 25px;
+}
+
+.tooltip--content ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.tooltip--content ul li {
+  cursor: pointer;
+  padding: 12px;
   border-bottom: 0.2px solid var(--light-gray);
+}
+
+.tooltip--content ul li:hover {
+  background-color: var(--gray);
 }
 
 /* Admin Dashboard */

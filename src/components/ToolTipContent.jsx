@@ -13,9 +13,6 @@ const toolTipList = [
   {
     name: 'Admin Dashboard',
     link: '/admin-dashboard'
-  },
-  {
-    name: 'Logout'
   }
 ]
 
@@ -25,7 +22,7 @@ const ToolTipContent = () => {
     <div className='tooltip--content'>
       <ul>
         {toolTipList.map((data) => (
-          <li onClick={data.link ?  navigate(data.link) : console.log('logout')}>{data.name}</li>
+          <li onClick={() => navigate(data.link)}>{data.name}</li>
       ))}
       </ul>
     </div>
