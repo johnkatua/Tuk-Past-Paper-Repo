@@ -37,7 +37,7 @@ const PaperList = () => {
       dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     }
     return setNextClick(false);
-  }, [paperStatus, dispatch, page]);
+  }, [paperStatus, dispatch, page, limit]);
 
   let content;
 
@@ -80,15 +80,14 @@ const PaperList = () => {
         <input type="search" placeholder="Find a paper" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <div className="details--select__items">
           <select name="limit">
-            <option value={10}>10</option>
-            <option value={15}>15</option>
+            <option value={2}>2</option>
+            <option value={4}>4</option>
             <option value={25}>25</option>
           </select>
         </div>
       </div>
       <div className="details--table">
         <TableComponent data={filteredData} />
-        {/* <TableComponent data={content} /> */}
       </div>
       <div className="paper--navigation__container">
         <button
