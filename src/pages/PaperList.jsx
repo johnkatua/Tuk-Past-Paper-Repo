@@ -13,8 +13,6 @@ const PaperList = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [limit, setLimit] = useState(2);
 
-  // const LIMIT = 2;
-
   const handleNextPage = () => {
     if (page < totalPages) {
       setPage(page + 1);
@@ -30,14 +28,14 @@ const PaperList = () => {
   };
 
   useEffect(() => {
-    if (paperStatus === "idle") {
-      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
-    }
+    dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     if (nextClick) {
       dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     }
     return setNextClick(false);
   }, [paperStatus, dispatch, page, limit]);
+
+  console.log(paperStatus);
 
   let content;
 
@@ -79,7 +77,7 @@ const PaperList = () => {
       <div className="details--search__bar">
         <input type="search" placeholder="Find a paper" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <div className="details--select__items">
-          <select name="limit">
+          <select name="limit" value={limit} onChange={(e) => setLimit(e.target.value)}>
             <option value={2}>2</option>
             <option value={4}>4</option>
             <option value={25}>25</option>
