@@ -47,9 +47,12 @@ const Header = () => {
         // <div onClick={handleToolTip}>{user.email}</div>
         <>
           <div onClick={() => dispatch(openToolTip())}>{user.email}</div>
-            <TooltipBox show={showToolTip} onClickOutside={() => dispatch(closeToolTip())}>
-              <span>Opened</span>
-            </TooltipBox>
+          <TooltipBox
+            show={showToolTip}
+            onClickOutside={() => dispatch(closeToolTip())}
+          >
+            <span>Opened</span>
+          </TooltipBox>
         </>
       ) : (
         <>
