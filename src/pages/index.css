@@ -25,14 +25,14 @@
 }
 
 .welcome--description {
-  margin-top: 25px;
-  font-size: 18px;
+  margin: 25px 0;
+  font-size: 16px;
   color: var(--gray);
   background-color: blue;
 }
 
 .welcome--button {
-  font-size: 18px;
+  font-size: 16px;
   padding: 8px 15px;
   background-color: var(--black);
   color: var(--white);
