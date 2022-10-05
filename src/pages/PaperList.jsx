@@ -75,7 +75,7 @@ const PaperList = () => {
   return (
     <div className="details--container">
       <div className="details--search__bar">
-        <input type="search" placeholder="Find a paper" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+        <input type="search" placeholder="Enter any paper detail e.g name, year, level..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <div className="details--select__items">
           <select name="limit" value={limit} onChange={(e) => setLimit(e.target.value)}>
             <option value={2}>2</option>
