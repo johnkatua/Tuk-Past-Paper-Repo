@@ -10,7 +10,7 @@ const PaperList = () => {
   const paperStatus = useSelector((state) => state.papers.status);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [limit, setLimit] = useState(2);
 
   const handleNextPage = () => {
@@ -51,22 +51,22 @@ const PaperList = () => {
     if (content.length > 0) {
       const attributes = Object.keys(content[0]);
 
-    const list = [];
+      const list = [];
 
-    for (const currentItem of content) {
-      for (const attribute of attributes) {
-        if (attribute === 'id') {
-          continue;
-        }
-        const value = currentItem[attribute];
-        if (value && value.toLowerCase() === searchTerm.toLowerCase()) {
-          const found = content.find((item) => item.id === currentItem.id);
-          if (found) {
-            list.push(found);
+      for (const currentItem of content) {
+        for (const attribute of attributes) {
+          if (attribute === "id") {
+            continue;
+          }
+          const value = currentItem[attribute];
+          if (value && value.toLowerCase() === searchTerm.toLowerCase()) {
+            const found = content.find((item) => item.id === currentItem.id);
+            if (found) {
+              list.push(found);
+            }
           }
         }
       }
-    }
       return list;
     }
     return [];
@@ -75,9 +75,18 @@ const PaperList = () => {
   return (
     <div className="details--container">
       <div className="details--search__bar">
-        <input type="search" placeholder="Enter any paper detail e.g name, year, level..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+        <input
+          type="search"
+          placeholder="Enter any paper detail e.g name, year, level..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
         <div className="details--select__items">
-          <select name="limit" value={limit} onChange={(e) => setLimit(e.target.value)}>
+          <select
+            name="limit"
+            value={limit}
+            onChange={(e) => setLimit(e.target.value)}
+          >
             <option value={2}>2</option>
             <option value={4}>4</option>
             <option value={25}>25</option>
