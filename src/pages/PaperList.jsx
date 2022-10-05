@@ -47,10 +47,36 @@ const PaperList = () => {
     });
   }
 
+  const filteredData = useMemo(() => {
+    if (!searchTerm) return content;
+    if (content.length > 0) {
+      const attributes = Object.keys(content[0]);
+
+    const list = [];
+
+    for (const currentItem of content) {
+      for (const attribute of attributes) {
+        if (attribute === 'id') {
+          continue;
+        }
+        const value = currentItem[attribute];
+        if (value && value.toLowerCase() === searchTerm.toLowerCase()) {
+          const found = content.find((item) => item.id === currentItem.id);
+          if (found) {
+            list.push(found);
+          }
+        }
+      }
+    }
+      return list;
+    }
+    return [];
+  }, [searchTerm, content]);
+
   return (
     <div className="details--container">
       <div className="details--search__bar">
-        <input type="search" placeholder="Find a paper" />
+        <input type="search" placeholder="Find a paper" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
         <div className="details--select__items">
           <select name="courses" id="courses">
             <option value="ABMI">ABMI</option>
@@ -64,7 +90,8 @@ const PaperList = () => {
         </div>
       </div>
       <div className="details--table">
-        <TableComponent data={content} />
+        <TableComponent data={filteredData} />
+        {/* <TableComponent data={content} /> */}
       </div>
       <div className="paper--navigation__container">
         <button
