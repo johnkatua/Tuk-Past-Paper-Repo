@@ -1,6 +1,6 @@
 .welcome--container {
   display: flex;
-  height: 80vh;
+  height: 100%;
   gap: 5rem;
 }
 
@@ -11,20 +11,24 @@
   justify-content: center;
   flex-basis: 60%;
   margin: 2rem 0;
+  background-color: rgb(151, 196, 196);
 }
 
 .welcome--title {
   display: flex;
   flex-wrap: wrap;
-  font-size: 5rem;
+  font-size: 56px;
   padding: 0;
   margin: 0;
   font-weight: 500;
+  background-color: azure;
 }
 
 .welcome--description {
+  margin-top: 25px;
   font-size: 18px;
   color: var(--gray);
+  background-color: blue;
 }
 
 .welcome--button {

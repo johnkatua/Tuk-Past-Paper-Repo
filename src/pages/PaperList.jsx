@@ -35,8 +35,6 @@ const PaperList = () => {
     return setNextClick(false);
   }, [paperStatus, dispatch, page, limit]);
 
-  console.log(paperStatus);
-
   let content;
 
   if (paperStatus === "succeeded") {
@@ -72,6 +70,8 @@ const PaperList = () => {
     return [];
   }, [searchTerm, content]);
 
+  console.log(content?.length);
+
   return (
     <div className="details--container">
       <div className="details--search__bar">
@@ -89,7 +89,7 @@ const PaperList = () => {
           >
             <option value={2}>2</option>
             <option value={4}>4</option>
-            <option value={25}>25</option>
+            <option value={25} disabled={page > 1 && limit > content?.length}>25</option>
           </select>
         </div>
       </div>
