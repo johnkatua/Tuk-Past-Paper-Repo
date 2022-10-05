@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectAllPapers, fetchPapers } from "../features/paper/paperSlice";
 import TableComponent from "../components/TableComponent";
@@ -10,6 +10,7 @@ const PaperList = () => {
   const paperStatus = useSelector((state) => state.papers.status);
   const [page, setPage] = useState(currentPage);
   const [nextClick, setNextClick] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const LIMIT = 2;
 
