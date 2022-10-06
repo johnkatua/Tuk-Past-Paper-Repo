@@ -17,6 +17,7 @@ const PaperList = () => {
     if (page < totalPages) {
       setPage(page + 1);
       setNextClick(true);
+      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     }
   };
 
@@ -24,6 +25,7 @@ const PaperList = () => {
     if (page > 1) {
       setPage(page - 1);
       setNextClick(true);
+      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     }
   };
 
@@ -33,7 +35,12 @@ const PaperList = () => {
       dispatch(fetchPapers({ limit: limit, page: page * 1 }));
     }
     return setNextClick(false);
-  }, [paperStatus, dispatch, page, limit]);
+  }, [dispatch, page]);
+
+  useEffect(() => {
+    dispatch(fetchPapers({ limit: limit, page: 1 }));
+    setPage(1)
+  }, [dispatch, limit]);
 
   let content;
 
@@ -70,7 +77,10 @@ const PaperList = () => {
     return [];
   }, [searchTerm, content]);
 
-  console.log(content?.length);
+  useEffect(() => {
+    
+  }, [])
+  
 
   return (
     <div className="details--container">
