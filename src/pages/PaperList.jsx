@@ -9,33 +9,22 @@ const PaperList = () => {
   const papers = useSelector(selectAllPapers);
   const paperStatus = useSelector((state) => state.papers.status);
   const [page, setPage] = useState(currentPage);
-  const [nextClick, setNextClick] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [limit, setLimit] = useState(2);
 
   const handleNextPage = () => {
     if (page < totalPages) {
       setPage(page + 1);
-      setNextClick(true);
-      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
+      dispatch(fetchPapers({ limit: limit, page: page + 1 }));
     }
   };
 
   const handlePrevPage = () => {
     if (page > 1) {
       setPage(page - 1);
-      setNextClick(true);
-      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
+      dispatch(fetchPapers({ limit: limit, page: page - 1 }));
     }
   };
-
-  useEffect(() => {
-    dispatch(fetchPapers({ limit: limit, page: page * 1 }));
-    if (nextClick) {
-      dispatch(fetchPapers({ limit: limit, page: page * 1 }));
-    }
-    return setNextClick(false);
-  }, [dispatch, page]);
 
   useEffect(() => {
     dispatch(fetchPapers({ limit: limit, page: 1 }));
