@@ -11,6 +11,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [passwordType, setPasswordType] = useState('password')
 
   const set = (name) => {
     return (e) => {
@@ -48,7 +49,7 @@ const Login = () => {
         <div className="auth--card__thirdrow">
           <label htmlFor="password"></label>
           <input
-            type="password"
+            type={passwordType}
             placeholder="Enter password"
             name="password"
             onChange={set("password")}
