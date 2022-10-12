@@ -54,6 +54,7 @@ const Login = () => {
             name="password"
             onChange={set("password")}
           />
+          <span style={{ marginLeft: '-40px' }}>Hello</span>
         </div>
         <div className="auth--btn__container">
           <button type="submit" onClick={handleSubmit}>
