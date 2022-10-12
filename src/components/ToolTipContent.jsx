@@ -16,6 +16,11 @@ const toolTipList = [
   },
 ];
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload(false);
+  };
+
 const ToolTipContent = () => {
   const navigate = useNavigate();
   return (
@@ -25,6 +30,7 @@ const ToolTipContent = () => {
           {toolTipList.map((data) => (
             <li onClick={() => navigate(data.link)}>{data.name}</li>
           ))}
+          <li onClick={handleLogout}>Logout</li>
         </>
       </ul>
     </div>
