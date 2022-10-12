@@ -65,7 +65,7 @@ const Login = () => {
             name="password"
             onChange={set("password")}
           />
-          <span style={{ marginLeft: '-40px' }} onClick={() => handlePasswordType()}>
+          <span style={{ marginLeft: '-40px', cursor: 'pointer' }} onClick={handlePasswordType}>
             {passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}
           </span>
         </div>
