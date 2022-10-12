@@ -21,9 +21,11 @@ const ToolTipContent = () => {
   return (
     <div className="tooltip--content">
       <ul>
-        {toolTipList.map((data) => (
-          <li onClick={() => navigate(data.link)}>{data.name}</li>
-        ))}
+        <>
+          {toolTipList.map((data) => (
+            <li onClick={() => navigate(data.link)}>{data.name}</li>
+          ))}
+        </>
       </ul>
     </div>
   );
