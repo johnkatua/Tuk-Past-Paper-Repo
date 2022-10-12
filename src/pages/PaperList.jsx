@@ -28,7 +28,7 @@ const PaperList = () => {
 
   useEffect(() => {
     dispatch(fetchPapers({ limit: limit, page: 1 }));
-    setPage(1)
+    setPage(1);
   }, [dispatch, limit]);
 
   let content;
@@ -66,10 +66,7 @@ const PaperList = () => {
     return [];
   }, [searchTerm, content]);
 
-  useEffect(() => {
-    
-  }, [])
-  
+  useEffect(() => {}, []);
 
   return (
     <div className="details--container">

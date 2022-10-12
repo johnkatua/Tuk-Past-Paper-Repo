@@ -16,10 +16,10 @@ const toolTipList = [
   },
 ];
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload(false);
-  };
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  window.location.reload(false);
+};
 
 const ToolTipContent = () => {
   const navigate = useNavigate();
