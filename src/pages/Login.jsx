@@ -12,7 +12,15 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [passwordType, setPasswordType] = useState('password')
+  const [passwordType, setPasswordType] = useState('password');
+
+  const handlePasswordType = () => {
+    if (passwordType === 'password') {
+      setPasswordType('text')
+    } else {
+      setPasswordType('password')
+    }
+  }; 
 
   const set = (name) => {
     return (e) => {
@@ -33,6 +41,8 @@ const Login = () => {
       navigate("/");
     }
   }, [token, status]);
+
+  console.log(passwordType);
 
   return (
     <div className="auth--container">
@@ -55,8 +65,8 @@ const Login = () => {
             name="password"
             onChange={set("password")}
           />
-          <span style={{ marginLeft: '-40px' }}>
-            <FaEye />
+          <span style={{ marginLeft: '-40px' }} onClick={() => handlePasswordType()}>
+            {passwordType === 'password' ? <FaEye /> : <FaEyeSlash />}
           </span>
         </div>
         <div className="auth--btn__container">
