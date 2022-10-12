@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import  { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../features/auth/authSlice";
@@ -54,7 +55,9 @@ const Login = () => {
             name="password"
             onChange={set("password")}
           />
-          <span style={{ marginLeft: '-40px' }}>Hello</span>
+          <span style={{ marginLeft: '-40px' }}>
+            <FaEye />
+          </span>
         </div>
         <div className="auth--btn__container">
           <button type="submit" onClick={handleSubmit}>
