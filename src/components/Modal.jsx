@@ -7,9 +7,10 @@ const DisplayPaperModal = ({ show, close, content, title, button }) => {
       show={show}
       onHide={close}
       size="lg"
-      style={{
-        height: "750px",
-      }}
+      // style={{
+      //   height: "auto",
+      //   overflowY: "scroll"
+      // }}
     >
       <Modal.Header closeButton>
         <h3>{title}</h3>
