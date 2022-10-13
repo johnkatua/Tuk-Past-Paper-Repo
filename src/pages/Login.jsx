@@ -76,7 +76,7 @@ const Login = () => {
           <button type="submit" onClick={handleSubmit}>
             Login
           </button>
-          <span>
+          <span onClick={() => navigate('/forgot-password')}>
             <a href="">Forgot Password</a>
           </span>
         </div>
