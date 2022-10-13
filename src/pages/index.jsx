@@ -12,6 +12,7 @@ import AdminLayout from "../components/AdminLayout";
 import PaperPage from "./Admin/Paper";
 import FacultyPage from "./Admin/Faculties";
 import CoursePage from "./Admin/Courses";
+import ForgotPassword from "./ForgotPassword";
 
 const LayoutRoute = ({ children }) => {
   return <Layout>{children}</Layout>;
@@ -63,6 +64,14 @@ const Pages = () => {
             element={
               <LayoutRoute>
                 <Register />
+              </LayoutRoute>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <LayoutRoute>
+                <ForgotPassword />
               </LayoutRoute>
             }
           />
