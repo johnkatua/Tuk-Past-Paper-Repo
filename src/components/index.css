@@ -280,6 +280,8 @@
   height: 100%;
 }
 
-@media screen {
-  
+@media screen and (max-width: 768px) {
+  .tooltip--box__modal {
+    width: 50vw;
+  }
 }
