@@ -10,7 +10,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-basis: 60%;
-  margin: 2rem 0;
+  background-color: blue;
 }
 
 .welcome--title {
@@ -42,7 +42,6 @@
 
 .welcome--container__image {
   flex: 1;
-  margin: 2rem 0;
 }
 
 .details--container {
