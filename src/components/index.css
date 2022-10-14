@@ -285,3 +285,9 @@
     width: 50vw;
   }
 }
+
+@media screen and (max-width: 414px) {
+  .tooltip--box__modal {
+    width: 100vw;
+  }
+}
