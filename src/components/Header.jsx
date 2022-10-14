@@ -41,7 +41,7 @@ const Header = () => {
 
   return (
     <div className="header--container">
-      <h1 onClick={() => navigate("/")}>Tuk Past Past Repo</h1>
+      <h1 onClick={() => navigate("/")}>Tuk Past Paper Repo</h1>
       {/* {showToolTip && <Tooltip logout={handleLogout} />} */}
       {user ? (
         // <div onClick={handleToolTip}>{user.email}</div>

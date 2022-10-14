@@ -79,7 +79,7 @@
 
 .tooltip--box__modal {
   background-color: black;
-  width: 250px;
+  width: 30vw;
   height: 100vh;
   z-index: 10;
   color: white;
@@ -278,4 +278,8 @@
   display: flex;
   align-items: center;
   height: 100%;
+}
+
+@media screen {
+  
 }
