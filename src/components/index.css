@@ -17,7 +17,7 @@
   height: 70px;
   /* height: 10vh; */
   margin: 0 auto;
-  background-color: rgb(39, 145, 110);
+  /* background-color: rgb(39, 145, 110); */
   max-width: 1100px;
 }
 
@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  flex-basis: 85%;
+  flex-basis: 95%;
 }
 
 .header--btns {
@@ -52,6 +52,29 @@
   border-radius: 5px;
   cursor: pointer;
   color: var(--gray);
+}
+
+.loggedIn--user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--white);
+  border-radius: 50%;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 18px;
+  /* font-weight: 800; */
+}
+
+.loggedIn--user:hover {
+  /* border: 5px solid var(--gray); */
+  box-shadow: 0 0 5px 2px black;
+  /* stroke: black;
+  stroke-width: 2rem;
+  stroke-dasharray: 2px; */
 }
 
 .footer--container {

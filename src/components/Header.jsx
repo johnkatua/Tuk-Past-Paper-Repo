@@ -12,8 +12,16 @@ const Header = () => {
   const navigate = useNavigate();
   const [currentLocation, setCurrentLocation] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  console.log(user)
   const { showToolTip } = useSelector((state) => state.toolTip);
   const token = localStorage.getItem("token");
+
+  let firstEmailChar = '';
+
+  if (user && user.email) {
+    const { email } = user;
+    firstEmailChar = email[0]
+  }
 
   const handleToolTip = () => {
     if (showToolTip) {
@@ -46,7 +54,10 @@ const Header = () => {
       {user ? (
         // <div onClick={handleToolTip}>{user.email}</div>
         <>
-          <div onClick={() => dispatch(openToolTip())}>{user.email}</div>
+          <div onClick={() => dispatch(openToolTip())}>
+            {/* <a href="{user.email}">click me</a> */}
+            <div className="loggedIn--user">{firstEmailChar}</div>
+          </div>
           <TooltipBox
             show={showToolTip}
             onClickOutside={() => dispatch(closeToolTip())}
