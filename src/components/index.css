@@ -66,15 +66,10 @@
   text-transform: uppercase;
   cursor: pointer;
   font-size: 18px;
-  /* font-weight: 800; */
 }
 
 .loggedIn--user:hover {
-  /* border: 5px solid var(--gray); */
-  box-shadow: 0 0 5px 2px black;
-  /* stroke: black;
-  stroke-width: 2rem;
-  stroke-dasharray: 2px; */
+  box-shadow: 0 0 5px 2px var(--gray);
 }
 
 .footer--container {
