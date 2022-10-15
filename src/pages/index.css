@@ -2,7 +2,6 @@
   display: flex;
   height: calc(100vh - 130px);
   gap: 5rem;
-  background-color: yellow;
 }
 
 .welcome--container__details {
@@ -11,8 +10,6 @@
   align-items: flex-start;
   justify-content: center;
   flex-basis: 60%;
-  background-color: blue;
-  /* height: calc(100vh - 130px); */
 }
 
 .welcome--title {
