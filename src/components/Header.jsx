@@ -50,12 +50,9 @@ const Header = () => {
   return (
     <div className="header--container">
       <h1 onClick={() => navigate("/")}>Tuk Past Paper Repo</h1>
-      {/* {showToolTip && <Tooltip logout={handleLogout} />} */}
       {user ? (
-        // <div onClick={handleToolTip}>{user.email}</div>
         <>
           <div onClick={() => dispatch(openToolTip())}>
-            {/* <a href="{user.email}">click me</a> */}
             <div className="loggedIn--user">{firstEmailChar}</div>
           </div>
           <TooltipBox
