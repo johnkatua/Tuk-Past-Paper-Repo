@@ -1,7 +1,6 @@
 .welcome--container {
   display: flex;
-  /* height: calc(100vh -120px); */
-  /* height: 100%; */
+  height: calc(100vh - 130px);
   gap: 5rem;
   background-color: yellow;
 }
@@ -13,7 +12,7 @@
   justify-content: center;
   flex-basis: 60%;
   background-color: blue;
-  height: calc(100vh - 130px);
+  /* height: calc(100vh - 130px); */
 }
 
 .welcome--title {
