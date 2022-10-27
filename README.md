@@ -2,6 +2,7 @@
 
 This project will be a collection of all past papers done by the Technical University of Kenya students.
 The aim of the project is to give TUK students easier access to past papers.
+The application is still in development.
 
 ## Homepage
 ![homepage-1](https://github.com/johnkatua/Tuk-Past-Paper-Repo/blob/master/src/assets/screencapture-localhost-5173-2022-10-27-13_26_20.png)
