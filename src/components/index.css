@@ -31,6 +31,7 @@
   justify-content: space-between;
   height: 100%;
   flex-basis: 15%;
+  gap: 20px;
 }
 
 .header--btns__login {
